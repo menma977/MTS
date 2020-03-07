@@ -7,22 +7,7 @@ php artisan ui vue --auth
 npm install && npm run dev
 
 composer require laravel/passport
-
-composer require consoletvs/charts:6.*
 ```
-
-##### config chart
-###### in config/app.php
-```php
-php artisan vendor:publish --tag=charts_config
-```
-
-```shell
-php artisan make:chart Chart
-```
-
-[chart link](https://dev.to/arielsalvadordev/use-laravel-charts-in-laravel-5bbm)
-##### end config chart
 
 ##### config passport
 ```shell
