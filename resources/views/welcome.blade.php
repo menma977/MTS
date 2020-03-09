@@ -1,100 +1,561 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.frontEnd')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+@section('content')
+  <!-- BANNER -->
+  <div id="oc-fullslider" class="banner">
+    <div class="owl-carousel owl-theme full-screen">
+      <div class="item">
+        <img src="{{ asset('end/front/images/dummy-img-1920x900.jpg') }}" alt="Slider">
+        <div class="overlay-bg"></div>
+        <div class="container d-flex align-items-center text-center">
+          <div class="wrap-caption">
+            <p class="caption-supheading">Title</p>
+            <h1 class="caption-heading">Description</h1>
+            <p>Long Description</p>
+            <a href="#" class="btn btn-secondary">MORE ABOUT US</a>
+            <a href="#" class="btn btn-primary">HIRE US NOW</a>
+          </div>
         </div>
-    </body>
-</html>
+      </div>
+      <div class="item">
+        <img src="{{ asset('end/front/images/dummy-img-1920x900-2.jpg') }}" alt="Slider">
+        <div class="overlay-bg"></div>
+        <div class="container d-flex align-items-center text-center">
+          <div class="wrap-caption">
+            <p class="caption-supheading">Title</p>
+            <h1 class="caption-heading">Description</h1>
+            <p>Long Description</p>
+            <a href="#" class="btn btn-secondary">MORE ABOUT US</a>
+            <a href="#" class="btn btn-primary">HIRE US NOW</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('end/front/images/dummy-img-1920x900-3.jpg') }}" alt="Slider">
+        <div class="overlay-bg"></div>
+        <div class="container d-flex align-items-center text-center">
+          <div class="wrap-caption">
+            <p class="caption-supheading">Title</p>
+            <h1 class="caption-heading">Description</h1>
+            <p>Long Description</p>
+            <a href="#" class="btn btn-secondary">MORE ABOUT US</a>
+            <a href="#" class="btn btn-primary">HIRE US NOW</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="custom-nav owl-nav"></div>
+  </div>
+
+  <!-- WHY CHOOSE US? -->
+  <div class="section">
+    <div class="content-wrap">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-sm-12 col-md-12">
+            <h2 class="section-heading text-center mb-4">
+              Why Choose Us?
+            </h2>
+            <p class="subheading text-center mb-5">Every case is very important to us and we always take care of them
+              seriously.</p>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <!-- Item 1 -->
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+            <div class="box-icon-1 text-center">
+              <div class="icon">
+                <i class="fa fa-globe"></i>
+              </div>
+              <div class="body-content">
+                <h4>Title</h4>
+                <p>Description</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+            <div class="box-icon-1 text-center">
+              <div class="icon">
+                <i class="fa fa-certificate"></i>
+              </div>
+              <div class="body-content">
+                <h4>Certified Expert</h4>
+                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
+                  eiusmod.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+            <div class="box-icon-1 text-center">
+              <div class="icon">
+                <i class="fa fa-thumbs-up"></i>
+              </div>
+              <div class="body-content">
+                <h4>Affordabel Pricing</h4>
+                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
+                  eiusmod.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+            <div class="box-icon-1 text-center">
+              <div class="icon">
+                <i class="fa fa-star"></i>
+              </div>
+              <div class="body-content">
+                <h4>High Quality Services</h4>
+                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
+                  eiusmod.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="section bgi-cover-center" data-background="{{ asset('end/front/images/dummy-img-1920x900-3.jpg') }}">
+    <div class="content-wrap py-0">
+      <div class="container">
+        <div class="row align-items-end">
+
+          <div class="col-sm-12 col-md-12 col-lg-7">
+
+            <div class="text-white mt-5">
+              <h1 class="section-heading no-after text-primary">
+                Have Problem with your Gardening?
+              </h1>
+              <p class="mb-5">Sed orci dolor, pulvinar nec luctus a, malesuada ac nisl. Aliquam eleifend et dui et
+                suscipit. Nam semper accumsan ante, ac dapibus urna dapibus et.</p>
+
+            </div>
+            <a href="#" class="btn btn-primary">CONTACT NOW</a>
+            <div class="spacer-content"></div>
+          </div>
+
+          <div class="col-sm-12 col-md-12 col-lg-5">
+            <div class="img-cta">
+              <img src="{{ asset('end/front/images/dummy-img-400x400.jpg') }}" alt="" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE -->
+  <div class="section">
+    <div class="content-wrap">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-sm-12 col-md-12">
+            <h2 class="section-heading text-center mb-4">
+              Our Services
+            </h2>
+            <p class="subheading text-center mb-5">Every case is very important to us and we always take care of them
+              seriously.</p>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <!-- Item 1 -->
+          <div class="col-sm-12 col-md-12 col-lg-4 mb-4">
+            <div class="box-image-1">
+              <div class="media-box">
+                <img src="{{ asset('end/front/images/dummy-img-600x400.jpg') }}" class="img-fluid" alt="">
+              </div>
+              <div class="body-content">
+                <h4>Landscape Design</h4>
+                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
+                  eiusmod.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="col-sm-12 col-md-12 col-lg-4 mb-4">
+            <div class="box-image-1">
+              <div class="media-box">
+                <img src="{{ asset('end/front/images/dummy-img-600x400.jpg') }}" class="img-fluid" alt="">
+              </div>
+              <div class="body-content">
+                <h4>Planting & Removal</h4>
+                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
+                  eiusmod.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="col-sm-12 col-md-12 col-lg-4 mb-4">
+            <div class="box-image-1">
+              <div class="media-box">
+                <img src="{{ asset('end/front/images/dummy-img-600x400.jpg') }}" class="img-fluid" alt="">
+              </div>
+              <div class="body-content">
+                <h4>Garden Care</h4>
+                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
+                  eiusmod.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUN FACT -->
+  <div class="section bg-secondary">
+    <div class="content-wrap">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-sm-12 col-md-12">
+            <h2 class="section-heading text-center text-white mb-4">
+              Recent Project
+            </h2>
+            <p class="subheading text-center mb-5">Start growing with Try Html Template</p>
+          </div>
+
+        </div>
+
+        <div class="row popup-gallery gutter-5">
+          <!-- Item 1 -->
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="box-gallery">
+              <a href="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" title="Gallery #1">
+                <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
+                <div class="project-info">
+                  <div class="project-icon">
+                    <span class="fa fa-search"></span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="box-gallery">
+              <a href="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" title="Gallery #2">
+                <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
+                <div class="project-info">
+                  <div class="project-icon">
+                    <span class="fa fa-search"></span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="box-gallery">
+              <a href="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" title="Gallery #3">
+                <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
+                <div class="project-info">
+                  <div class="project-icon">
+                    <span class="fa fa-search"></span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="box-gallery">
+              <a href="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" title="Gallery #4">
+                <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
+                <div class="project-info">
+                  <div class="project-icon">
+                    <span class="fa fa-search"></span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-12 col-md-12">
+            <div class="text-center mt-5">
+              <a href="#" class="btn btn-primary">VIEW MORE</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR LATEST BLOG -->
+  <div class="section">
+    <div class="content-wrap">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-sm-12 col-md-12">
+            <h2 class="section-heading text-center mb-4">
+              OUR LATEST BLOG
+            </h2>
+            <p class="subheading text-center mb-5">Start growing with Try Html Template</p>
+          </div>
+
+        </div>
+        <div class="row">
+
+          <!-- Item 1 -->
+          <div class="col-12 col-md-6 mb-3">
+            <div class="rs-news-1">
+              <div class="media-box">
+                <a href="#">
+                  <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
+                </a>
+              </div>
+              <div class="body-box">
+                <div class="meta-date"><span>30</span>May</div>
+                <div class="title"><a href="#">Why you have difficult to clean your lawn</a></div>
+                <p>We provide high quality design at vero eos et accusamus et iusto odio dignissimos ducimus qui
+                  blanditiis praesentium voluptatum deleniti atque corrupti quos dolores...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="col-12 col-md-6 mb-3">
+            <div class="rs-news-1">
+              <div class="media-box">
+                <a href="#">
+                  <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
+                </a>
+              </div>
+              <div class="body-box">
+                <div class="meta-date"><span>02</span>Des</div>
+                <div class="title"><a href="#">We Open Recruitment for Landscaping</a></div>
+                <p>We provide high quality design at vero eos et accusamus et iusto odio dignissimos ducimus qui
+                  blanditiis praesentium voluptatum deleniti atque corrupti quos dolores...</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR TESTIMONIALS -->
+  <div class="section bgi-cover-center" data-background="{{ asset('end/front/images/dummy-img-1920x900-3.jpg') }}">
+    <div class="content-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <h2 class="section-heading text-center text-white">
+              Happy Costumers
+            </h2>
+            <p class="subheading text-center mb-5 text-white">Every case is very important to us and we always take care
+              of them seriously.</p>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+            <div id="testimonial" class="owl-carousel owl-theme owl-light">
+              <!-- Item 1 -->
+              <div class="item">
+                <div class="rs-box-testimony">
+
+                  <div class="media-box">
+                    <img src="{{ asset('end/front/images/dummy-img-400x400.jpg') }}" alt="" class="rounded-circle">
+                  </div>
+                  <div class="quote-box">
+                    <blockquote class="quote">
+                      Teritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                      accusantium dolore mque laudantium, totam rem aperiam
+                    </blockquote>
+                    <div class="quote-name">
+                      Johnathan Doel <span>Businessman</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!-- Item 2 -->
+              <div class="item">
+                <div class="rs-box-testimony">
+
+                  <div class="media-box">
+                    <img src="{{ asset('end/front/images/dummy-img-400x400.jpg') }}" alt="" class="rounded-circle">
+                  </div>
+                  <div class="quote-box">
+                    <blockquote class="quote">
+                      Teritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                      accusantium dolore mque laudantium, totam rem aperiam
+                    </blockquote>
+                    <div class="quote-name">
+                      Alisha Doel <span>Businessman</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!-- Item 3 -->
+              <div class="item">
+                <div class="rs-box-testimony">
+
+                  <div class="media-box">
+                    <img src="{{ asset('end/front/images/dummy-img-400x400.jpg') }}" alt="" class="rounded-circle">
+                  </div>
+                  <div class="quote-box">
+                    <blockquote class="quote">
+                      Teritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                      accusantium dolore mque laudantium, totam rem aperiam
+                    </blockquote>
+                    <div class="quote-name">
+                      Johny Doel <span>Businessman</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR PRICING PLANS -->
+  <div class="section">
+    <div class="content-wrap">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-sm-12 col-md-12">
+            <h2 class="section-heading text-center mb-4">
+              Our Pricing Plans
+            </h2>
+            <p class="subheading text-center mb-5">Start growing with Try Html Template</p>
+          </div>
+
+        </div>
+        <div class="row">
+
+          <!-- Item 1 -->
+          <div class="col-sm-12 col-md-12 col-lg-4">
+            <div class="rs-pricing-1 bg-primary-1 mb-5">
+              <h3 class="title">BASIC PLAN</h3>
+              <div class="price">
+                <span class="unit">$</span>20<span class="mon">/month</span>
+              </div>
+              <div class="features">
+                <ul>
+                  <li>Consectetuer adipiscing elit</li>
+                  <li>Dolor sit amet</li>
+                  <li>Sed diam nonummy</li>
+                  <li>Nibh euismod tincidunt</li>
+                  <li>Ut laoreet dolore</li>
+                  <li>1 Day Finish</li>
+                </ul>
+              </div>
+              <div class="action">
+                <a href="#" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="col-sm-12 col-md-12 col-lg-4">
+            <div class="rs-pricing-1 bg-primary-1 mb-5">
+              <h3 class="title">SILVER PLAN</h3>
+              <div class="price">
+                <span class="unit">$</span>40<span class="mon">/month</span>
+              </div>
+              <div class="features">
+                <ul>
+                  <li>Consectetuer adipiscing elit</li>
+                  <li>Dolor sit amet</li>
+                  <li>Sed diam nonummy</li>
+                  <li>Nibh euismod tincidunt</li>
+                  <li>Ut laoreet dolore</li>
+                  <li>1 Day Finish</li>
+                </ul>
+              </div>
+              <div class="action">
+                <a href="#" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="col-sm-12 col-md-12 col-lg-4">
+            <div class="rs-pricing-1 bg-primary-1 mb-5">
+              <h3 class="title">GOLD PLAN</h3>
+              <div class="price">
+                <span class="unit">$</span>80<span class="mon">/month</span>
+              </div>
+              <div class="features">
+                <ul>
+                  <li>Consectetuer adipiscing elit</li>
+                  <li>Dolor sit amet</li>
+                  <li>Sed diam nonummy</li>
+                  <li>Nibh euismod tincidunt</li>
+                  <li>Ut laoreet dolore</li>
+                  <li>1 Day Finish</li>
+                </ul>
+              </div>
+              <div class="action">
+                <a href="#" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR PARTNERS -->
+  <div class="section bg-gray-light">
+    <div class="content-wrap py-5">
+      <div class="container">
+
+        <div class="row gutter-5">
+          <div class="col-6 col-md-4 col-lg-2">
+            <a href="#"><img src="{{ asset('end/front/images/client1.png') }}" alt="" class="img-fluid img-border"></a>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <a href="#"><img src="{{ asset('end/front/images/client2.png') }}" alt="" class="img-fluid img-border"></a>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <a href="#"><img src="{{ asset('end/front/images/client3.png') }}" alt="" class="img-fluid img-border"></a>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <a href="#"><img src="{{ asset('end/front/images/client4.png') }}" alt="" class="img-fluid img-border"></a>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <a href="#"><img src="{{ asset('end/front/images/client5.png') }}" alt="" class="img-fluid img-border"></a>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <a href="#"><img src="{{ asset('end/front/images/client6.png') }}" alt="" class="img-fluid img-border"></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+@endsection
