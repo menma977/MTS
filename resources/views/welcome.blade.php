@@ -9,8 +9,8 @@
         <div class="overlay-bg"></div>
         <div class="container d-flex align-items-center text-center">
           <div class="wrap-caption">
-            <p class="caption-supheading">Title</p>
-            <h1 class="caption-heading">Description</h1>
+            <p class="caption-supheading">MTS</p>
+            <h1 class="caption-heading">mita tani sejahtera</h1>
             <p>Long Description</p>
             <a href="#" class="btn btn-secondary">MORE ABOUT US</a>
             <a href="#" class="btn btn-primary">HIRE US NOW</a>
@@ -19,19 +19,6 @@
       </div>
       <div class="item">
         <img src="{{ asset('end/front/images/dummy-img-1920x900-2.jpg') }}" alt="Slider">
-        <div class="overlay-bg"></div>
-        <div class="container d-flex align-items-center text-center">
-          <div class="wrap-caption">
-            <p class="caption-supheading">Title</p>
-            <h1 class="caption-heading">Description</h1>
-            <p>Long Description</p>
-            <a href="#" class="btn btn-secondary">MORE ABOUT US</a>
-            <a href="#" class="btn btn-primary">HIRE US NOW</a>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <img src="{{ asset('end/front/images/dummy-img-1920x900-3.jpg') }}" alt="Slider">
         <div class="overlay-bg"></div>
         <div class="container d-flex align-items-center text-center">
           <div class="wrap-caption">
@@ -58,8 +45,10 @@
             <h2 class="section-heading text-center mb-4">
               Why Choose Us?
             </h2>
-            <p class="subheading text-center mb-5">Every case is very important to us and we always take care of them
-              seriously.</p>
+            <p class="subheading text-center mb-5">
+              Dengan adanya komunitas petani porang akan bisa menjadi sebuah satu kesatuan yang akan bisa meningkatkan
+              kesejah teraan para petani.
+            </p>
           </div>
 
         </div>
@@ -285,7 +274,6 @@
               </a>
             </div>
           </div>
-
         </div>
 
         <div class="row">
@@ -458,18 +446,15 @@
           <!-- Item 1 -->
           <div class="col-sm-12 col-md-12 col-lg-4">
             <div class="rs-pricing-1 bg-primary-1 mb-5">
-              <h3 class="title">BASIC PLAN</h3>
               <div class="price">
-                <span class="unit">$</span>20<span class="mon">/month</span>
+                Mitra Mandiri
               </div>
-              <div class="features">
+              <div class="features m-1">
                 <ul>
-                  <li>Consectetuer adipiscing elit</li>
-                  <li>Dolor sit amet</li>
-                  <li>Sed diam nonummy</li>
-                  <li>Nibh euismod tincidunt</li>
-                  <li>Ut laoreet dolore</li>
-                  <li>1 Day Finish</li>
+                  <li>Bibit bisa beli di koperasi (bibit super)</li>
+                  <li>Team pendamping lapangan</li>
+                  <li>Jaminan pembelian hasil panen oleh koperasi</li>
+                  <li>Hasil panen 100% milik mitra</li>
                 </ul>
               </div>
               <div class="action">
@@ -481,18 +466,20 @@
           <!-- Item 2 -->
           <div class="col-sm-12 col-md-12 col-lg-4">
             <div class="rs-pricing-1 bg-primary-1 mb-5">
-              <h3 class="title">SILVER PLAN</h3>
               <div class="price">
-                <span class="unit">$</span>40<span class="mon">/month</span>
+                Mitra luar biasa
               </div>
-              <div class="features">
+              <div class="features m-1">
                 <ul>
-                  <li>Consectetuer adipiscing elit</li>
-                  <li>Dolor sit amet</li>
-                  <li>Sed diam nonummy</li>
-                  <li>Nibh euismod tincidunt</li>
-                  <li>Ut laoreet dolore</li>
-                  <li>1 Day Finish</li>
+                  <li>Harga paket untuk mitra biasa Rp.1.500.000,-/paket</li>
+                  <li>Mendapatkan sertifikat bukti kepemilikan pohon porang di lahan binaan koperasi</li>
+                  <li>Jaminan pembelian hasil panen porang</li>
+                  <li>Lahan di sediakan koperasi</li>
+                  <li>Bebas tenaga kerja tanam</li>
+                  <li>Bebas perawatan</li>
+                  <li>Bebas pupuk</li>
+                  <li>Bebas tenaga kerja panen</li>
+                  <li>Papan Barcode di lahan mitra atas nama mitra</li>
                 </ul>
               </div>
               <div class="action">
@@ -504,18 +491,23 @@
           <!-- Item 3 -->
           <div class="col-sm-12 col-md-12 col-lg-4">
             <div class="rs-pricing-1 bg-primary-1 mb-5">
-              <h3 class="title">GOLD PLAN</h3>
               <div class="price">
-                <span class="unit">$</span>80<span class="mon">/month</span>
+                Mitra agen
               </div>
-              <div class="features">
+              <div class="features m-1">
                 <ul>
-                  <li>Consectetuer adipiscing elit</li>
-                  <li>Dolor sit amet</li>
-                  <li>Sed diam nonummy</li>
-                  <li>Nibh euismod tincidunt</li>
-                  <li>Ut laoreet dolore</li>
-                  <li>1 Day Finish</li>
+                  <li>Harga paket untuk mitra biasa Rp.1.500.000,-/paket</li>
+                  <li>Mendapatkan sertifikat bukti kepemilikan pohon porang di lahan binaan koperasi</li>
+                  <li>Jaminan pembelian hasil panen porang</li>
+                  <li>Lahan di sediakan koperasi</li>
+                  <li>Bebas tenaga kerja tanam</li>
+                  <li>Bebas perawatan</li>
+                  <li>Bebas pupuk</li>
+                  <li>Bebas tenaga kerja panen</li>
+                  <li>Papan Barcode di lahan mitra atas nama mitra</li>
+                  <li>Bonus Sponsor</li>
+                  <li>Bonus Level</li>
+                  <li>Bonus Royalty</li>
                 </ul>
               </div>
               <div class="action">

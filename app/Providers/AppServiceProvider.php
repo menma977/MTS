@@ -9,29 +9,23 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-      Schema::defaultStringLength(191);
-    }
+  /**
+   * Register any application services.
+   *
+   * @return void
+   */
+  public function register()
+  {
+    Schema::defaultStringLength(191);
+  }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot(): void
-    {
-      Blade::if('admin', static function () {
-        return (Auth::user() && Auth::user()->role == 0);
-      });
-
-      Blade::if('member', static function () {
-        return (Auth::user() && Auth::user()->role == 1);
-      });
-    }
+  /**
+   * Bootstrap any application services.
+   *
+   * @return void
+   */
+  public function boot(): void
+  {
+    //
+  }
 }

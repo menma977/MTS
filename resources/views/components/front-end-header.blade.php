@@ -5,7 +5,7 @@
     <div class="container">
       <nav id="navbar-example" class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">
-          <img src="{{ asset('end/front/images/logo.png') }}" alt="">
+          <img src="{{ asset('img/logo.png') }}" alt="" style="width: 100px; height: 100px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">CONTACT US</a>
+              <a class="nav-link" href="{{ route('login') }}">Login</a>
             </li>
           </ul>
           <a href="#" class="btn btn-primary btn-nav ml-auto">GET FREE QUOTE</a>

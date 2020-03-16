@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
       $table->id();
       $table->integer('role')->default(1);
       $table->string('name');
+      $table->string('username')->unique();
       $table->string('email')->unique();
       $table->timestamp('email_verified_at')->nullable();
       $table->string('password');
@@ -27,12 +28,8 @@ class CreateUsersTable extends Migration
       $table->text('identity_card_image')->nullable();
       $table->text('identity_card_image_salve')->nullable();
       $table->text('image')->nullable();
-      $table->text('province');
-      $table->text('district');
-      $table->text('sub_district');
-      $table->text('village');
-      $table->integer('number_address');
-      $table->text('description_address');
+      $table->text('certificate')->nullable();
+      $table->text('address');
       $table->integer('status')->default(1);
       $table->rememberToken();
       $table->timestamps();

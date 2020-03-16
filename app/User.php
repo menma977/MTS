@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Cache;
+use Laravel\Passport\HasApiTokens;
 
 /**
  * Class User
@@ -22,17 +23,13 @@ use Illuminate\Support\Facades\Cache;
  * @property string identity_card_image
  * @property string identity_card_image_salve
  * @property string image
- * @property int province
- * @property int district
- * @property int sub_district
- * @property string village
- * @property int number_address
- * @property string description_address
+ * @property string certificate
+ * @property string address
  * @property int status
  */
 class User extends Authenticatable
 {
-  use Notifiable;
+  use HasApiTokens, Notifiable;
 
   /**
    * The attributes that are mass assignable.
@@ -52,12 +49,8 @@ class User extends Authenticatable
     'identity_card_image',
     'identity_card_image_salve',
     'image',
-    'province',
-    'district',
-    'sub_district',
-    'village',
-    'number_address',
-    'description_address',
+    'certificate',
+    'address',
     'status',
   ];
 

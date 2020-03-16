@@ -1314,7 +1314,7 @@
 
 .select2-container--default .select2-teal .select2-results__option--highlighted,
 .select2-teal .select2-container--default .select2-results__option--highlighted {
-  background-color: #20c997;
+  background-color: #8bad21;
   color: #ffffff;
 }
 
@@ -1332,7 +1332,7 @@
 
 .select2-container--default .select2-teal .select2-selection--multiple .select2-selection__choice,
 .select2-teal .select2-container--default .select2-selection--multiple .select2-selection__choice {
-  background-color: #20c997;
+  background-color: #8bad21;
   border-color: #1cb386;
   color: #ffffff;
 }
@@ -1645,7 +1645,7 @@
 }
 
 .slider-teal .slider .slider-selection {
-  background: #20c997;
+  background: #8bad21;
 }
 
 .slider-cyan .slider .slider-selection {
@@ -2002,18 +2002,18 @@
 
 .icheck-teal > input:first-child:not(:checked):not(:disabled):hover + label::before,
 .icheck-teal > input:first-child:not(:checked):not(:disabled):hover + input[type="hidden"] + label::before {
-  border-color: #20c997;
+  border-color: #8bad21;
 }
 
 .icheck-teal > input:first-child:not(:checked):not(:disabled):focus + label::before,
 .icheck-teal > input:first-child:not(:checked):not(:disabled):focus + input[type="hidden"] + label::before {
-  border-color: #20c997;
+  border-color: #8bad21;
 }
 
 .icheck-teal > input:first-child:checked + label::before,
 .icheck-teal > input:first-child:checked + input[type="hidden"] + label::before {
-  background-color: #20c997;
-  border-color: #20c997;
+  background-color: #8bad21;
+  border-color: #8bad21;
 }
 
 .icheck-cyan > input:first-child:not(:checked):not(:disabled):hover + label::before,
@@ -4990,7 +4990,7 @@
 }
 
 .pace-teal .pace .pace-progress {
-  background: #20c997;
+  background: #8bad21;
 }
 
 .pace-barber-shop-teal .pace {
@@ -4998,7 +4998,7 @@
 }
 
 .pace-barber-shop-teal .pace .pace-progress {
-  background: #20c997;
+  background: #8bad21;
 }
 
 .pace-barber-shop-teal .pace .pace-activity {
@@ -5010,7 +5010,7 @@
 }
 
 .pace-bounce-teal .pace .pace-activity {
-  background: #20c997;
+  background: #8bad21;
 }
 
 .pace-center-atom-teal .pace-progress {
@@ -5019,7 +5019,7 @@
 }
 
 .pace-center-atom-teal .pace-progress::before {
-  background: #20c997;
+  background: #8bad21;
   color: #ffffff;
   font-size: .8rem;
   line-height: .7rem;
@@ -5027,11 +5027,11 @@
 }
 
 .pace-center-atom-teal .pace-activity {
-  border-color: #20c997;
+  border-color: #8bad21;
 }
 
 .pace-center-atom-teal .pace-activity::after, .pace-center-atom-teal .pace-activity::before {
-  border-color: #20c997;
+  border-color: #8bad21;
 }
 
 .pace-center-circle-teal .pace .pace-progress {
@@ -5040,28 +5040,28 @@
 }
 
 .pace-center-radar-teal .pace .pace-activity {
-  border-color: #20c997 transparent transparent;
+  border-color: #8bad21 transparent transparent;
 }
 
 .pace-center-radar-teal .pace .pace-activity::before {
-  border-color: #20c997 transparent transparent;
+  border-color: #8bad21 transparent transparent;
 }
 
 .pace-center-simple-teal .pace {
   background: #ffffff;
-  border-color: #20c997;
+  border-color: #8bad21;
 }
 
 .pace-center-simple-teal .pace .pace-progress {
-  background: #20c997;
+  background: #8bad21;
 }
 
 .pace-material-teal .pace {
-  color: #20c997;
+  color: #8bad21;
 }
 
 .pace-corner-indicator-teal .pace .pace-activity {
-  background: #20c997;
+  background: #8bad21;
 }
 
 .pace-corner-indicator-teal .pace .pace-activity::after,
@@ -5084,31 +5084,31 @@
 }
 
 .pace-flash-teal .pace .pace-progress {
-  background: #20c997;
+  background: #8bad21;
 }
 
 .pace-flash-teal .pace .pace-progress-inner {
-  box-shadow: 0 0 10px #20c997, 0 0 5px #20c997;
+  box-shadow: 0 0 10px #8bad21, 0 0 5px #8bad21;
 }
 
 .pace-flash-teal .pace .pace-activity {
-  border-top-color: #20c997;
-  border-left-color: #20c997;
+  border-top-color: #8bad21;
+  border-left-color: #8bad21;
 }
 
 .pace-loading-bar-teal .pace .pace-progress {
-  background: #20c997;
-  color: #20c997;
+  background: #8bad21;
+  color: #8bad21;
   box-shadow: 120px 0 #ffffff, 240px 0 #ffffff;
 }
 
 .pace-loading-bar-teal .pace .pace-activity {
-  box-shadow: inset 0 0 0 2px #20c997, inset 0 0 0 7px #ffffff;
+  box-shadow: inset 0 0 0 2px #8bad21, inset 0 0 0 7px #ffffff;
 }
 
 .pace-mac-osx-teal .pace .pace-progress {
-  background-color: #20c997;
-  box-shadow: inset -1px 0 #20c997, inset 0 -1px #20c997, inset 0 2px rgba(255, 255, 255, 0.5), inset 0 6px rgba(255, 255, 255, 0.3);
+  background-color: #8bad21;
+  box-shadow: inset -1px 0 #8bad21, inset 0 -1px #8bad21, inset 0 2px rgba(255, 255, 255, 0.5), inset 0 6px rgba(255, 255, 255, 0.3);
 }
 
 .pace-mac-osx-teal .pace .pace-activity {
@@ -5117,7 +5117,7 @@
 }
 
 .pace-progress-color-teal .pace-progress {
-  color: #20c997;
+  color: #8bad21;
 }
 
 .pace-cyan .pace .pace-progress {
@@ -5832,7 +5832,7 @@
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-teal,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-teal {
-  background: #20c997;
+  background: #8bad21;
   color: #ffffff;
 }
 

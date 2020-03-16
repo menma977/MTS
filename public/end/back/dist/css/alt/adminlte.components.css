@@ -721,7 +721,7 @@ textarea.form-control.is-warning {
 }
 
 .custom-switch.custom-switch-off-teal .custom-control-input ~ .custom-control-label::before {
-  background: #20c997;
+  background: #8bad21;
   border-color: #127155;
 }
 
@@ -734,7 +734,7 @@ textarea.form-control.is-warning {
 }
 
 .custom-switch.custom-switch-on-teal .custom-control-input:checked ~ .custom-control-label::before {
-  background: #20c997;
+  background: #8bad21;
   border-color: #127155;
 }
 
@@ -1707,7 +1707,7 @@ textarea.form-control.is-warning {
 }
 
 .custom-range.custom-range-teal::-webkit-slider-thumb {
-  background-color: #20c997;
+  background-color: #8bad21;
 }
 
 .custom-range.custom-range-teal::-webkit-slider-thumb:active {
@@ -1715,7 +1715,7 @@ textarea.form-control.is-warning {
 }
 
 .custom-range.custom-range-teal::-moz-range-thumb {
-  background-color: #20c997;
+  background-color: #8bad21;
 }
 
 .custom-range.custom-range-teal::-moz-range-thumb:active {
@@ -1723,7 +1723,7 @@ textarea.form-control.is-warning {
 }
 
 .custom-range.custom-range-teal::-ms-thumb {
-  background-color: #20c997;
+  background-color: #8bad21;
 }
 
 .custom-range.custom-range-teal::-ms-thumb:active {
@@ -2352,7 +2352,7 @@ html.maximized-card {
 }
 
 .todo-list .teal {
-  border-left-color: #20c997;
+  border-left-color: #8bad21;
 }
 
 .todo-list .cyan {
@@ -3873,7 +3873,7 @@ html.maximized-card {
 }
 
 .card-teal:not(.card-outline) .card-header {
-  background-color: #20c997;
+  background-color: #8bad21;
 }
 
 .card-teal:not(.card-outline) .card-header,
@@ -3886,7 +3886,7 @@ html.maximized-card {
 }
 
 .card-teal.card-outline {
-  border-top: 3px solid #20c997;
+  border-top: 3px solid #8bad21;
 }
 
 .card-teal.card-outline-tabs .card-header a:hover {
@@ -3894,7 +3894,7 @@ html.maximized-card {
 }
 
 .card-teal.card-outline-tabs .card-header a.active {
-  border-top: 3px solid #20c997;
+  border-top: 3px solid #8bad21;
 }
 
 .bg-teal .btn-tool,
