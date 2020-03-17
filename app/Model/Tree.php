@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string code
  * @property string start
  * @property string end
+ * @property int yield
+ * @property string x_fild
+ * @property string y_fild
  * @property int status
  */
 class Tree extends Model
@@ -22,6 +25,9 @@ class Tree extends Model
     'code',
     'start',
     'end',
+    'yield',
+    'x_fild',
+    'y_fild',
     'status',
   ];
 }

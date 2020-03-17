@@ -37,7 +37,7 @@ class UserController extends Controller
     $user = User::all();
     $user->map(function ($item) {
       $binary = Binary::where('user', $item->id)->first();
-      if ($item->role == 0) {
+      if ($item->role == 1) {
         $item->sponsor = User::find(1);
       } else {
         $item->sponsor = User::find($binary->sponsor);
@@ -119,7 +119,7 @@ class UserController extends Controller
     $id = base64_decode($id);
     $user = User::find($id);
     $binary = Binary::where('user', $user->id)->first();
-    if ($user->role == 0) {
+    if ($user->role == 1) {
       $sponsor = User::find(1);
     } else {
       $sponsor = User::find($binary->sponsor);

@@ -5,7 +5,7 @@
     <div class="container">
       <nav id="navbar-example" class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">
-          <img src="{{ asset('img/logo.png') }}" alt="" style="width: 100px; height: 100px">
+          <img src="{{ asset('img/mts_top.png') }}" alt="" style="width: 100px; height: 100px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

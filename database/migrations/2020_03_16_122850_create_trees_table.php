@@ -20,6 +20,9 @@ class CreateTreesTable extends Migration
       $table->string('code');
       $table->string('start')->nullable();
       $table->string('end')->nullable();
+      $table->string('yield')->nullable();
+      $table->text('x_fild')->nullable();
+      $table->text('y_fild')->nullable();
       $table->string('status')->default(1);
       $table->timestamps();
     });

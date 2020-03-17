@@ -229,12 +229,12 @@ class UserController extends Controller
       ]);
       if (($user !== null) && $user->identity_card_image) {
         $fileName = explode('/', $user->identity_card_image);
-        File::delete('dist/img/ktp/' . $fileName[4]);
+        File::delete('img/ktp/' . $fileName[4]);
       }
       $imageName = time() . '.' . $request->identity_card_image->extension();
 
-      $request->identity_card_image->move('dist/img/ktp/', $imageName);
-      $user->identity_card_image = $request->root() . '/dist/img/ktp' . '/' . $imageName;
+      $request->identity_card_image->move('img/ktp/', $imageName);
+      $user->identity_card_image = $request->root() . '/img/ktp' . '/' . $imageName;
     }
     if ($request->identity_card_image_salve) {
       $this->validate($request, [
@@ -242,12 +242,12 @@ class UserController extends Controller
       ]);
       if (($user !== null) && $user->identity_card_image_salve) {
         $fileName = explode('/', $user->identity_card_image_salve);
-        File::delete('dist/img/ktp/user/' . $fileName[4]);
+        File::delete('img/ktp/user/' . $fileName[4]);
       }
       $imageName = time() . '.' . $request->identity_card_image_salve->extension();
 
-      $request->identity_card_image_salve->move('dist/img/ktp/user/', $imageName);
-      $user->identity_card_image_salve = $request->root() . '/dist/img/ktp/user/' . $imageName;
+      $request->identity_card_image_salve->move('img/ktp/user/', $imageName);
+      $user->identity_card_image_salve = $request->root() . 'img/ktp/user/' . $imageName;
     }
     $user->save();
     return response()->json(['response' => $user], 200);

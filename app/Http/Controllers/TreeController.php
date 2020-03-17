@@ -41,6 +41,7 @@ class TreeController extends Controller
     $tree = Tree::orderBy('id', 'desc')->get();
     $tree->map(function ($item) {
       $item->user = User::find($item->user);
+      $item->gallery = TreeImage::where('tree_id', $item->id)->get();
     });
 
     $order = Order::all();
@@ -50,27 +51,41 @@ class TreeController extends Controller
 
     $data = [
       'user' => $user,
-      'trees' => $tree,
-      'stup' => $order,
+      'tree' => $tree,
+      'order' => $order,
     ];
 
     return view('tree.index', $data);
   }
 
   /**
-   * @param $id
+   * @param $username
    * @return Factory|View
    */
-  public function show($id)
+  public function show($username)
   {
-    $tree = Tree::find($id);
-    $treeImage = TreeImage::where('tree_id', $tree->id)->get();
+    $users = User::all();
+    if ($username == 'all') {
+      $tree = Tree::orderBy('id', 'desc')->get();
+      $tree->map(function ($item) {
+        $item->user = User::find($item->user);
+        $item->gallery = TreeImage::where('tree_id', $item->id)->get();
+      });
+    } else {
+      $tree = Tree::where('user', User::where('username', $username)->get()->first())->orderBy('id', 'desc')->get();
+      $tree->map(function ($item) {
+        $item->user = User::find($item->user);
+        $item->gallery = TreeImage::where('tree_id', $item->id)->get();
+      });
+    }
 
     $data = [
       'tree' => $tree,
-      'treeImage' => $treeImage
+      'users' => $users,
+      'username' => $username
     ];
-    return \view('', $data);
+
+    return view('tree.show', $data);
   }
 
   /**
@@ -93,29 +108,6 @@ class TreeController extends Controller
     $ledgers->user = $sponsor->id;
     $ledgers->ledger_type = 3;
     $ledgers->save();
-
-    $ledgers = new Ledger();
-    $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
-    $ledgers->credit = (1 * 600 * 2 * 1000) * 0.033;
-    $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
-    $ledgers->user = $sponsor->id;
-    $ledgers->ledger_type = 2;
-    $ledgers->save();
-
-    $level = 2;
-    for ($i = 0; $i < $level; $i++) {
-      $user = User::find($sponsor->id);
-      $sponsor = User::find(Binary::where('user', $user->id)->get()->first()->sponsor);
-      if ($sponsor->role == 4) {
-        $ledgers = new Ledger();
-        $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
-        $ledgers->credit = (1 * 600 * 2 * 1000) * 0.033;
-        $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
-        $ledgers->user = $sponsor->id;
-        $ledgers->ledger_type = 2;
-        $ledgers->save();
-      }
-    }
 
     return redirect()->back();
   }
@@ -174,24 +166,49 @@ class TreeController extends Controller
         $getSponsor = $getUser->id;
       }
 
-      for ($i = 0; $i < $order->total; $i++) {
-        $ledgerAdmin = new Ledger();
-        $ledgerAdmin->code = 'BUY' . date('YmdHis');
-        $ledgerAdmin->credit = 2000000;
-        $ledgerAdmin->description = 'Pembelian Pohon : Rp' . number_format($ledgerAdmin->credit, 0, ',', '.');
-        $ledgerAdmin->ledger_type = 0;
-        $ledgerAdmin->save();
+      $ledgerAdmin = new Ledger();
+      $ledgerAdmin->code = 'BUY' . date('YmdHis');
+      $ledgerAdmin->credit = $this->nominal_tree * $order->total;
+      $ledgerAdmin->description = 'Pembelian Pohon : Rp' . number_format($ledgerAdmin->credit, 0, ',', '.');
+      $ledgerAdmin->ledger_type = 0;
+      $ledgerAdmin->save();
 
-        if (User::find($getSponsor)->role == 4) {
+      if (User::find($getSponsor)->role == 4) {
+        $ledgers = new Ledger();
+        $ledgers->code = 'BYBONSPON' . date('YmdHis');
+        $ledgers->credit = (10 / 100) * $ledgerAdmin->credit;
+        $ledgers->description = 'anda mendapatkan bonus 10% dari pembelian sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+        $ledgers->user = $getSponsor;
+        $ledgers->ledger_type = 1;
+        $ledgers->save();
+
+        $ledgers = new Ledger();
+        $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
+        $ledgers->credit = (0.033 / 100) * $ledgerAdmin->credit;
+        $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $getUser->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+        $ledgers->user = $getSponsor;
+        $ledgers->ledger_type = 2;
+        $ledgers->save();
+      }
+
+      $getSponsor = User::find($getSponsor);
+      $level = 2;
+      for ($j = 0; $j < $level; $j++) {
+        $user = User::find($getSponsor->id);
+        $sponsor = User::find(Binary::where('user', $user->id)->get()->first()->sponsor);
+        if ($sponsor->role == 4) {
           $ledgers = new Ledger();
-          $ledgers->code = 'BYBONSPON' . date('YmdHis');
-          $ledgers->credit = (10 / 100) * $ledgerAdmin->credit;
-          $ledgers->description = 'anda mendapatkan bonus 10% dari pembelian sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
-          $ledgers->user = $getSponsor;
-          $ledgers->ledger_type = 1;
+          $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
+          $ledgers->credit = (0.033 / 100) * $ledgerAdmin->credit;
+          $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+          $ledgers->user = $sponsor->id;
+          $ledgers->ledger_type = 2;
           $ledgers->save();
         }
+        $getSponsor = User::find($sponsor->id);
+      }
 
+      for ($i = 0; $i < $order->total; $i++) {
         $tree = Tree::whereNull('user')->first();
         $tree->user = $getUser->id;
         $tree->start = Carbon::now()->format('Y-m-d');
@@ -248,5 +265,26 @@ class TreeController extends Controller
     ];
 
     return view('tree.listQRCode', $data);
+  }
+
+  /**
+   * @param Request $request
+   * @param $id
+   * @return RedirectResponse
+   * @throws ValidationException
+   */
+  public function uploadToGallery(Request $request, $id)
+  {
+    $this->validate($request, [
+      'img' => 'required|mimes:jpeg,png,jpg|max:2000',
+    ]);
+    $treeImage = new TreeImage();
+    $treeImage->tree_id = base64_decode($id);
+    $imageName = time() . '.' . $request->img->extension();
+    $request->img->move('gallery', $imageName);
+    $treeImage->image = $request->root() . '/gallery' . '/' . $imageName;
+    $treeImage->save();
+
+    return redirect()->back();
   }
 }

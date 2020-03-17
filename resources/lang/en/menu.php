@@ -62,4 +62,6 @@ return [
   'receiver' => 'Receiver',
   'action' => 'Action',
   'create a Tree' => 'Create a Tree',
+  'yield' => 'Yield',
+  'kafling' => 'Lot',
 ];

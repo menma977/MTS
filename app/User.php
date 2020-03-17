@@ -23,7 +23,6 @@ use Laravel\Passport\HasApiTokens;
  * @property string identity_card_image
  * @property string identity_card_image_salve
  * @property string image
- * @property string certificate
  * @property string address
  * @property int status
  */
@@ -49,7 +48,6 @@ class User extends Authenticatable
     'identity_card_image',
     'identity_card_image_salve',
     'image',
-    'certificate',
     'address',
     'status',
   ];

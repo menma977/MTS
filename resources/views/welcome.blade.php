@@ -10,7 +10,7 @@
         <div class="container d-flex align-items-center text-center">
           <div class="wrap-caption">
             <p class="caption-supheading">MTS</p>
-            <h1 class="caption-heading">mita tani sejahtera</h1>
+            <h1 class="caption-heading">Mita Tani Sejahtera</h1>
             <p>Long Description</p>
             <a href="#" class="btn btn-secondary">MORE ABOUT US</a>
             <a href="#" class="btn btn-primary">HIRE US NOW</a>
@@ -116,16 +116,13 @@
     <div class="content-wrap py-0">
       <div class="container">
         <div class="row align-items-end">
-
           <div class="col-sm-12 col-md-12 col-lg-7">
-
             <div class="text-white mt-5">
               <h1 class="section-heading no-after text-primary">
                 Have Problem with your Gardening?
               </h1>
               <p class="mb-5">Sed orci dolor, pulvinar nec luctus a, malesuada ac nisl. Aliquam eleifend et dui et
                 suscipit. Nam semper accumsan ante, ac dapibus urna dapibus et.</p>
-
             </div>
             <a href="#" class="btn btn-primary">CONTACT NOW</a>
             <div class="spacer-content"></div>
@@ -136,7 +133,6 @@
               <img src="{{ asset('end/front/images/dummy-img-400x400.jpg') }}" alt="" class="img-fluid">
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -209,83 +205,30 @@
   <div class="section bg-secondary">
     <div class="content-wrap">
       <div class="container">
-
         <div class="row">
-
           <div class="col-sm-12 col-md-12">
             <h2 class="section-heading text-center text-white mb-4">
-              Recent Project
+              Gallery
             </h2>
             <p class="subheading text-center mb-5">Start growing with Try Html Template</p>
           </div>
-
         </div>
-
         <div class="row popup-gallery gutter-5">
-          <!-- Item 1 -->
-          <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box-gallery">
-              <a href="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" title="Gallery #1">
-                <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
-                <div class="project-info">
-                  <div class="project-icon">
-                    <span class="fa fa-search"></span>
+          @foreach($imageName as $item)
+            <div class="col-xs-12 col-md-6 col-lg-3">
+              <div class="box-gallery">
+                <a href="{{ asset('gallery/'.$item) }}" title="Gallery #1">
+                  <img src="{{ asset('gallery/'.$item) }}" alt="" class="img-fluid">
+                  <div class="project-info">
+                    <div class="project-icon">
+                      <span class="fa fa-search"></span>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
             </div>
-          </div>
-          <!-- Item 2 -->
-          <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box-gallery">
-              <a href="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" title="Gallery #2">
-                <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
-                <div class="project-info">
-                  <div class="project-icon">
-                    <span class="fa fa-search"></span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!-- Item 3 -->
-          <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box-gallery">
-              <a href="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" title="Gallery #3">
-                <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
-                <div class="project-info">
-                  <div class="project-icon">
-                    <span class="fa fa-search"></span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!-- Item 4 -->
-          <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="box-gallery">
-              <a href="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" title="Gallery #4">
-                <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
-                <div class="project-info">
-                  <div class="project-icon">
-                    <span class="fa fa-search"></span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+          @endforeach
         </div>
-
-        <div class="row">
-
-          <div class="col-sm-12 col-md-12">
-            <div class="text-center mt-5">
-              <a href="#" class="btn btn-primary">VIEW MORE</a>
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </div>
   </div>

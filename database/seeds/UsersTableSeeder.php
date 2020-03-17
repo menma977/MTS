@@ -24,7 +24,6 @@ class UsersTableSeeder extends Seeder
       'identity_card_image' => null,
       'identity_card_image_salve' => null,
       'image' => null,
-      'certificate' => null,
       'address' => '',
       'status' => 2,
     ]);

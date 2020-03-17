@@ -13,6 +13,7 @@
           <img
               src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('end/back/dist/img/avatar5.png') }}"
               class="img-circle elevation-2" alt="User Image" style="width:50px;height:50px">
+          <span class="badge badge-primary navbar-badge">15</span>
         </div>
       </a>
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -20,16 +21,6 @@
         <a href="#" class="dropdown-item">
           <i class="fas fa-envelope mr-2"></i> 4 new messages
           <span class="float-right text-muted text-sm">3 mins</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <i class="fas fa-users mr-2"></i> 8 friend requests
-          <span class="float-right text-muted text-sm">12 hours</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <i class="fas fa-file mr-2"></i> 3 new reports
-          <span class="float-right text-muted text-sm">2 days</span>
         </a>
         <div class="dropdown-divider"></div>
         <a href="{{ route('logout') }}"

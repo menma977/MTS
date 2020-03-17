@@ -18,7 +18,7 @@ class Role
   public function handle($request, Closure $next, $role)
   {
     $responseRule = explode('|', $role);
-    if (!in_array($request->user()->role, $responseRule, true)) {
+    if (!in_array($request->user()->role, $responseRule, false)) {
       return abort(404);
     }
     return $next($request);

@@ -7,15 +7,15 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'MTS') }}</title>
 
   <!-- ==============================================
   Favicons
   =============================================== -->
-  <link rel="shortcut icon" href="{{ asset('end/front/images/favicon.ico') }}">
-  <link rel="apple-touch-icon" href="{{ asset('end/front/images/apple-touch-icon.png') }}">
-  <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('end/front/images/apple-touch-icon-72x72.png') }}">
-  <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('end/front/images/apple-touch-icon-114x114.png') }}">
+  <link rel="shortcut icon" href="{{ asset('img/mts_top.png') }}">
+  <link rel="apple-touch-icon" href="{{ asset('img/mts_top.png') }}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/mts_top.png') }}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/mts_top.png') }}">
 
   <!-- ==============================================
   CSS VENDOR

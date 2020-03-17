@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="login-logo">
-    <a href="{{ url('/') }}">MTS</a>
+    <a href="{{ url('/') }}">Apis Cerana</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -44,7 +44,7 @@
         <div class="row">
           <div class="col-8"></div>
           <div class="col-4">
-            <button type="submit" class="btn btn-success btn-block">
+            <button type="submit" class="btn btn-warning btn-block">
               @lang('menu.login')
             </button>
           </div>

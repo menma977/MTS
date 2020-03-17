@@ -62,4 +62,6 @@ return [
   'receiver' => 'Penerima',
   'action' => 'Aksi',
   'create a Tree' => 'Buat Tree',
+  'yield' => 'Hasil Panen',
+  'kafling' => 'Kavling',
 ];
