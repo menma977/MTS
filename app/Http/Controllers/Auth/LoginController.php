@@ -79,7 +79,7 @@ class LoginController extends Controller
    */
   protected function credentials(Request $request): array
   {
-    return array_merge($request->only($this->username(), 'password'), ['status' => [1, 2]]);
+    return array_merge($request->only($this->username(), 'password'), ['role' => [1]]);
   }
 
   protected function sendFailedLoginResponse(Request $request)
@@ -87,8 +87,8 @@ class LoginController extends Controller
     $errors = [$this->username() => trans('auth.failed')];
     $user = User::where($this->username(), $request->{$this->username()})->first();
 
-    if ($user && Hash::check($request->password, $user->password) && $user->status == 0) {
-      $errors = [$this->username() => trans('Akun Anda telah ditangguhkan. silakan hubungi admin')];
+    if ($user && Hash::check($request->password, $user->password) && $user->role != 1) {
+      $errors = [$this->username() => trans('Anada Tidak Miliki izin yang sesuwai')];
     }
 
     if ($request->expectsJson()) {

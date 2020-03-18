@@ -79,8 +79,8 @@
                     data-parent="#accordion" href="#newTree" aria-expanded="false">
               @lang('menu.new Tree Request')
             </button>
-            @if($tree->where('status', 0)->count())
-              <div class="badge badge-success navbar-badge">{{ $tree->where('status', 0)->count() }}</div>
+            @if($order->where('status', 0)->count())
+              <div class="badge badge-success navbar-badge">{{ $order->where('status', 0)->count() }}</div>
             @endif
           </div>
           <div id="newTree" class="panel-collapse in collapse" style="">
@@ -100,16 +100,16 @@
                   @foreach($order->where('status', 0) as $item)
                     <tr class="text-center">
                       <td>{{ $loop->index + 1 }}</td>
-                      <td>{{ $item->total * 2000000 }}</td>
                       <td>{{ $item->user ? $item->user->username : 'Belum Terpakai' }}</td>
+                      <td>Rp {{ number_format($item->total * 1500000, 0, ',', '.') }}</td>
                       <td>{{ $item->total }}</td>
                       <td>
                         <div class="btn-group">
-                          <a href="{{ route('bee.update', [base64_encode($item->id), base64_encode(1)]) }}"
+                          <a href="{{ route('tree.update', [base64_encode($item->id), base64_encode(1)]) }}"
                              class="btn btn-sm btn-success">
                             @lang('menu.accept')
                           </a>
-                          <a href="{{ route('bee.update', [base64_encode($item->id), base64_encode(2)]) }}"
+                          <a href="{{ route('tree.update', [base64_encode($item->id), base64_encode(2)]) }}"
                              class="btn btn-sm btn-danger">
                             @lang('menu.cancel')
                           </a>
@@ -145,8 +145,8 @@
                   @foreach($order->where('status', '!=', 0) as $item)
                     <tr class="text-center">
                       <td>{{ $loop->index + 1 }}</td>
-                      <td>{{ $item->total * 2000000 }}</td>
                       <td>{{ $item->user ? $item->user->username : 'Belum Terpakai' }}</td>
+                      <td>Rp {{ number_format($item->total * 1500000, 0, ',', '.') }}</td>
                       <td>{{ $item->total }}</td>
                       <td>{{ \Carbon\Carbon::parse($item->updated_at)->format('d/m/Y H:i:s') }}</td>
                     </tr>
@@ -169,15 +169,15 @@
             <table id="list3" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th style="width: 10px">#</th>
-                <th style="width: 100px">@lang('menu.receiver')</th>
+                <th style="width: 5px">#</th>
+                <th style="width: 50px">@lang('menu.receiver')</th>
                 <th style="width: 10px">QR</th>
                 <th style="width: 10px">Gallery</th>
                 <th>Code</th>
-                <th>@lang('menu.send')</th>
-                <th>@lang('menu.take')</th>
-                <th>@lang('menu.yield')</th>
-                <th style="width: 10px">Status</th>
+                <th style="width: 50px">@lang('menu.send')</th>
+                <th style="width: 50px">@lang('menu.take')</th>
+                <th style="width: 100px">@lang('menu.yield')</th>
+                <th style="width: 5px">Status</th>
               </tr>
               </thead>
               <tbody>
@@ -200,7 +200,16 @@
                   <td>{{ $item->code }}</td>
                   <td>{{ $item->start }}</td>
                   <td>{{ $item->end }}</td>
-                  <td>{{ $item->yield }}</td>
+                  @if($item->yield)
+                    <td>Rp {{ number_format($item->yield, 0, ',', '.') }}</td>
+                  @else
+                    <td>
+                      <button type="button" class="btn btn-block btn-success btn-xs" data-toggle="modal"
+                              data-target="#modal-yild{{ $item->code }}">
+                        Panen
+                      </button>
+                    </td>
+                  @endif
                   <td>{{ $item->status }}</td>
                 </tr>
                 <div class="modal fade" id="modal-gallery{{ $item->code }}">
@@ -244,6 +253,37 @@
                           </a>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal fade" id="modal-yild{{ $item->code }}">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content bg-teal">
+                      <div class="modal-header">
+                        <h4 class="modal-title">@lang('menu.yield')</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          &times;
+                        </button>
+                      </div>
+                      <form action="{{ route('tree.harvest', base64_encode($item->id)) }}" method="POST">
+                        @csrf
+                        <div class="modal-body">
+                          <label for="yiled">Input Hasil Panen</label>
+                          <div class="input-group mb-3">
+                            <div class="input-group-append">
+                              <span class="input-group-text bg-teal">Rp</span>
+                            </div>
+                            <input type="number" class="form-control" name="yiled" id="yiled">
+                            <div class="input-group-append">
+                              <span class="input-group-text bg-teal">.00</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                          <div type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</div>
+                          <button type="submit" class="btn btn-outline-light">Update</button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -358,6 +398,12 @@
         });
         @enderror
         @error('img')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
+        @error('yiled')
         Toast.fire({
             type: 'error',
             title: '{{ $message }}'

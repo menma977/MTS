@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\model\Binary;
-use App\model\Ledger;
+use App\Model\Binary;
+use App\Model\Ledger;
 use App\Model\Tree;
 use App\User;
 use Carbon\Carbon;
@@ -162,6 +162,25 @@ class UserController extends Controller
       $user->identity_card_image = null;
       $user->identity_card_image_salve = null;
     }
+    $user->save();
+
+    return redirect()->back();
+  }
+
+  /**
+   * @param Request $request
+   * @param $id
+   * @return RedirectResponse
+   * @throws ValidationException
+   */
+  public function roleUpdate(Request $request, $id)
+  {
+    $this->validate($request, [
+      'role' => 'required|integer|between:2,4',
+    ]);
+    $id = base64_decode($id);
+    $user = User::find($id);
+    $user->role = $request->role;
     $user->save();
 
     return redirect()->back();

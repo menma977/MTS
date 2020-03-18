@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\model\Binary;
-use App\model\Ledger;
+use App\Model\Binary;
+use App\Model\Ledger;
 use App\Model\Order;
 use App\Model\Stup;
 use App\Model\Tree;
-use App\model\Withdraw;
+use App\Model\Withdraw;
 use App\User;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -129,6 +129,7 @@ class UserController extends Controller
     ]);
 
     $user = new User();
+    $user->role = 2;
     $user->name = $request->name;
     $user->username = $request->username;
     $user->email = $request->email;

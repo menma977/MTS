@@ -45,15 +45,31 @@
                   <strong class="text-success float-right">*</strong>
                 @endif
               </td>
-              @if($item->role == 0)
+              @if($item->role == 1)
                 <td>Admin</td>
                 <td>
                   <button type="button" class="btn btn-block btn-sm btn-success">
                     {{ $item->username }}
                   </button>
                 </td>
+              @elseif($item->role == 2)
+                <td>Mitra Mandiri</td>
+                <td>
+                  <button type="button" class="btn btn-block btn-sm btn-success" data-toggle="modal"
+                          data-target="#modal-{{ $item->username }}">
+                    {{ $item->username }}
+                  </button>
+                </td>
+              @elseif($item->role == 3)
+                <td>Mitra luar biasa</td>
+                <td>
+                  <button type="button" class="btn btn-block btn-sm btn-success" data-toggle="modal"
+                          data-target="#modal-{{ $item->username }}">
+                    {{ $item->username }}
+                  </button>
+                </td>
               @else
-                <td>@lang('menu.user.index')</td>
+                <td>Mitra agen</td>
                 <td>
                   <button type="button" class="btn btn-block btn-sm btn-success" data-toggle="modal"
                           data-target="#modal-{{ $item->username }}">
@@ -151,6 +167,23 @@
                               {{ $item->sponsor->name }}
                             </a>
                           </li>
+                          @if($item->role != 1)
+                            <li class="list-group-item">
+                              <form action="{{ route('user.roleUpdate', base64_encode($item->id)) }}" method="POST">
+                                @csrf
+                                <div class="input-group input-group-sm">
+                                  <select class="form-control" name="role" id="role">
+                                    <option value="2" {{ $item->role == 2 ? 'selected' : '' }}>Mitra Mandiri</option>
+                                    <option value="3" {{ $item->role == 3 ? 'selected' : '' }}>Mitra luar biasa</option>
+                                    <option value="4" {{ $item->role == 4 ? 'selected' : '' }}>Mitra agen</option>
+                                  </select>
+                                  <div class="input-group-append">
+                                    <button type="submit" class="btn btn-success btn-flat">Update</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </li>
+                          @endif
                         </ul>
                       </div>
                       <div class="col-md-8 row">
@@ -218,15 +251,32 @@
 @section('endCSS')
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('end/back/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="{{ asset('end/back/plugins/toastr/toastr.min.css') }}">
 @endsection
 
 @section('endJS')
   <!-- DataTables -->
   <script src="{{ asset('end/back/plugins/datatables/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('end/back/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+  <!-- Toastr -->
+  <script src="{{ asset('end/back/plugins/toastr/toastr.min.js') }}"></script>
   <script>
       $(function () {
           $("#list").DataTable();
+
+          const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 5000
+          });
+        @error('img')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
       });
   </script>
 @endsection

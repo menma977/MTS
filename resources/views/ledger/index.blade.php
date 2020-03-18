@@ -44,7 +44,7 @@
               <td>{{ $item->user->name }}</td>
               <td>{{ $item->code }}</td>
               <td>{{ $item->description }}</td>
-              @if($item->ledger_type == 3)
+              @if($item->ledger_type == 4)
                 <td>Rp {{ number_format($item->credit, 0, ',', '.') }}</td>
                 <td>Rp {{ number_format($item->debit, 0, ',', '.') }}</td>
               @else
@@ -53,19 +53,23 @@
               @endif
               @if($item->ledger_type == 0)
                 <td>
-                  <div class="badge bg-success">@lang('menu.income')</div>
+                  <div class="badge bg-success">buy</div>
                 </td>
               @elseif($item->ledger_type == 1)
                 <td>
-                  <div class="badge bg-warning">@lang('menu.outcome')</div>
+                  <div class="badge bg-warning">bonus Sponsor</div>
                 </td>
               @elseif($item->ledger_type == 2)
                 <td>
-                  <div class="badge bg-info">Bonus</div>
+                  <div class="badge bg-info">Bonus Level</div>
+                </td>
+              @elseif($item->ledger_type == 3)
+                <td>
+                  <div class="badge bg-primary">Bonus Royalty</div>
                 </td>
               @else
                 <td>
-                  <div class="badge bg-danger">@lang('menu.withdraw')</div>
+                  <div class="badge bg-danger">Withdraw</div>
                 </td>
               @endif
               <td>{{ \Carbon\Carbon::parse($item->updated_at)->format('d/m/Y') }}</td>

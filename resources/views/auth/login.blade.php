@@ -2,7 +2,9 @@
 
 @section('content')
   <div class="login-logo">
-    <a href="{{ url('/') }}">Apis Cerana</a>
+    <a href="{{ url('/') }}">
+      <img src="{{ asset('img/mts_line.png') }}" class="login-logo" style="width: 300px;">
+    </a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -44,7 +46,7 @@
         <div class="row">
           <div class="col-8"></div>
           <div class="col-4">
-            <button type="submit" class="btn btn-warning btn-block">
+            <button type="submit" class="btn btn-success btn-block">
               @lang('menu.login')
             </button>
           </div>

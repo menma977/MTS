@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\model\Binary;
-use App\model\Ledger;
-use App\model\Tree;
-use App\model\Order;
+use App\Model\Binary;
+use App\Model\Ledger;
+use App\Model\Tree;
+use App\Model\Order;
 use App\Model\TreeImage;
 use App\User;
 use Carbon\Carbon;
@@ -14,6 +14,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use mysql_xdevapi\Exception;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TreeController extends Controller
@@ -72,7 +73,7 @@ class TreeController extends Controller
         $item->gallery = TreeImage::where('tree_id', $item->id)->get();
       });
     } else {
-      $tree = Tree::where('user', User::where('username', $username)->get()->first())->orderBy('id', 'desc')->get();
+      $tree = Tree::where('user', User::where('username', $username)->get()->first()->id)->orderBy('id', 'desc')->get();
       $tree->map(function ($item) {
         $item->user = User::find($item->user);
         $item->gallery = TreeImage::where('tree_id', $item->id)->get();
@@ -89,25 +90,53 @@ class TreeController extends Controller
   }
 
   /**
+   * @param Request $request
    * @param $id
    * @return RedirectResponse
+   * @throws ValidationException
    */
-  public function harvest($id)
+  public function harvest(Request $request, $id)
   {
+    $this->validate($request, [
+      'yiled' => 'required|numeric',
+    ]);
+
     $tree = Tree::find(base64_decode($id));
+    $tree->yield = $request->yiled;
     $tree->status = 3;
     $tree->save();
 
-    $user = User::find($tree->user_id);
+    $user = User::find($tree->user);
     $sponsor = User::find(Binary::where('user', $user->id)->get()->first()->sponsor);
 
-    $ledgers = new Ledger();
-    $ledgers->code = 'BYBONROYAL' . date('YmdHis');
-    $ledgers->credit = (1 * 600 * 2 * 1000) * 0.05;
-    $ledgers->description = 'anda mendapatkan bonus royalty 5% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
-    $ledgers->user = $sponsor->id;
-    $ledgers->ledger_type = 3;
-    $ledgers->save();
+    if ($sponsor->role == 4) {
+      $ledger = new Ledger();
+      $ledger->code = 'BYBONROYAL' . date('YmdHis');
+      $ledger->credit = $tree->yield * 0.05;
+      $ledger->description = 'anda mendapatkan bonus royalty 5% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledger->credit, 0, ',', '.');
+      $ledger->user = $sponsor->id;
+      $ledger->ledger_type = 3;
+      $ledger->save();
+    }
+
+    $getSponsor = User::find($sponsor->id);
+    $level = 2;
+    for ($j = 0; $j < $level; $j++) {
+      $user = User::find($getSponsor->id);
+      if (Binary::where('user', $user->id)->get()->first()) {
+        $sponsor = User::find(Binary::where('user', $user->id)->get()->first()->sponsor);
+        if ($sponsor->role == 4) {
+          $ledgers = new Ledger();
+          $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
+          $ledgers->credit = $ledger->credit * 0.033;
+          $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+          $ledgers->user = $sponsor->id;
+          $ledgers->ledger_type = 2;
+          $ledgers->save();
+        }
+        $getSponsor = User::find($sponsor->id);
+      }
+    }
 
     return redirect()->back();
   }
@@ -166,17 +195,18 @@ class TreeController extends Controller
         $getSponsor = $getUser->id;
       }
 
-      $ledgerAdmin = new Ledger();
-      $ledgerAdmin->code = 'BUY' . date('YmdHis');
-      $ledgerAdmin->credit = $this->nominal_tree * $order->total;
-      $ledgerAdmin->description = 'Pembelian Pohon : Rp' . number_format($ledgerAdmin->credit, 0, ',', '.');
-      $ledgerAdmin->ledger_type = 0;
-      $ledgerAdmin->save();
+      $ledger_1 = new Ledger();
+      $ledger_1->code = 'BUY' . date('YmdHis');
+      $ledger_1->credit = $this->nominal_tree * $order->total;
+      $ledger_1->description = 'Pembelian Pohon : Rp' . number_format($ledger_1->credit, 0, ',', '.');
+      $ledger_1->user = $getUser->id;
+      $ledger_1->ledger_type = 0;
+      $ledger_1->save();
 
       if (User::find($getSponsor)->role == 4) {
         $ledgers = new Ledger();
         $ledgers->code = 'BYBONSPON' . date('YmdHis');
-        $ledgers->credit = (10 / 100) * $ledgerAdmin->credit;
+        $ledgers->credit = $ledger_1->credit * 0.1;
         $ledgers->description = 'anda mendapatkan bonus 10% dari pembelian sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
         $ledgers->user = $getSponsor;
         $ledgers->ledger_type = 1;
@@ -184,7 +214,7 @@ class TreeController extends Controller
 
         $ledgers = new Ledger();
         $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
-        $ledgers->credit = (0.033 / 100) * $ledgerAdmin->credit;
+        $ledgers->credit = $ledger_1->credit * 0.033;
         $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $getUser->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
         $ledgers->user = $getSponsor;
         $ledgers->ledger_type = 2;
@@ -195,17 +225,19 @@ class TreeController extends Controller
       $level = 2;
       for ($j = 0; $j < $level; $j++) {
         $user = User::find($getSponsor->id);
-        $sponsor = User::find(Binary::where('user', $user->id)->get()->first()->sponsor);
-        if ($sponsor->role == 4) {
-          $ledgers = new Ledger();
-          $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
-          $ledgers->credit = (0.033 / 100) * $ledgerAdmin->credit;
-          $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
-          $ledgers->user = $sponsor->id;
-          $ledgers->ledger_type = 2;
-          $ledgers->save();
+        if (Binary::where('user', $user->id)->get()->first()) {
+          $sponsor = User::find(Binary::where('user', $user->id)->get()->first()->sponsor);
+          if ($sponsor->role == 4) {
+            $ledgers = new Ledger();
+            $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
+            $ledgers->credit = $ledger_1->credit * 0.033;
+            $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+            $ledgers->user = $sponsor->id;
+            $ledgers->ledger_type = 2;
+            $ledgers->save();
+          }
+          $getSponsor = User::find($sponsor->id);
         }
-        $getSponsor = User::find($sponsor->id);
       }
 
       for ($i = 0; $i < $order->total; $i++) {

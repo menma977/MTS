@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
       $table->text('identity_card_image_salve')->nullable();
       $table->text('image')->nullable();
       $table->text('address');
-      $table->integer('status')->default(1);
+      $table->integer('status')->default(2);
       $table->rememberToken();
       $table->timestamps();
     });

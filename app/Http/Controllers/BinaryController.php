@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\model\Binary;
+use App\Model\Binary;
 use App\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;

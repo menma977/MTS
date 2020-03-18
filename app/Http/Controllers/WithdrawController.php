@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\model\Ledger;
-use App\model\Withdraw;
+use App\Model\Ledger;
+use App\Model\Withdraw;
 use App\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -70,7 +70,7 @@ class WithdrawController extends Controller
       $ledger->credit = $withdraw->total;
       $ledger->description = User::find($withdraw->id)->name . ' telah Withdraw sejumlah : Rp' . number_format($withdraw->total, 0, ',', '.');
       $ledger->user = $withdraw->user;
-      $ledger->ledger_type = 3;
+      $ledger->ledger_type = 4;
       $ledger->save();
     } else {
       Withdraw::destroy($id);

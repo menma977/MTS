@@ -33,6 +33,7 @@ Route::middleware(['online', 'auth'])->group(static function () {
     Route::post('/store', 'UserController@store')->name('store')->middleware('auth', 'role:1');
     Route::get('/show/{id}', 'UserController@show')->name('show')->middleware('auth', 'role:1');
     Route::get('/update/{id}/{status}', 'UserController@update')->name('update')->middleware('auth', 'role:1');
+    Route::post('/role/update/{id}', 'UserController@roleUpdate')->name('roleUpdate')->middleware('auth', 'role:1');
     Route::get('/delete/{id}', 'UserController@destroy')->name('delete')->middleware('auth', 'role:1');
   });
 
@@ -40,7 +41,7 @@ Route::middleware(['online', 'auth'])->group(static function () {
     Route::get('/', 'TreeController@index')->name('index')->middleware('auth', 'role:1');
     Route::post('/store', 'TreeController@store')->name('store')->middleware('auth', 'role:1');
     Route::get('/show/{username}', 'TreeController@show')->name('show')->middleware('auth', 'role:1');
-    Route::get('/harvest/{id}', 'TreeController@harvest')->name('harvest')->middleware('auth', 'role:1');
+    Route::post('/harvest/{id}', 'TreeController@harvest')->name('harvest')->middleware('auth', 'role:1');
     Route::get('/{id}/update/{status}', 'TreeController@update')->name('update')->middleware('auth', 'role:1');
     Route::get('/delete/{id}', 'TreeController@destroy')->name('delete')->middleware('auth', 'role:1');
     Route::post('/qr', 'TreeController@QRCodeList')->name('QRCodeList')->middleware('auth', 'role:1');

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\model\Ledger;
+use App\Model\Ledger;
 use App\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
@@ -28,7 +28,7 @@ class LedgerController extends Controller
    */
   public function index()
   {
-    if (Auth::user()->role == 0) {
+    if (Auth::user()->role == 1) {
       $ledger = Ledger::orderBy('id', 'desc')->get();
     } else {
       $ledger = Ledger::where('user', Auth::user()->id)->orderBy('id', 'desc')->get();

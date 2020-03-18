@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Model\Tree;
+use App\Model\Order;
 use App\User;
 use Illuminate\View\Component;
 use Illuminate\View\View;
@@ -26,7 +26,7 @@ class BackEndSidebar extends Component
    */
   public function render()
   {
-    $tree = Tree::where('status', 0)->count();
+    $tree = Order::where('status', 0)->count();
     $users = User::where('status', 1)->whereNotNull('identity_card_image')->whereNotNull('identity_card_image_salve')->count();
 
     $data = [
