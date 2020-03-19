@@ -2,33 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/gallery/1584514136.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/gallery/1584514143.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/android/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/android.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BinaryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BinaryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LedgerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LedgerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreeImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreeImageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WithdrawController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WithdrawController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Ledger.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Ledger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/Components/BackEndSidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/BackEndSidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_16_122922_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_16_122922_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/id/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/id/menu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/back-end-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/back-end-sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontEnd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontEnd.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ledger/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ledger/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/tree/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tree/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tree/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tree/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,6 +207,22 @@
       <workItem from="1584335904233" duration="13121000" />
       <workItem from="1584419640234" duration="17693000" />
       <workItem from="1584505210936" duration="9817000" />
+      <workItem from="1584594479968" duration="21000" />
+      <workItem from="1584594520781" duration="163000" />
+      <workItem from="1584594931057" duration="200000" />
+      <workItem from="1584595566559" duration="45000" />
+      <workItem from="1584597219776" duration="326000" />
+      <workItem from="1584599663471" duration="1406000" />
+      <workItem from="1584603525991" duration="264000" />
+      <workItem from="1584603803934" duration="1162000" />
+      <workItem from="1584606581405" duration="109000" />
+      <workItem from="1584608587126" duration="24000" />
+      <workItem from="1584608994299" duration="318000" />
+      <workItem from="1584609413810" duration="2025000" />
+      <workItem from="1584611455849" duration="327000" />
+      <workItem from="1584612519645" duration="6000" />
+      <workItem from="1584612600625" duration="128000" />
+      <workItem from="1584617982506" duration="164000" />
     </task>
     <servers />
   </component>
@@ -264,14 +265,15 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state width="1317" height="179" key="GridCell.Tab.0.right/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1583575595561" />
-    <state x="376" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1584505212170">
+    <state x="1643" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1584603806845">
+      <screen x="1360" y="0" width="1024" height="728" />
+    </state>
+    <state x="376" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584594532034" />
+    <state x="1643" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@1360.0.1024.728" timestamp="1584603806845" />
+    <state x="376" y="96" width="737" height="606" key="find.popup" timestamp="1584610228334">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="376" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584505212170" />
-    <state x="376" y="96" width="737" height="606" key="find.popup" timestamp="1584515736322">
-      <screen x="0" y="0" width="1360" height="728" />
-    </state>
-    <state x="376" y="96" width="737" height="606" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584515736322" />
+    <state x="376" y="96" width="737" height="606" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584610228334" />
     <state x="62" y="88" key="new project wizard" timestamp="1584515904237">
       <screen x="0" y="0" width="1360" height="728" />
     </state>

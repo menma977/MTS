@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Model\Role;
 use App\Model\Binary;
 use App\Model\Ledger;
 use App\Model\Order;
@@ -73,8 +74,15 @@ class UserController extends Controller
       foreach ($token as $key => $value) {
         $value->delete();
       }
+      $user->typeUser = Role::find($user->id)->description;
       $user->token = $user->createToken('Android')->accessToken;
-      return response()->json(['response' => $user->token], 200);
+      return response()->json([
+        'response' => $user->token,
+        'username' => $user->username,
+        'status' => $user->status,
+        'type' => $user->typeUser,
+        'img' => $user->image
+      ], 200);
     }
 
     $data = [
@@ -91,7 +99,9 @@ class UserController extends Controller
    */
   public function show(): JsonResponse
   {
-    return response()->json(['response' => Auth::user()], 200);
+    $user = Auth::user();
+    $user->type = Role::find($user->role)->description;
+    return response()->json(['response' => $user], 200);
   }
 
   /**
@@ -190,12 +200,14 @@ class UserController extends Controller
    */
   public function balance(): JsonResponse
   {
+    $downLine = Binary::where('sponsor', Auth::user()->id)->get();
     $balance = Ledger::where('user', Auth::user()->id)->sum('credit') - Ledger::where('user', Auth::user()->id)->sum('debit');
-    $tree = Tree::where('user', Auth::user()->id)->where('status', 0)->get();
+    $order = Order::where('user', Auth::user()->id)->where('status', 0)->get();
     $data = [
       'balance' => 'Rp ' . number_format($balance, 0, ',', '.'),
+      'down_line' => $downLine->count(),
       'admin' => $this->adminData(),
-      'data' => $tree,
+      'data' => $order,
       'nominal' => $this->nominal_tree
     ];
 
@@ -271,7 +283,7 @@ class UserController extends Controller
         $user->name = $request->name;
       }
     }
-    if ($request->description_address) {
+    if ($request->address) {
       $this->validate($request, [
         'address' => 'required|string|min:10',
       ]);
@@ -279,8 +291,20 @@ class UserController extends Controller
         $user->address = $request->address;
       }
     }
+    if ($request->password) {
+      $this->validate($request, [
+        'password' => 'required|string|min:6',
+      ]);
+      if ($user !== null) {
+        $user->password = bcrypt($request->password);
+      }
+    }
     $user->save();
-    return response()->json(['response' => 'Data telah di update'], 200);
+    if ($request->password) {
+      return response()->json(['response' => 'Data telah di update', 'password' => true], 200);
+    }
+
+    return response()->json(['response' => 'Data telah di update', 'password' => false], 200);
   }
 
   /**
@@ -362,6 +386,21 @@ class UserController extends Controller
       'response' => 'Stup Anda sedang di proses oleh admin',
       'admin' => $this->adminData(),
       'total' => ($order->total * $this->nominal_tree) + $order->code,
+    ];
+
+    return response()->json($data, 200);
+  }
+
+
+  /**
+   * @return JsonResponse
+   */
+  public function gallery()
+  {
+    $tree = Tree::where('user', Auth::user()->id)->get();
+
+    $data = [
+      'response' => $tree,
     ];
 
     return response()->json($data, 200);

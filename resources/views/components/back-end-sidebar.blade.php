@@ -51,7 +51,7 @@
                 <span class="badge badge-success right">{{ $tree }}</span>
               @endif
               <p>
-                Menu Tree
+                Menu Porang
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -61,7 +61,7 @@
                    class="nav-link {{ request()->is(['tree']) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    @lang('menu.tree')
+                    @lang('menu.Porang')
                     @if($tree)
                       <span class="badge badge-success right">{{ $tree }}</span>
                     @endif

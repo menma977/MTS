@@ -16,7 +16,7 @@
         </li>
         <li class="breadcrumb-item active">
           <a href="{{ route('tree.index') }}">
-            @lang('menu.tree')
+            @lang('menu.Porang')
           </a>
         </li>
         <li class="breadcrumb-item active">

@@ -13,7 +13,7 @@
           </a>
         </li>
         <li class="breadcrumb-item active">
-          @lang('menu.tree')
+          @lang('menu.Porang')
         </li>
       </ol>
     </div>
@@ -28,7 +28,7 @@
           <i class="fas fa-boxes"></i>
         </div>
         <div class="info-box-content">
-          <div class="info-box-text">@lang('menu.amount') @lang('menu.tree')</div>
+          <div class="info-box-text">@lang('menu.amount') @lang('menu.Porang')</div>
           <div class="info-box-number">{{ $tree->count() }}</div>
         </div>
       </div>
@@ -66,7 +66,7 @@
     <div class="col-6 text-center">
       <a class="btn btn-app" data-toggle="modal" data-target="#modal-sm">
         <i class="fas fa-plus-square"></i>
-        @lang('menu.new Tree')
+        @lang('menu.new Porang')
       </a>
     </div>
   </div>
@@ -77,7 +77,7 @@
           <div class="card-header">
             <button type="button" class="btn btn-block btn-info btn-xs collapsed" data-toggle="collapse"
                     data-parent="#accordion" href="#newTree" aria-expanded="false">
-              @lang('menu.new Tree Request')
+              @lang('menu.new Porang Request')
             </button>
             @if($order->where('status', 0)->count())
               <div class="badge badge-success navbar-badge">{{ $order->where('status', 0)->count() }}</div>
@@ -125,7 +125,7 @@
           <div class="card-header">
             <button type="button" class="btn btn-block btn-primary btn-xs collapsed" data-toggle="collapse"
                     data-parent="#accordion" href="#tree" aria-expanded="false">
-              @lang('menu.tree List Already Processed')
+              @lang('menu.Porang List Already Processed')
             </button>
           </div>
           <div id="tree" class="panel-collapse in collapse" style="">
@@ -162,7 +162,7 @@
     <div class="col-md-12">
       <div class="card card-outline card-teal">
         <div class="card-header">
-          <h3 class="card-title">@lang('menu.list') @lang('menu.tree')</h3>
+          <h3 class="card-title">@lang('menu.list') @lang('menu.Porang')</h3>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -300,7 +300,7 @@
     <div class="modal-dialog modal-sm">
       <div class="modal-content bg-success">
         <div class="modal-header">
-          <h4 class="modal-title">@lang('menu.create a Tree')</h4>
+          <h4 class="modal-title">@lang('menu.create a Porang')</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             &times;
           </button>
@@ -309,8 +309,8 @@
           @csrf
           <div class="modal-body">
             <div class="form-group">
-              <label for="count">@lang('menu.amount') Tree</label>
-              <input type="text" class="form-control" id="count" placeholder="Jumlah Tree" name="count">
+              <label for="count">@lang('menu.amount') Porang</label>
+              <input type="text" class="form-control" id="count" placeholder="Jumlah Porang" name="count">
             </div>
           </div>
           <div class="modal-footer justify-content-between">
@@ -336,7 +336,7 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="count">@lang('menu.amount') QR</label>
-              <input type="text" class="form-control" id="count" placeholder="Jumlah Tree" name="count">
+              <input type="text" class="form-control" id="count" placeholder="Jumlah Porang" name="count">
             </div>
           </div>
           <div class="modal-footer justify-content-between">

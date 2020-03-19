@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'Api\UserController@login');
 
 Route::middleware('auth:api')->group(function () {
+
+  Route::group(['prefix' => 'android', 'as' => 'android.'], static function () {
+    Route::get('/gallery/{id}', 'WebViewController@gallery')->name('gallery')->middleware('auth');
+  });
+
   Route::post('register', 'Api\UserController@register');
 
   Route::get('verification', 'Api\UserController@verification');
@@ -39,5 +44,6 @@ Route::middleware('auth:api')->group(function () {
   Route::group(['prefix' => 'tree', 'as' => 'tree.'], function () {
     Route::post('show', 'Api\UserController@checkTree')->name('show');
     Route::post('store', 'Api\UserController@requestTree')->name('store');
+    Route::get('gallery', 'Api\UserController@gallery')->name('gallery');
   });
 });
