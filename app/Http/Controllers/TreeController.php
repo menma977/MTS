@@ -14,7 +14,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
-use mysql_xdevapi\Exception;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TreeController extends Controller
@@ -265,7 +264,7 @@ class TreeController extends Controller
     $id = base64_decode($id);
     $tree = Tree::find($id);
 
-    $QR = QrCode::format('png')->size(500)->merge('img/logo.png', .2, true)->errorCorrection('H')->generate($tree->qr);
+    $QR = QrCode::format('png')->size(500)->merge('./img/mts_top.png', .2, true)->errorCorrection('H')->generate($tree->qr);
 
     $data = [
       'qr' => $QR,
@@ -289,7 +288,7 @@ class TreeController extends Controller
     ]);
     $tree = Tree::whereNull('user')->whereNull('user')->take($request->count)->get();
     $tree->map(function ($item) {
-      $item->BarCode = QrCode::format('png')->size(250)->merge('img/logo.png', .2, true)->errorCorrection('H')->generate($item->qr);
+      $item->BarCode = QrCode::format('png')->size(250)->merge('./img/mts_top.png', .2, true)->errorCorrection('H')->generate($item->qr);
     });
 
     $data = [
@@ -316,6 +315,29 @@ class TreeController extends Controller
     $request->img->move('gallery', $imageName);
     $treeImage->image = $request->root() . '/gallery' . '/' . $imageName;
     $treeImage->save();
+
+    return redirect()->back();
+  }
+
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param Request $request
+   * @param $idTree
+   * @return RedirectResponse
+   * @throws ValidationException
+   */
+  public function storeMap(Request $request, $idTree)
+  {
+    $this->validate($request, [
+      'long' => 'required',
+      'lat' => 'required',
+    ]);
+
+    $tree = Tree::find($idTree);
+    $tree->x_fild = $request->long;
+    $tree->y_fild = $request->lat;
+    $tree->save();
 
     return redirect()->back();
   }

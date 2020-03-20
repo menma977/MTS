@@ -34,9 +34,15 @@
                 <a class="dropdown-item" href="#">GALLERY</a>
               </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">Login</a>
-            </li>
+            @guest
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+              </li>
+            @else
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('Home') }}">Home</a>
+              </li>
+            @endguest
           </ul>
           <a href="#" class="btn btn-primary btn-nav ml-auto">GET FREE QUOTE</a>
         </div>

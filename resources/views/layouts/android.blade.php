@@ -10,7 +10,7 @@
   <title>MTS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Favicon icon -->
-  <link rel="shortcut icon" href="{{ asset('end/back/dist/img/ApisMelli.png') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('img/mts_top.png') }}" type="image/x-icon">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('end/back/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Ionicons -->

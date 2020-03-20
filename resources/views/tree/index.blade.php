@@ -175,7 +175,7 @@
                 <th style="width: 10px">Gallery</th>
                 <th>Code</th>
                 <th style="width: 50px">@lang('menu.send')</th>
-                <th style="width: 50px">@lang('menu.take')</th>
+                <th style="width: 50px">Lokasi</th>
                 <th style="width: 100px">@lang('menu.yield')</th>
                 <th style="width: 5px">Status</th>
               </tr>
@@ -187,7 +187,7 @@
                   <td>{{ $item->user ? $item->user->username : 'Belum Terpakai' }}</td>
                   <td>
                     <a href="{{ route('tree.QRCode', base64_encode($item->id)) }}"
-                       class="btn btn-block btn-outline-secondary btn-xs">
+                       class="btn btn-block btn-outline-secondary btn-xs" target="_blank">
                       QR
                     </a>
                   </td>
@@ -199,7 +199,12 @@
                   </td>
                   <td>{{ $item->code }}</td>
                   <td>{{ $item->start }}</td>
-                  <td>{{ $item->end }}</td>
+                  <td>
+                    <button type="button" class="btn btn-block btn-outline-info btn-xs" data-toggle="modal"
+                            data-target="#modal-map{{ $item->code }}">
+                      Set Lokasi
+                    </button>
+                  </td>
                   @if($item->yield)
                     <td>Rp {{ number_format($item->yield, 0, ',', '.') }}</td>
                   @else
@@ -227,7 +232,7 @@
                           @csrf
                           <div class="form-group">
                             <label for="count">Add New Image</label>
-                            <input type="file" class="form-control" id="img" placeholder="img" name="img">
+                            <input type="file" class="form-control" placeholder="img" name="img">
                           </div>
                           <button type="submit" class="btn btn-outline-light btn-block">@lang('menu.accept')</button>
                         </form>
@@ -256,6 +261,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="modal fade" id="modal-yild{{ $item->code }}">
                   <div class="modal-dialog modal-sm">
                     <div class="modal-content bg-teal">
@@ -273,7 +279,7 @@
                             <div class="input-group-append">
                               <span class="input-group-text bg-teal">Rp</span>
                             </div>
-                            <input type="number" class="form-control" name="yiled" id="yiled">
+                            <input type="number" class="form-control" name="yiled">
                             <div class="input-group-append">
                               <span class="input-group-text bg-teal">.00</span>
                             </div>
@@ -282,6 +288,36 @@
                         <div class="modal-footer justify-content-between">
                           <div type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</div>
                           <button type="submit" class="btn btn-outline-light">Update</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal fade" id="modal-map{{ $item->code }}">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-teal">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Set Lokasi Barcode</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          &times;
+                        </button>
+                      </div>
+                      <form action="{{ route('tree.storeMap', $item->id) }}" method="POST">
+                        @csrf
+                        <div class="modal-body">
+                          <input type="text" id="long{{ $item->code }}" name="long" class="form-control"
+                                 data-type="address" value="-6.249776" hidden/>
+                          <input type="text" id="lat{{ $item->code }}" name="lat" class="form-control"
+                                 data-type="address" value="106.813202" hidden/>
+                          <div class="map-container">
+                            <div id="map{{ $item->code }}" data-type="map" style="height: 300px"></div>
+                          </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                          <button type="button" class="btn btn-outline-light"
+                                  data-dismiss="modal">@lang('menu.cancel')</button>
+                          <button type="submit" class="btn btn-outline-light">Simpan</button>
                         </div>
                       </form>
                     </div>
@@ -310,7 +346,7 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="count">@lang('menu.amount') Porang</label>
-              <input type="text" class="form-control" id="count" placeholder="Jumlah Porang" name="count">
+              <input type="text" class="form-control" placeholder="Jumlah Porang" name="count">
             </div>
           </div>
           <div class="modal-footer justify-content-between">
@@ -331,12 +367,12 @@
             &times;
           </button>
         </div>
-        <form action="{{ route('tree.QRCodeList') }}" method="POST">
+        <form action="{{ route('tree.QRCodeList') }}" method="POST" target="_blank">
           @csrf
           <div class="modal-body">
             <div class="form-group">
               <label for="count">@lang('menu.amount') QR</label>
-              <input type="text" class="form-control" id="count" placeholder="Jumlah Porang" name="count">
+              <input type="text" class="form-control" placeholder="Jumlah Porang" name="count">
             </div>
           </div>
           <div class="modal-footer justify-content-between">
@@ -350,6 +386,9 @@
 @endsection
 
 @section('endCSS')
+  <!-- Map -->
+  <link rel="stylesheet" href="{{ url('https://unpkg.com/leaflet@1.6.0/dist/leaflet.css') }}"/>
+
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('end/back/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
   <!-- SweetAlert2 -->
@@ -362,6 +401,9 @@
 @endsection
 
 @section('endJS')
+  <!-- Map -->
+  <script src="{{ url('https://unpkg.com/leaflet@1.6.0/dist/leaflet.js') }}"></script>
+
   <!-- DataTables -->
   <script src="{{ asset('end/back/plugins/datatables/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('end/back/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
@@ -409,6 +451,50 @@
             title: '{{ $message }}'
         });
         @enderror
+        @error('long')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
+        @error('lat')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
+
+        @foreach($tree as $item)
+        generateMap("{{ $item->code }}", "{{ $item->x_fild ? $item->x_fild : -6.249776 }}", "{{ $item->y_fild ? $item->y_fild : 106.813202 }}");
+        @endforeach
       });
+
+      function generateMap(valueNameMap, long, lat) {
+          let mymap = L.map("map" + valueNameMap).setView([long, lat], 8);
+          let marker = L.marker([long, lat], {
+              draggable: true, autoPan: true
+          });
+          marker.addTo(mymap);
+          L.tileLayer(
+              "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWVubWE5NzciLCJhIjoiY2s4MDB2Z2N5MGJvcTNlcnUzczh1ZjBkbiJ9.EpC5l4fOYB3YK-OMbUcFzA",
+              {
+                  attribution:
+                      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                  maxZoom: 18,
+                  id: "mapbox/streets-v11",
+                  tileSize: 512,
+                  zoomOffset: -1,
+                  accessToken: "pk.eyJ1IjoibWVubWE5NzciLCJhIjoiY2s4MDB2Z2N5MGJvcTNlcnUzczh1ZjBkbiJ9.EpC5l4fOYB3YK-OMbUcFzA"
+              }
+          ).addTo(mymap);
+          marker.on("move", (e) => {
+              let longLat = e.latlng.toString().substr(6);
+              document.querySelector("#long" + valueNameMap).value = longLat.split(",")[0].replace("(", "");
+              document.querySelector("#lat" + valueNameMap).value = longLat.split(",")[1].replace(")", "");
+          });
+          mymap.on("click", e => {
+              marker.setLatLng(e.latlng);
+          });
+      }
   </script>
 @endsection

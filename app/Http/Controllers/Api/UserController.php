@@ -67,7 +67,7 @@ class UserController extends Controller
             'validation' => ['Akun Anda telah ditangguhkan. silakan hubungi admin.'],
           ],
         ];
-        return response()->json($data, 422); //new change 500
+        return response()->json($data, 500); //new change 500
       }
 
       $token = Auth::user()->tokens;
@@ -91,7 +91,7 @@ class UserController extends Controller
         'validation' => ['username atau password tidak valid.'],
       ],
     ];
-    return response()->json($data, 422);
+    return response()->json($data, 500);
   }
 
   /**
@@ -192,7 +192,7 @@ class UserController extends Controller
         'password' => ['Password lama anda tidak cocok'],
       ],
     ];
-    return response()->json($data, 422);
+    return response()->json($data, 500);
   }
 
   /**
@@ -201,7 +201,7 @@ class UserController extends Controller
   public function balance(): JsonResponse
   {
     $downLine = Binary::where('sponsor', Auth::user()->id)->get();
-    $balance = Ledger::where('user', Auth::user()->id)->sum('credit') - Ledger::where('user', Auth::user()->id)->sum('debit');
+    $balance = Ledger::where('user', Auth::user()->id)->where('ledger_type', '!=', 0)->sum('credit') - Ledger::where('user', Auth::user()->id)->where('ledger_type', '!=', 0)->sum('debit');
     $order = Order::where('user', Auth::user()->id)->where('status', 0)->get();
     $data = [
       'balance' => 'Rp ' . number_format($balance, 0, ',', '.'),
@@ -360,7 +360,7 @@ class UserController extends Controller
         'qr' => ['Barcode ini bukan milik anda'],
       ],
     ];
-    return response()->json($data, 422);
+    return response()->json($data, 500);
   }
 
   /**

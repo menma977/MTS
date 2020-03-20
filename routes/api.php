@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +19,8 @@ Route::middleware('auth:api')->group(function () {
 
   Route::group(['prefix' => 'android', 'as' => 'android.'], static function () {
     Route::get('/gallery/{id}', 'WebViewController@gallery')->name('gallery')->middleware('auth');
+    Route::get('/binary', 'WebViewController@binary')->name('binary')->middleware('auth');
+    Route::get('/ledger', 'WebViewController@ledger')->name('ledger')->middleware('auth');
   });
 
   Route::post('register', 'Api\UserController@register');

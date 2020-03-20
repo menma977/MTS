@@ -142,18 +142,18 @@
       <div class="timeline timeline-inverse">
         @foreach($tree as $id => $item)
           <div class="time-label">
-            <button type="button" class="btn btn-warning btn-sm">
+            <button type="button" class="btn btn-success btn-sm">
               <strong>
                 {{ \Carbon\Carbon::parse($id)->format('m-Y') }}
               </strong>
             </button>
           </div>
           <div>
-            <i class="fas fa-arrow-right bg-warning"></i>
+            <i class="fas fa-arrow-right bg-teal"></i>
             <div class="timeline-item">
 
               <h3 class="timeline-header">
-                Stup
+                Porang
               </h3>
               <div class="timeline-body table-responsive">
                 <table class="table table-striped">

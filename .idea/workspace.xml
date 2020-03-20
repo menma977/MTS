@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/android/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/android.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/android/binary.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/android/ledger.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/id/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/id/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/back-end-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/back-end-sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/front-end-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/front-end-header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/android.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/android.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/tree/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tree/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tree/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tree/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,6 +224,11 @@
       <workItem from="1584612519645" duration="6000" />
       <workItem from="1584612600625" duration="128000" />
       <workItem from="1584617982506" duration="164000" />
+      <workItem from="1584679474191" duration="801000" />
+      <workItem from="1584680786370" duration="48000" />
+      <workItem from="1584681012205" duration="478000" />
+      <workItem from="1584683027460" duration="4397000" />
+      <workItem from="1584696015722" duration="11298000" />
     </task>
     <servers />
   </component>
@@ -237,10 +243,14 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="272" y="22" key="#Inspections/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1583574738856" />
-    <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584345388616">
+    <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584679916819">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584345388616" />
+    <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584679916819" />
+    <state x="364" y="19" width="645" height="690" key="#phpunit.xml" timestamp="1584683097911">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="364" y="19" width="645" height="690" key="#phpunit.xml/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584683097911" />
     <state x="305" y="0" key="CommitChangelistDialog2" timestamp="1584341624128">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
@@ -270,10 +280,10 @@
     </state>
     <state x="376" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584594532034" />
     <state x="1643" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@1360.0.1024.728" timestamp="1584603806845" />
-    <state x="376" y="96" width="737" height="606" key="find.popup" timestamp="1584610228334">
+    <state x="376" y="96" width="737" height="606" key="find.popup" timestamp="1584703249095">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="376" y="96" width="737" height="606" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584610228334" />
+    <state x="376" y="96" width="737" height="606" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584703249095" />
     <state x="62" y="88" key="new project wizard" timestamp="1584515904237">
       <screen x="0" y="0" width="1360" height="728" />
     </state>

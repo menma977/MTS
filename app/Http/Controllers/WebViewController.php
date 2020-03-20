@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Binary;
+use App\Model\Ledger;
 use App\Model\Tree;
 use App\Model\TreeImage;
 use App\User;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class WebViewController extends Controller
@@ -35,5 +38,33 @@ class WebViewController extends Controller
     ];
 
     return view('android.index', $data);
+  }
+
+  public function binary()
+  {
+    $binary = Binary::where('sponsor', Auth::user()->id)->get();
+    $binary->map(function ($item) {
+      $item->userDownLine = User::find($item->user);
+    });
+
+    $data = [
+      'binary' => $binary
+    ];
+
+    return view('android.binary', $data);
+  }
+
+  public function ledger()
+  {
+    $ledger = Ledger::where('user', Auth::user()->id)->where('ledger_type', '!=', 0)->orderBy('id', 'desc')->get();
+    $ledger->map(function ($item) {
+      $item->user = User::find($item->user);
+    });
+
+    $data = [
+      'ledger' => $ledger
+    ];
+
+    return view('android.ledger', $data);
   }
 }
