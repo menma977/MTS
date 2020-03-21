@@ -260,7 +260,7 @@ class UserController extends Controller
       $imageName = time() . '.' . $request->identity_card_image_salve->extension();
 
       $request->identity_card_image_salve->move('img/ktp/user/', $imageName);
-      $user->identity_card_image_salve = $request->root() . 'img/ktp/user/' . $imageName;
+      $user->identity_card_image_salve = $request->root() . '/img/ktp/user/' . $imageName;
     }
     $user->save();
     return response()->json(['response' => $user], 200);

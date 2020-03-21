@@ -74,26 +74,10 @@
             </li>
             <li class="list-group-item">
               <b>
-                @lang('menu.user.province')
+                Alamat
               </b>
               <a class="float-right">
-                {{ $user->province ? $user->province : 'Belum di isi' }}
-              </a>
-            </li>
-            <li class="list-group-item">
-              <b>
-                @lang('menu.user.district')
-              </b>
-              <a class="float-right">
-                {{ $user->district ? $user->district : 'Belum di isi' }}
-              </a>
-            </li>
-            <li class="list-group-item">
-              <b>
-                @lang('menu.user.sub_district')
-              </b>
-              <a class="float-right">
-                {{ $user->sub_district ? $user->sub_district : 'Belum di isi' }}
+                {{ $user->province ? $user->address : 'Belum di isi' }}
               </a>
             </li>
             <li class="list-group-item">
@@ -108,32 +92,6 @@
           {{--          <a href="#" class="btn btn-warning btn-block">--}}
           {{--            <b>@lang('menu.edit') @lang('menu.user.index')</b>--}}
           {{--          </a>--}}
-        </div>
-      </div>
-
-      <div class="card card-teal">
-        <div class="card-header">
-          <h3 class="card-title">@lang('menu.user.address Details')</h3>
-        </div>
-        <div class="card-body">
-          <strong>
-            <i class="fas fa-map-marker-alt mr-1"></i>
-            @lang('menu.user.address')
-          </strong>
-          <p class="text-muted">
-            {{ $user->village }}
-          </p>
-          <p class="text-muted">
-            {{ $user->number_address }}
-          </p>
-          <hr>
-          <strong>
-            <i class="fas fa-map mr-1"></i>
-            Deskripsi Alamat
-          </strong>
-          <p class="text-muted">
-            {!! $user->description_address !!}
-          </p>
         </div>
       </div>
     </div>

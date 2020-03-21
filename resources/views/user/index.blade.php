@@ -137,26 +137,10 @@
                           </li>
                           <li class="list-group-item">
                             <b>
-                              @lang('menu.user.province')
+                              Alamat
                             </b>
                             <a class="float-right">
-                              {{ $item->province ? $item->province : 'Belum di isi' }}
-                            </a>
-                          </li>
-                          <li class="list-group-item">
-                            <b>
-                              @lang('menu.user.district')
-                            </b>
-                            <a class="float-right">
-                              {{ $item->district ? $item->district : 'Belum di isi' }}
-                            </a>
-                          </li>
-                          <li class="list-group-item">
-                            <b>
-                              @lang('menu.user.sub_district')
-                            </b>
-                            <a class="float-right">
-                              {{ $item->sub_district ? $item->sub_district : 'Belum di isi' }}
+                              {{ $item->province ? $item->address : 'Belum di isi' }}
                             </a>
                           </li>
                           <li class="list-group-item">

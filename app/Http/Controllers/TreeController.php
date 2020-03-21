@@ -157,7 +157,7 @@ class TreeController extends Controller
       $lastId = Tree::count();
 
       $tree = new Tree();
-      $tree->qr = $lastId;
+      $tree->qr = 'CODE-' .$lastId;
       $tree->code = 'QR' . date('YmdHis') . $lastId;
       $tree->save();
     }
