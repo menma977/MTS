@@ -319,6 +319,16 @@ class TreeController extends Controller
     return redirect()->back();
   }
 
+  public function showMap($id)
+  {
+    $tree = Tree::find(base64_decode($id));
+    $data = [
+      'tree' => $tree
+    ];
+
+    return \view('tree.map', $data);
+  }
+
   /**
    * Store a newly created resource in storage.
    *
@@ -339,6 +349,6 @@ class TreeController extends Controller
     $tree->y_fild = $request->lat;
     $tree->save();
 
-    return redirect()->back();
+    return redirect()->route('tree.index');
   }
 }

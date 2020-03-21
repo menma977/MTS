@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/android/binary.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/android/ledger.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/tree/map.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gallery/1584514136.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gallery/1584514143.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gallery/1584610797.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gallery/1584610804.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gallery/1584610812.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/front-end-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/front-end-header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/android.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/android.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/tree/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tree/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +165,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -173,11 +173,12 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\MTS" />
       <recent name="D:\GitHub\MTS\resources\views" />
       <recent name="D:\GitHub\MTS\resources\views\auth" />
       <recent name="D:\GitHub\MTS\resources\views\layouts" />
@@ -229,6 +230,9 @@
       <workItem from="1584681012205" duration="478000" />
       <workItem from="1584683027460" duration="4397000" />
       <workItem from="1584696015722" duration="11298000" />
+      <workItem from="1584719117733" duration="909000" />
+      <workItem from="1584720069863" duration="741000" />
+      <workItem from="1584720842442" duration="3722000" />
     </task>
     <servers />
   </component>
@@ -259,27 +263,38 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="459" y="118" key="FileChooserDialogImpl/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584515864823" />
-    <state width="1317" height="179" key="GridCell.Tab.0.bottom" timestamp="1583575595561">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1584719452351">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1317" height="179" key="GridCell.Tab.0.bottom/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1583575595561" />
-    <state width="1317" height="179" key="GridCell.Tab.0.center" timestamp="1583575595561">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584719452351" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1584719452350">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1317" height="179" key="GridCell.Tab.0.center/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1583575595561" />
-    <state width="1317" height="179" key="GridCell.Tab.0.left" timestamp="1583575595561">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584719452350" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1584719452350">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1317" height="179" key="GridCell.Tab.0.left/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1583575595561" />
-    <state width="1317" height="179" key="GridCell.Tab.0.right" timestamp="1583575595561">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584719452350" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1584719452350">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1317" height="179" key="GridCell.Tab.0.right/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1583575595561" />
-    <state x="1643" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1584603806845">
-      <screen x="1360" y="0" width="1024" height="728" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584719452350" />
+    <state x="184" y="7" key="SettingsEditor" timestamp="1584720819340">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="7" key="SettingsEditor/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584720819340" />
+    <state x="1550" y="7" key="SettingsEditor/1366.0.1366.728/0.0.1366.728@1366.0.1366.728" timestamp="1584720043034" />
+    <state x="378" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1584720844049">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="376" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584594532034" />
     <state x="1643" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@1360.0.1024.728" timestamp="1584603806845" />
+    <state x="378" y="188" key="com.intellij.ide.util.TipDialog/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584720844049" />
+    <state x="1744" y="188" key="com.intellij.ide.util.TipDialog/1366.0.1366.728/0.0.1366.728@1366.0.1366.728" timestamp="1584720070709" />
     <state x="376" y="96" width="737" height="606" key="find.popup" timestamp="1584703249095">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
@@ -288,5 +303,9 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="62" y="88" key="new project wizard/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584515904237" />
+    <state x="405" y="276" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1584722664965">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="405" y="276" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584722664965" />
   </component>
 </project>

@@ -40,7 +40,7 @@
               </li>
             @else
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('Home') }}">Home</a>
+                <a class="nav-link" href="{{ route('home') }}">Home</a>
               </li>
             @endguest
           </ul>

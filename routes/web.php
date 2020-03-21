@@ -47,6 +47,7 @@ Route::middleware(['online', 'auth'])->group(static function () {
     Route::post('/qr', 'TreeController@QRCodeList')->name('QRCodeList')->middleware('auth', 'role:1');
     Route::get('/qr/{id}', 'TreeController@QRCode')->name('QRCode')->middleware('auth', 'role:1');
     Route::post('/gallery/{id}', 'TreeController@uploadToGallery')->name('uploadToGallery')->middleware('auth', 'role:1');
+    Route::get('/map/{id}', 'TreeController@showMap')->name('showMap')->middleware('auth', 'role:1');
     Route::post('/save/map/{id}', 'TreeController@storeMap')->name('storeMap')->middleware('auth', 'role:1');
   });
 
