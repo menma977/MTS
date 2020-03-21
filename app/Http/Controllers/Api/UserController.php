@@ -291,12 +291,24 @@ class UserController extends Controller
         $user->address = $request->address;
       }
     }
-    if ($request->password) {
+    if ($request->password_lama) {
       $this->validate($request, [
-        'password' => 'required|string|min:6',
+        'password_lama' => 'required|string|min:6',
+        'password_baru' => 'required|string|min:6',
+        'konfirmasi_password_baru' => 'required|string|min:6|same:password_baru',
       ]);
       if ($user !== null) {
-        $user->password = bcrypt($request->password);
+        if (Hash::check($request->password_lama, $user->password)) {
+          $user->password = bcrypt($request->password_baru);
+        } else {
+          $data = [
+            'message' => 'The given data was invalid.',
+            'errors' => [
+              'password' => ['Password lama yang anda inputkan tidak valid'],
+            ],
+          ];
+          return response()->json($data, 500);
+        }
       }
     }
     $user->save();
