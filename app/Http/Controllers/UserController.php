@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Binary;
+use App\Model\Code;
 use App\Model\Ledger;
 use App\Model\Tree;
 use App\User;
@@ -34,7 +35,7 @@ class UserController extends Controller
    */
   public function index()
   {
-    $user = User::all();
+    $user = User::where('role', '!=', 3)->get();
     $user->map(function ($item) {
       $binary = Binary::where('user', $item->id)->first();
       if ($item->role == 1) {
@@ -202,6 +203,27 @@ class UserController extends Controller
       $user->status = 0;
     }
     $user->save();
+
+    return redirect()->back();
+  }
+
+  /**
+   * @param Request $request
+   * @return RedirectResponse
+   * @throws ValidationException
+   */
+  public function sendCode(Request $request)
+  {
+    $this->validate($request, [
+      'user' => 'required|exists:users,id',
+      'pin' => 'required|integer',
+    ]);
+
+    for ($i = 0; $i < $request->pin; $i++) {
+      $code = new Code();
+      $code->user = $request->user;
+      $code->save();
+    }
 
     return redirect()->back();
   }

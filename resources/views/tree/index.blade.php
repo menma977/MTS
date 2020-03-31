@@ -3,7 +3,7 @@
 @section('title')
   <div class="row mb-2">
     <div class="col-sm-6">
-      <h1>@lang('menu.list') Tree</h1>
+      <h1>@lang('menu.list') Pohon</h1>
     </div>
     <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
@@ -13,7 +13,7 @@
           </a>
         </li>
         <li class="breadcrumb-item active">
-          @lang('menu.Porang')
+          @lang('menu.Pohon')
         </li>
       </ol>
     </div>
@@ -28,7 +28,7 @@
           <i class="fas fa-boxes"></i>
         </div>
         <div class="info-box-content">
-          <div class="info-box-text">@lang('menu.amount') @lang('menu.Porang')</div>
+          <div class="info-box-text">@lang('menu.amount') @lang('menu.Pohon')</div>
           <div class="info-box-number">{{ $tree->count() }}</div>
         </div>
       </div>
@@ -66,7 +66,7 @@
     <div class="col-6 text-center">
       <a class="btn btn-app" data-toggle="modal" data-target="#modal-sm">
         <i class="fas fa-plus-square"></i>
-        @lang('menu.new Porang')
+        @lang('menu.new Pohon')
       </a>
     </div>
   </div>
@@ -76,14 +76,14 @@
         <div class="card card-outline card-teal">
           <div class="card-header">
             <button type="button" class="btn btn-block btn-info btn-xs collapsed" data-toggle="collapse"
-                    data-parent="#accordion" href="#newTree" aria-expanded="false">
-              @lang('menu.new Porang Request')
+                    data-parent="#accordion" href="#newPohon" aria-expanded="false">
+              @lang('menu.new Pohon Request')
             </button>
-            @if($order->where('status', 0)->count())
-              <div class="badge badge-success navbar-badge">{{ $order->where('status', 0)->count() }}</div>
+            @if($order->whereIn('status', [0, 99])->count())
+              <div class="badge badge-success navbar-badge">{{ $order->whereIn('status', [0, 99])->count() }}</div>
             @endif
           </div>
-          <div id="newTree" class="panel-collapse in collapse" style="">
+          <div id="newPohon" class="panel-collapse in collapse" style="">
             <div class="card-body">
               <div class="table-responsive">
                 <table id="list" class="table table-sm table-bordered table-striped">
@@ -97,11 +97,15 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach($order->where('status', 0) as $item)
+                  @foreach($order->whereIn('status', [0, 99]) as $item)
                     <tr class="text-center">
                       <td>{{ $loop->index + 1 }}</td>
                       <td>{{ $item->user ? $item->user->username : 'Belum Terpakai' }}</td>
-                      <td>Rp {{ number_format($item->total * 1500000, 0, ',', '.') }}</td>
+                      @if($item->status == 99)
+                        <td>Rp {{ number_format(($item->total * 1500000) + 300000, 0, ',', '.') }}</td>
+                      @else
+                        <td>Rp {{ number_format($item->total * 1500000, 0, ',', '.') }}</td>
+                      @endif
                       <td>{{ $item->total }}</td>
                       <td>
                         <div class="btn-group">
@@ -125,7 +129,7 @@
           <div class="card-header">
             <button type="button" class="btn btn-block btn-primary btn-xs collapsed" data-toggle="collapse"
                     data-parent="#accordion" href="#tree" aria-expanded="false">
-              @lang('menu.Porang List Already Processed')
+              @lang('menu.Pohon List Already Processed')
             </button>
           </div>
           <div id="tree" class="panel-collapse in collapse" style="">
@@ -142,7 +146,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach($order->where('status', '!=', 0) as $item)
+                  @foreach($order->whereIn('status', [1, 2]) as $item)
                     <tr class="text-center">
                       <td>{{ $loop->index + 1 }}</td>
                       <td>{{ $item->user ? $item->user->username : 'Belum Terpakai' }}</td>
@@ -162,7 +166,7 @@
     <div class="col-md-12">
       <div class="card card-outline card-teal">
         <div class="card-header">
-          <h3 class="card-title">@lang('menu.list') @lang('menu.Porang')</h3>
+          <h3 class="card-title">@lang('menu.list') @lang('menu.Pohon')</h3>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -177,7 +181,7 @@
                 <th style="width: 50px">@lang('menu.send')</th>
                 <th style="width: 50px">Lokasi</th>
                 <th style="width: 100px">@lang('menu.yield')</th>
-                <th style="width: 5px">Status</th>
+                <th style="width: 100px">Bayar</th>
               </tr>
               </thead>
               <tbody>
@@ -209,14 +213,26 @@
                   @if($item->yield)
                     <td>Rp {{ number_format($item->yield, 0, ',', '.') }}</td>
                   @else
-                    <td>
-                      <button type="button" class="btn btn-block btn-success btn-xs" data-toggle="modal"
-                              data-target="#modal-yild{{ $item->code }}">
-                        Panen
-                      </button>
-                    </td>
+                    @if($item->user == null)
+                      <td>Belum Terpakai</td>
+                    @else
+                      <td>
+                        <button type="button" class="btn btn-block btn-success btn-xs" data-toggle="modal"
+                                data-target="#modal-yild{{ $item->code }}">
+                          Panen
+                        </button>
+                      </td>
+                    @endif
                   @endif
-                  <td>{{ $item->status }}</td>
+                  @if($item->yield && $item->user != null)
+                    <td>
+                      <a href="{{ route('tree.pay', $item->id) }}" class="btn btn-block btn-warning btn-xs">
+                        Terbayar
+                      </a>
+                    </td>
+                  @else
+                    <td>Belum Terpakai</td>
+                  @endif
                 </tr>
                 <div class="modal fade" id="modal-gallery{{ $item->code }}">
                   <div class="modal-dialog modal-xl">
@@ -307,7 +323,7 @@
     <div class="modal-dialog modal-sm">
       <div class="modal-content bg-success">
         <div class="modal-header">
-          <h4 class="modal-title">@lang('menu.create a Porang')</h4>
+          <h4 class="modal-title">@lang('menu.create a Pohon')</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             &times;
           </button>
@@ -316,8 +332,8 @@
           @csrf
           <div class="modal-body">
             <div class="form-group">
-              <label for="count">@lang('menu.amount') Porang</label>
-              <input type="text" class="form-control" placeholder="Jumlah Porang" name="count">
+              <label for="count">@lang('menu.amount') Pohon</label>
+              <input type="text" class="form-control" placeholder="Jumlah Pohon" name="count">
             </div>
           </div>
           <div class="modal-footer justify-content-between">
@@ -343,7 +359,7 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="count">@lang('menu.amount') QR</label>
-              <input type="text" class="form-control" placeholder="Jumlah Porang" name="count">
+              <input type="text" class="form-control" placeholder="Jumlah Pohon" name="count">
             </div>
           </div>
           <div class="modal-footer justify-content-between">
@@ -382,56 +398,56 @@
   <!-- Select2 -->
   <script src="{{ asset('end/back/plugins/select2/js/select2.full.min.js') }}"></script>
   <script>
-    $(function () {
-      $("#list").DataTable();
-      $("#list2").DataTable();
-      $("#list3").DataTable();
-      $('.select2').select2({
-        theme: "classic"
-      });
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 5000
-      });
-      @error('user')
-      Toast.fire({
-        type: 'error',
-        title: '{{ $message }}'
-      });
-      @enderror
-      @error('count')
-      Toast.fire({
-        type: 'error',
-        title: '{{ str_replace('count', 'jumlah', $message) }}'
-      });
-      @enderror
-      @error('img')
-      Toast.fire({
-        type: 'error',
-        title: '{{ $message }}'
-      });
-      @enderror
-      @error('yiled')
-      Toast.fire({
-        type: 'error',
-        title: '{{ $message }}'
-      });
-      @enderror
-      @error('long')
-      Toast.fire({
-        type: 'error',
-        title: '{{ $message }}'
-      });
-      @enderror
-      @error('lat')
-      Toast.fire({
-        type: 'error',
-        title: '{{ $message }}'
-      });
-      @enderror
+      $(function () {
+          $("#list").DataTable();
+          $("#list2").DataTable();
+          $("#list3").DataTable();
+          $('.select2').select2({
+              theme: "classic"
+          });
+          const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 5000
+          });
+        @error('user')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
+        @error('count')
+        Toast.fire({
+            type: 'error',
+            title: '{{ str_replace('count', 'jumlah', $message) }}'
+        });
+        @enderror
+        @error('img')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
+        @error('yiled')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
+        @error('long')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
+        @error('lat')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
 
-    });
+      });
   </script>
 @endsection

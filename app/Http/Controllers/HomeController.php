@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Code;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\JsonResponse;
@@ -26,7 +27,21 @@ class HomeController extends Controller
    */
   public function index()
   {
-    return view('home');
+    $code = Code::all();
+    $code->map(function ($item) {
+      if ($item->user) {
+        $item->user = User::find($item->user);
+      }
+      if ($item->send) {
+        $item->send = User::find($item->send);
+      }
+    });
+
+    $data = [
+      'code' => $code
+    ];
+
+    return view('home', $data);
   }
 
   /**

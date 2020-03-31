@@ -16,7 +16,7 @@
         </li>
         <li class="breadcrumb-item active">
           <a href="{{ route('tree.index') }}">
-            @lang('menu.Porang')
+            @lang('menu.Pohon')
           </a>
         </li>
         <li class="breadcrumb-item active">
@@ -68,10 +68,11 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <button type="button" class="btn btn-block btn-sm btn-success" data-toggle="modal"
-                        data-target="#modal-success{{ $item->code }}">
-                  Generate Certificat
-                </button>
+                <a href="{{ route('tree.generateData', base64_encode($item->id)) }}" target="_blank">
+                  <button type="button" class="btn btn-block btn-sm btn-success">
+                    Generate Certificat
+                  </button>
+                </a>
               </div>
               <div class="card-tools col-md-1">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">

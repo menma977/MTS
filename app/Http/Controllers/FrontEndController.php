@@ -17,10 +17,15 @@ class FrontEndController extends Controller
     $imageName = array();
     $imagePartner = array();
 
+    $startLimit = 0;
+    $limit = 50;
     $files = File::files('gallery');
     foreach ($files as $id => $value) {
-      $file = pathinfo($value);
-      $imageName[$id] = $file['basename'];
+      if ($startLimit <= $limit) {
+        $file = pathinfo($value);
+        $imageName[$id] = $file['basename'];
+      }
+      $startLimit++;
     }
 
     foreach ($user as $item) {

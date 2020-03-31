@@ -5,28 +5,24 @@
   <div id="oc-fullslider" class="banner">
     <div class="owl-carousel owl-theme full-screen">
       <div class="item">
-        <img src="{{ asset('end/front/images/dummy-img-1920x900.jpg') }}" alt="Slider">
+        <img src="{{ asset('end/front/images/dummy-img-1920x900.png') }}" alt="Slider">
         <div class="overlay-bg"></div>
         <div class="container d-flex align-items-center text-center">
           <div class="wrap-caption">
-            <p class="caption-supheading">MTS</p>
-            <h1 class="caption-heading">Mita Tani Sejahtera</h1>
-            <p>Long Description</p>
-            <a href="#" class="btn btn-secondary">MORE ABOUT US</a>
-            <a href="#" class="btn btn-primary">HIRE US NOW</a>
+            <h1 class="caption-heading">MTS</h1>
+            <p>Mita Tani Sejahtera</p>
+            <a href="#" class="btn btn-primary">Dapatkan Aplikasinya Sekarang</a>
           </div>
         </div>
       </div>
       <div class="item">
-        <img src="{{ asset('end/front/images/dummy-img-1920x900-2.jpg') }}" alt="Slider">
+        <img src="{{ asset('end/front/images/dummy-img-1920x900-2.png') }}" alt="Slider">
         <div class="overlay-bg"></div>
         <div class="container d-flex align-items-center text-center">
           <div class="wrap-caption">
-            <p class="caption-supheading">Title</p>
-            <h1 class="caption-heading">Description</h1>
-            <p>Long Description</p>
-            <a href="#" class="btn btn-secondary">MORE ABOUT US</a>
-            <a href="#" class="btn btn-primary">HIRE US NOW</a>
+            <h1 class="caption-heading">MTS</h1>
+            <p>Mita Tani Sejahtera</p>
+            <a href="#" class="btn btn-primary">Dapatkan Aplikasinya Sekarang</a>
           </div>
         </div>
       </div>
@@ -38,9 +34,7 @@
   <div class="section">
     <div class="content-wrap">
       <div class="container">
-
         <div class="row">
-
           <div class="col-sm-12 col-md-12">
             <h2 class="section-heading text-center mb-4">
               Why Choose Us?
@@ -49,88 +43,95 @@
               Dengan adanya komunitas petani porang akan bisa menjadi sebuah satu kesatuan yang akan bisa meningkatkan
               kesejah teraan para petani.
             </p>
+            <p class="subheading text-center mb-5">
+              Dengan bergabung bersama Mitra Tani Sejahtera, anda dapat memilih beberapa system kemitraan dengan
+              keuntungan luar biasa di antaranya
+            </p>
           </div>
-
         </div>
-
         <div class="row">
           <!-- Item 1 -->
-          <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+          <div class="col-md-4 mb-4">
             <div class="box-icon-1 text-center">
               <div class="icon">
                 <i class="fa fa-globe"></i>
               </div>
               <div class="body-content">
-                <h4>Title</h4>
-                <p>Description</p>
+                <h4>Mitra Mandiri</h4>
+                <p>
+                  Keuntungannya yaitu bisa membeli bibit super di koperasi, mendapat team pendamping, jaminan pembelian
+                  hasil panen oleh koperasi dan hasil panen 100% milik mitra.
+                </p>
               </div>
             </div>
           </div>
           <!-- Item 2 -->
-          <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+          <div class="col-md-4 mb-4">
             <div class="box-icon-1 text-center">
               <div class="icon">
                 <i class="fa fa-certificate"></i>
               </div>
               <div class="body-content">
-                <h4>Certified Expert</h4>
-                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
-                  eiusmod.</p>
+                <h4>Mitra luar biasa</h4>
+                <p>
+                  Selain mendapatkan keuntungan seperti MItra Mandiri, Mitra Luar Biasa juga akan mendapat keuntungan
+                  lain yaitu lahan disediakan, bebas tenaga kerja tanam dan panen, perawatan, dan pupuk.
+                </p>
               </div>
             </div>
           </div>
           <!-- Item 3 -->
-          <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+          <div class="col-md-4 mb-4">
             <div class="box-icon-1 text-center">
               <div class="icon">
                 <i class="fa fa-thumbs-up"></i>
               </div>
               <div class="body-content">
-                <h4>Affordabel Pricing</h4>
-                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
-                  eiusmod.</p>
+                <h4>Mitra agen</h4>
+                <p>
+                  Mitra Agen akan mendapatkan 3 jenis keuntungan yaitu Bonus Sponsor, Bonus Level (awal) Bersama Sponsor
+                  per 6 Bulan Masa Panen, dan Bonus Royalti.
+                </p>
               </div>
             </div>
           </div>
-          <!-- Item 4 -->
-          <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-            <div class="box-icon-1 text-center">
-              <div class="icon">
-                <i class="fa fa-star"></i>
-              </div>
-              <div class="body-content">
-                <h4>High Quality Services</h4>
-                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
-                  eiusmod.</p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
   </div>
 
   <!-- CTA -->
-  <div class="section bgi-cover-center" data-background="{{ asset('end/front/images/dummy-img-1920x900-3.jpg') }}">
+  <div class="section bgi-cover-center" style="background: #222222">
     <div class="content-wrap py-0">
       <div class="container">
         <div class="row align-items-end">
           <div class="col-sm-12 col-md-12 col-lg-7">
             <div class="text-white mt-5">
               <h1 class="section-heading no-after text-primary">
-                Have Problem with your Gardening?
+                FUN FACT
               </h1>
-              <p class="mb-5">Sed orci dolor, pulvinar nec luctus a, malesuada ac nisl. Aliquam eleifend et dui et
-                suscipit. Nam semper accumsan ante, ac dapibus urna dapibus et.</p>
+              <p class="mb-5">
+                Banyak orang menyamakan porang dengan suweg karena tampilannya yang nyaris serupa.Keduanya sama-sama
+                memiliki batang tunggal bercorak belang hijau putih.Batang memiliki cabang-cabang sebagai tangkai daun.
+
+                Mengutip situs Tanobat, yang membedakan porang dengan suweg adalah adanya tonjolan cokelat kehitaman
+                pada pertemuan cabang dan daun pada porang.Tonjolan ini merupakan perkembangbiakan vegetatif porang.
+
+                Porang tersebar mulai dari Kepulauan Andaman, India, kemudian ke Myanmar, Thailand, dan Indonesia.Porang
+                bisa tumbuh di sembarang lokasi seperti pinggir hutan jati, bawah rumpun bambu, tepi sungai, semak
+                belukar, atau di bawah aneka pohon rindang.
+
+                Berat umbi porang bisa mencapai 12 kilogram.Umbi umumnya berwarna kuning cerah, berbeda dengan suweg
+                yang berwarna putih.
+
+              </p>
             </div>
-            <a href="#" class="btn btn-primary">CONTACT NOW</a>
             <div class="spacer-content"></div>
           </div>
 
           <div class="col-sm-12 col-md-12 col-lg-5">
             <div class="img-cta">
-              <img src="{{ asset('end/front/images/dummy-img-400x400.jpg') }}" alt="" class="img-fluid">
+              <img src="{{ asset('end/front/images/dummy-img-400x400.png') }}" alt="" class="img-fluid">
             </div>
           </div>
         </div>
@@ -142,17 +143,17 @@
   <div class="section">
     <div class="content-wrap">
       <div class="container">
-
         <div class="row">
-
           <div class="col-sm-12 col-md-12">
             <h2 class="section-heading text-center mb-4">
-              Our Services
+              Beragam manfaat tanaman porang
             </h2>
-            <p class="subheading text-center mb-5">Every case is very important to us and we always take care of them
-              seriously.</p>
+            <p class="subheading text-center mb-5">
+              Tanaman umbi satu ini termasuk ke dalam jenis tanaman obat. Glukomanan yang terkandung dalam tanaman
+              porang menjadi salah satu nutrisi penting yang dibutuhkan tubuh.Setiap 100 gram porang hanya mengandung 3
+              kalori.
+            </p>
           </div>
-
         </div>
 
         <div class="row">
@@ -160,12 +161,18 @@
           <div class="col-sm-12 col-md-12 col-lg-4 mb-4">
             <div class="box-image-1">
               <div class="media-box">
-                <img src="{{ asset('end/front/images/dummy-img-600x400.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('end/front/images/dummy-img-600x400.png') }}" class="img-fluid" alt="">
               </div>
               <div class="body-content">
                 <h4>Landscape Design</h4>
-                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
-                  eiusmod.</p>
+                <p>
+                  Glukomanan pada porang mampu mengurangi kadar kolesterol dan memberikan rasa kenyang lebih lama di
+                  perut. Karena rendah kalori, porang tidak akan mengganggu Anda yang tengah menjalankan program
+                  diet.
+                </p>
+                <p>
+                  Tepung porang rendah kadar indeks glikemik sehingga aman dikonsumsi bagi penderita diabetes.
+                </p>
               </div>
             </div>
           </div>
@@ -173,12 +180,18 @@
           <div class="col-sm-12 col-md-12 col-lg-4 mb-4">
             <div class="box-image-1">
               <div class="media-box">
-                <img src="{{ asset('end/front/images/dummy-img-600x400.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('end/front/images/dummy-img-600x400-2.png') }}" class="img-fluid" alt="">
               </div>
               <div class="body-content">
                 <h4>Planting & Removal</h4>
-                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
-                  eiusmod.</p>
+                <p>
+                  Dengan kandungan serat pangan yang tinggi, porang bisa membantu meningkatkan daya tahan tubuh dari
+                  berbagai penyakit seperti kanker usus besar, penyakit kardiovaskular, dan kencing manis.
+                </p>
+                <p>
+                  Di Filipina, tepung porang digunakan untuk pengganti terigu dan bahan baku roti. Rasanya yang netral
+                  membuatnya muda dipadupadankan dengan bahan makanan lain.
+                </p>
               </div>
             </div>
           </div>
@@ -186,12 +199,16 @@
           <div class="col-sm-12 col-md-12 col-lg-4 mb-4">
             <div class="box-image-1">
               <div class="media-box">
-                <img src="{{ asset('end/front/images/dummy-img-600x400.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('end/front/images/dummy-img-600x400-3.png') }}" class="img-fluid" alt="">
               </div>
               <div class="body-content">
                 <h4>Garden Care</h4>
-                <p>Dolor sit amet dolor gravida placerat liberolorem ipsum dolor consectetur adipiscing elit, sed do
-                  eiusmod.</p>
+                <p>
+                  Di Jepang, porang dimanfaatkan untuk campuran makanan mi shirataki dan konnyaku.
+                </p>
+                <p>
+                  Di industri obat-obatan, glukomanan dimanfaatkan untuk pembentuk kapsul pada obat.
+                </p>
               </div>
             </div>
           </div>
@@ -233,143 +250,6 @@
     </div>
   </div>
 
-  <!-- OUR LATEST BLOG -->
-  <div class="section">
-    <div class="content-wrap">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-sm-12 col-md-12">
-            <h2 class="section-heading text-center mb-4">
-              OUR LATEST BLOG
-            </h2>
-            <p class="subheading text-center mb-5">Start growing with Try Html Template</p>
-          </div>
-
-        </div>
-        <div class="row">
-
-          <!-- Item 1 -->
-          <div class="col-12 col-md-6 mb-3">
-            <div class="rs-news-1">
-              <div class="media-box">
-                <a href="#">
-                  <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
-                </a>
-              </div>
-              <div class="body-box">
-                <div class="meta-date"><span>30</span>May</div>
-                <div class="title"><a href="#">Why you have difficult to clean your lawn</a></div>
-                <p>We provide high quality design at vero eos et accusamus et iusto odio dignissimos ducimus qui
-                  blanditiis praesentium voluptatum deleniti atque corrupti quos dolores...</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="col-12 col-md-6 mb-3">
-            <div class="rs-news-1">
-              <div class="media-box">
-                <a href="#">
-                  <img src="{{ asset('end/front/images/dummy-img-900x600.jpg') }}" alt="" class="img-fluid">
-                </a>
-              </div>
-              <div class="body-box">
-                <div class="meta-date"><span>02</span>Des</div>
-                <div class="title"><a href="#">We Open Recruitment for Landscaping</a></div>
-                <p>We provide high quality design at vero eos et accusamus et iusto odio dignissimos ducimus qui
-                  blanditiis praesentium voluptatum deleniti atque corrupti quos dolores...</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- OUR TESTIMONIALS -->
-  <div class="section bgi-cover-center" data-background="{{ asset('end/front/images/dummy-img-1920x900-3.jpg') }}">
-    <div class="content-wrap">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-12">
-            <h2 class="section-heading text-center text-white">
-              Happy Costumers
-            </h2>
-            <p class="subheading text-center mb-5 text-white">Every case is very important to us and we always take care
-              of them seriously.</p>
-          </div>
-        </div>
-        <div class="row">
-
-          <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
-            <div id="testimonial" class="owl-carousel owl-theme owl-light">
-              <!-- Item 1 -->
-              <div class="item">
-                <div class="rs-box-testimony">
-
-                  <div class="media-box">
-                    <img src="{{ asset('end/front/images/dummy-img-400x400.jpg') }}" alt="" class="rounded-circle">
-                  </div>
-                  <div class="quote-box">
-                    <blockquote class="quote">
-                      Teritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                      accusantium dolore mque laudantium, totam rem aperiam
-                    </blockquote>
-                    <div class="quote-name">
-                      Johnathan Doel <span>Businessman</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <!-- Item 2 -->
-              <div class="item">
-                <div class="rs-box-testimony">
-
-                  <div class="media-box">
-                    <img src="{{ asset('end/front/images/dummy-img-400x400.jpg') }}" alt="" class="rounded-circle">
-                  </div>
-                  <div class="quote-box">
-                    <blockquote class="quote">
-                      Teritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                      accusantium dolore mque laudantium, totam rem aperiam
-                    </blockquote>
-                    <div class="quote-name">
-                      Alisha Doel <span>Businessman</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <!-- Item 3 -->
-              <div class="item">
-                <div class="rs-box-testimony">
-
-                  <div class="media-box">
-                    <img src="{{ asset('end/front/images/dummy-img-400x400.jpg') }}" alt="" class="rounded-circle">
-                  </div>
-                  <div class="quote-box">
-                    <blockquote class="quote">
-                      Teritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                      accusantium dolore mque laudantium, totam rem aperiam
-                    </blockquote>
-                    <div class="quote-name">
-                      Johny Doel <span>Businessman</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- OUR PRICING PLANS -->
   <div class="section">
     <div class="content-wrap">
@@ -378,14 +258,17 @@
 
           <div class="col-sm-12 col-md-12">
             <h2 class="section-heading text-center mb-4">
-              Our Pricing Plans
+              Kemitraan
             </h2>
-            <p class="subheading text-center mb-5">Start growing with Try Html Template</p>
+            <p class="subheading text-center mb-5">
+              Dengan menjadi anggota koperasi membayar simpanan wajib sebesar 300.000,- dan ikut program kemitraan tanam
+              porang di koprasi BUMI RAHAYU minimal 2 paket (Rp.1.500.000,- X 2 = Rp.3.000.000 )maka secara otomatis
+              anda sudah terdaftar jadi agen mitra kami dan bisa menjual produk koperasi .ada beberapa system kemitraan
+              di sini di antaranya
+            </p>
           </div>
-
         </div>
         <div class="row">
-
           <!-- Item 1 -->
           <div class="col-sm-12 col-md-12 col-lg-4">
             <div class="rs-pricing-1 bg-primary-1 mb-5">
@@ -405,7 +288,6 @@
               </div>
             </div>
           </div>
-
           <!-- Item 2 -->
           <div class="col-sm-12 col-md-12 col-lg-4">
             <div class="rs-pricing-1 bg-primary-1 mb-5">
@@ -430,7 +312,6 @@
               </div>
             </div>
           </div>
-
           <!-- Item 3 -->
           <div class="col-sm-12 col-md-12 col-lg-4">
             <div class="rs-pricing-1 bg-primary-1 mb-5">
@@ -458,37 +339,6 @@
               </div>
             </div>
           </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- OUR PARTNERS -->
-  <div class="section bg-gray-light">
-    <div class="content-wrap py-5">
-      <div class="container">
-
-        <div class="row gutter-5">
-          <div class="col-6 col-md-4 col-lg-2">
-            <a href="#"><img src="{{ asset('end/front/images/client1.png') }}" alt="" class="img-fluid img-border"></a>
-          </div>
-          <div class="col-6 col-md-4 col-lg-2">
-            <a href="#"><img src="{{ asset('end/front/images/client2.png') }}" alt="" class="img-fluid img-border"></a>
-          </div>
-          <div class="col-6 col-md-4 col-lg-2">
-            <a href="#"><img src="{{ asset('end/front/images/client3.png') }}" alt="" class="img-fluid img-border"></a>
-          </div>
-          <div class="col-6 col-md-4 col-lg-2">
-            <a href="#"><img src="{{ asset('end/front/images/client4.png') }}" alt="" class="img-fluid img-border"></a>
-          </div>
-          <div class="col-6 col-md-4 col-lg-2">
-            <a href="#"><img src="{{ asset('end/front/images/client5.png') }}" alt="" class="img-fluid img-border"></a>
-          </div>
-          <div class="col-6 col-md-4 col-lg-2">
-            <a href="#"><img src="{{ asset('end/front/images/client6.png') }}" alt="" class="img-fluid img-border"></a>
-          </div>
-
         </div>
       </div>
     </div>

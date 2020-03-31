@@ -1,7 +1,7 @@
 <aside class="main-sidebar elevation-4 sidebar-light-teal">
   <a href="{{ url('/') }}"
      class="brand-link">
-    <img src="{{ asset('img/mts_top.png') }}" alt="MTS" class="brand-image img-circle elevation-3"
+    <img src="{{ asset('img/logo.png') }}" alt="MTS" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     <span class="brand-text font-weight-light">Mita Tani Sejahtera</span>
   </a>
@@ -51,7 +51,7 @@
                 <span class="badge badge-success right">{{ $tree }}</span>
               @endif
               <p>
-                Menu Porang
+                Menu Pohon
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -61,7 +61,7 @@
                    class="nav-link {{ request()->is(['tree']) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    @lang('menu.Porang')
+                    @lang('menu.Pohon')
                     @if($tree)
                       <span class="badge badge-success right">{{ $tree }}</span>
                     @endif

@@ -24,6 +24,7 @@ Route::group(['prefix' => 'config', 'as' => 'config.'], static function () {
 Auth::routes(['register' => false]);
 
 Route::middleware(['online', 'auth'])->group(static function () {
+  Route::get('/pin', 'WebViewController@pin')->name('pin')->middleware('auth');
 
   Route::get('/home', 'HomeController@index')->name('home');
 
@@ -35,10 +36,12 @@ Route::middleware(['online', 'auth'])->group(static function () {
     Route::get('/update/{id}/{status}', 'UserController@update')->name('update')->middleware('auth', 'role:1');
     Route::post('/role/update/{id}', 'UserController@roleUpdate')->name('roleUpdate')->middleware('auth', 'role:1');
     Route::get('/delete/{id}', 'UserController@destroy')->name('delete')->middleware('auth', 'role:1');
+    Route::post('/pin/send', 'UserController@sendCode')->name('sendCode')->middleware('auth', 'role:1');
   });
 
   Route::group(['prefix' => 'tree', 'as' => 'tree.'], static function () {
     Route::get('/', 'TreeController@index')->name('index')->middleware('auth', 'role:1');
+    Route::get('/pey/{id}', 'TreeController@pay')->name('pay')->middleware('auth', 'role:1');
     Route::post('/store', 'TreeController@store')->name('store')->middleware('auth', 'role:1');
     Route::get('/show/{username}', 'TreeController@show')->name('show')->middleware('auth', 'role:1');
     Route::post('/harvest/{id}', 'TreeController@harvest')->name('harvest')->middleware('auth', 'role:1');
@@ -49,6 +52,7 @@ Route::middleware(['online', 'auth'])->group(static function () {
     Route::post('/gallery/{id}', 'TreeController@uploadToGallery')->name('uploadToGallery')->middleware('auth', 'role:1');
     Route::get('/map/{id}', 'TreeController@showMap')->name('showMap')->middleware('auth', 'role:1');
     Route::post('/save/map/{id}', 'TreeController@storeMap')->name('storeMap')->middleware('auth', 'role:1');
+    Route::get('/certivicate/{id}', 'TreeController@generateData')->name('generateData')->middleware('auth', 'role:1');
   });
 
   Route::group(['prefix' => 'ledger', 'as' => 'ledger.'], static function () {

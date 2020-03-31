@@ -53,7 +53,7 @@
               @endif
               @if($item->ledger_type == 0)
                 <td>
-                  <div class="badge bg-success">buy</div>
+                  <div class="badge bg-success">Beli</div>
                 </td>
               @elseif($item->ledger_type == 1)
                 <td>
@@ -66,6 +66,10 @@
               @elseif($item->ledger_type == 3)
                 <td>
                   <div class="badge bg-primary">Bonus Royalty</div>
+                </td>
+              @elseif($item->ledger_type == 5)
+                <td>
+                  <div class="badge bg-success">Panen</div>
                 </td>
               @else
                 <td>

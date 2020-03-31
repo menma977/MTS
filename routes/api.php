@@ -20,7 +20,8 @@ Route::middleware('auth:api')->group(function () {
   Route::group(['prefix' => 'android', 'as' => 'android.'], static function () {
     Route::get('/gallery/{id}', 'WebViewController@gallery')->name('gallery')->middleware('auth');
     Route::get('/binary', 'WebViewController@binary')->name('binary')->middleware('auth');
-    Route::get('/ledger', 'WebViewController@ledger')->name('ledger')->middleware('auth');
+    Route::get('/ledger/{type}', 'WebViewController@ledger')->name('ledger')->middleware('auth');
+    Route::get('/pin', 'WebViewController@pin')->name('pin')->middleware('auth');
   });
 
   Route::post('register', 'Api\UserController@register');

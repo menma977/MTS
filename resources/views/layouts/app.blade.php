@@ -10,7 +10,7 @@
   <title>MTS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Favicon icon -->
-  <link rel="shortcut icon" href="{{ asset('img/mts_top.png') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
 @yield('startCSS')
 <!-- Font Awesome -->

@@ -12,10 +12,10 @@
   <!-- ==============================================
   Favicons
   =============================================== -->
-  <link rel="shortcut icon" href="{{ asset('img/mts_top.png') }}">
-  <link rel="apple-touch-icon" href="{{ asset('img/mts_top.png') }}">
-  <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/mts_top.png') }}">
-  <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/mts_top.png') }}">
+  <link rel="shortcut icon" href="{{ asset('img/logo.png') }}">
+  <link rel="apple-touch-icon" href="{{ asset('img/logo.png') }}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/logo.png') }}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/logo.png') }}">
 
   <!-- ==============================================
   CSS VENDOR
@@ -52,74 +52,40 @@
 <div class="footer">
   <div class="content-wrap pb-0">
     <div class="container">
-
       <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-3">
+        <div class="col-md-4">
           <div class="footer-item">
-            <img src="{{ asset('end/front/images/logo_w.png') }}" alt="logo bottom" class="logo-bottom">
+            <img src="{{ asset('img/logo.png') }}" alt="logo bottom" class="logo-bottom"
+                 style="width: 80px; height: 80px">
             <div class="spacer-30"></div>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-              laoreet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
-            <div class="sosmed-icon icon-bg-primary d-inline-flex">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-              <a href="#"><i class="fa fa-pinterest"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-            </div>
+            <p>
+              MTS ( mita tani sejahtera ) adalah komunitas kemitraan petani porang yang di bawah naungan koperasi serba
+              usaha BUMI RAHAYU badan hukum BH: 23/BH/XVI.17/XI/2014
+            </p>
+            {{--            <div class="sosmed-icon icon-bg-primary d-inline-flex">--}}
+            {{--              <a href="#"><i class="fa fa-facebook"></i></a>--}}
+            {{--              <a href="#"><i class="fa fa-twitter"></i></a>--}}
+            {{--              <a href="#"><i class="fa fa-instagram"></i></a>--}}
+            {{--              <a href="#"><i class="fa fa-pinterest"></i></a>--}}
+            {{--              <a href="#"><i class="fa fa-linkedin"></i></a>--}}
+            {{--            </div>--}}
           </div>
         </div>
 
-        <div class="col-sm-6 col-md-6 col-lg-3">
+        <div class="col-md-4">
           <div class="footer-item">
             <div class="footer-title">
               Contact Info
             </div>
-
             <div class="row mb-3">
               <div class="col-5">Address :</div>
-              <div class="col-7">-</div>
+              <div class="col-7">RT.001 / RW. 003 Denguk kecamatan karangjati kabupaten ngawi kode pos 63284</div>
             </div>
-            <div class="row mb-3">
-              <div class="col-5">Office :</div>
-              <div class="col-7">-</div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-5">Fax :</div>
-              <div class="col-7">-</div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-5">Email :</div>
-              <div class="col-7">-</div>
-            </div>
-
           </div>
         </div>
 
-        <div class="col-sm-6 col-md-6 col-lg-3">
-          <div class="footer-item">
-            <div class="footer-title">
-              Opening Hours
-            </div>
-
-            <div class="row mb-3">
-              <div class="col-5">Mon - Sat :</div>
-              <div class="col-7">08:00 - 17:00</div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-5">Sunday :</div>
-              <div class="col-7">09:00 - 15:00</div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-5">Friday :</div>
-              <div class="col-7">Closed</div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-6 col-lg-3">
-          <img src="{{ asset('end/front/images/dummy-img-600x800.jpg') }}" alt="" class="img-fluid">
+        <div class="col-md-4">
+          <img src="{{ asset('end/front/images/dummy-img-600x800.png') }}" alt="" class="img-fluid">
         </div>
       </div>
     </div>

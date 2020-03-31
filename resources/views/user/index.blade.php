@@ -21,6 +21,48 @@
 @endsection
 
 @section('content')
+{{--  <div class="row">--}}
+{{--    <div class="col-md-12">--}}
+{{--      <a href="#" class="btn btn-app" data-toggle="modal" data-target="#modal-code">--}}
+{{--        <i class="fas fa-edit"></i>--}}
+{{--        Kirim Pin--}}
+{{--      </a>--}}
+{{--    </div>--}}
+{{--  </div>--}}
+
+  <div class="modal fade" id="modal-code">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content card card-outline card-teal">
+        <div class="modal-header">
+          <h4 class="modal-title">Kirim Pin Ke User</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{ route('user.sendCode') }}" method="POST">
+          @csrf
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <select class="form-control select2 select2-teal" data-dropdown-css-class="select2-teal" name="user">
+                @foreach($users as $item)
+                  <option value="{{ $item->id }}">{{ $item->username }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pin">Total PIN</label>
+              <input type="number" class="form-control" name="pin" placeholder="Jumlah Pin EX: 1">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-block btn-success btn-xs">Success</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div class="card card-outline card-teal">
     <div class="card-body">
       <div class="table-responsive">
@@ -237,16 +279,37 @@
   <link rel="stylesheet" href="{{ asset('end/back/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
   <!-- Toastr -->
   <link rel="stylesheet" href="{{ asset('end/back/plugins/toastr/toastr.min.css') }}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('end/back/plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('end/back/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+  <style>
+    .select2-selection__rendered {
+      line-height: 25px !important;
+    }
+
+    .select2-container .select2-selection--single {
+      height: 35px !important;
+    }
+
+    .select2-selection__arrow {
+      height: 35px !important;
+    }
+  </style>
 @endsection
 
 @section('endJS')
   <!-- DataTables -->
   <script src="{{ asset('end/back/plugins/datatables/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('end/back/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+  <!-- Select2 -->
+  <script src="{{ asset('end/back/plugins/select2/js/select2.full.min.js') }}"></script>
   <!-- Toastr -->
   <script src="{{ asset('end/back/plugins/toastr/toastr.min.js') }}"></script>
   <script>
       $(function () {
+          //Initialize Select2 Elements
+          $('.select2').select2();
+
           $("#list").DataTable();
 
           const Toast = Swal.mixin({
@@ -256,6 +319,18 @@
               timer: 5000
           });
         @error('img')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
+        @error('user')
+        Toast.fire({
+            type: 'error',
+            title: '{{ $message }}'
+        });
+        @enderror
+        @error('pin')
         Toast.fire({
             type: 'error',
             title: '{{ $message }}'

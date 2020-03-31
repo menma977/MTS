@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Tree
  * @package App\Model
- * @property int user_id
+ * @property int user
  * @property string qr
  * @property string code
  * @property string start
@@ -15,12 +15,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property int yield
  * @property string x_fild
  * @property string y_fild
- * @property int status
+ * @property int status // 1 : Active 2 : Herviset
  */
 class Tree extends Model
 {
   protected $fillable = [
-    'user_id',
+    'user',
     'qr',
     'code',
     'start',

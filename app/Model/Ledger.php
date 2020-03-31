@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string description
  * @property float debit
  * @property int user
- * @property int ledger_type // 0: buy 1: bonus Sponsor 2: Bonus Level 3: Bonus Royalty 4: Withdraw
+ * @property int ledger_type // 0: buy 1: bonus Sponsor 2: Bonus Level 3: Bonus Royalty 4: Withdraw 5: Harvest 6: Withdraw Harvest
  */
 class Ledger extends Model
 {

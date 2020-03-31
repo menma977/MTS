@@ -26,7 +26,7 @@ class BackEndSidebar extends Component
    */
   public function render()
   {
-    $tree = Order::where('status', 0)->count();
+    $tree = Order::whereIn('status', [0, 99])->count();
     $users = User::where('status', 1)->whereNotNull('identity_card_image')->whereNotNull('identity_card_image_salve')->count();
 
     $data = [

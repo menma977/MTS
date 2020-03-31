@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Model\Code;
 use App\Model\Role;
 use App\Model\Binary;
 use App\Model\Ledger;
@@ -74,13 +75,12 @@ class UserController extends Controller
       foreach ($token as $key => $value) {
         $value->delete();
       }
-      $user->typeUser = Role::find($user->id)->description;
       $user->token = $user->createToken('Android')->accessToken;
       return response()->json([
         'response' => $user->token,
         'username' => $user->username,
         'status' => $user->status,
-        'type' => $user->typeUser,
+        'role' => $user->role,
         'img' => $user->image
       ], 200);
     }
@@ -137,6 +137,17 @@ class UserController extends Controller
       'pin_bank' => 'required|string|unique:users',
       'address' => 'required',
     ]);
+
+//    $code = Code::where('user', Auth::user()->id)->get()->count();
+//    if (!$code) {
+//      $data = [
+//        'message' => 'The given data was invalid.',
+//        'errors' => [
+//          'pin' => ['Tidak memiliki pin yang terseisa'],
+//        ],
+//      ];
+//      return response()->json($data, 500);
+//    }
 
     $user = new User();
     $user->role = 2;
@@ -201,14 +212,22 @@ class UserController extends Controller
   public function balance(): JsonResponse
   {
     $downLine = Binary::where('sponsor', Auth::user()->id)->get();
-    $balance = Ledger::where('user', Auth::user()->id)->where('ledger_type', '!=', 0)->sum('credit') - Ledger::where('user', Auth::user()->id)->where('ledger_type', '!=', 0)->sum('debit');
-    $order = Order::where('user', Auth::user()->id)->where('status', 0)->get();
+    $balanceSponsor = Ledger::where('user', Auth::user()->id)->where('ledger_type', 1)->sum('credit') - Ledger::where('user', Auth::user()->id)->where('ledger_type', 1)->sum('debit');
+    $balanceLevel = Ledger::where('user', Auth::user()->id)->where('ledger_type', 2)->sum('credit') - Ledger::where('user', Auth::user()->id)->where('ledger_type', 2)->sum('debit');
+    $balanceRoyalty = Ledger::where('user', Auth::user()->id)->where('ledger_type', 3)->sum('credit') - Ledger::where('user', Auth::user()->id)->where('ledger_type', 3)->sum('debit');
+    $balanceHarvest = Ledger::where('user', Auth::user()->id)->where('ledger_type', 5)->sum('credit') - Ledger::where('user', Auth::user()->id)->where('ledger_type', 5)->sum('debit');
+    $order = Order::where('user', Auth::user()->id)->whereIn('status', [0, 99])->get();
+    $totalPorang = Tree::where('user', Auth::user()->id)->where('status', 1)->count();
+    $code = Code::where('user', Auth::user()->id)->get()->count();
     $data = [
-      'balance' => 'Rp ' . number_format($balance, 0, ',', '.'),
+      'balance' => 'Rp ' . number_format($balanceSponsor + $balanceLevel + $balanceRoyalty, 0, ',', '.'),
+      'harvest' => 'Rp ' . number_format($balanceHarvest, 0, ',', '.'),
       'down_line' => $downLine->count(),
       'admin' => $this->adminData(),
       'data' => $order,
-      'nominal' => $this->nominal_tree
+      'nominal' => $this->nominal_tree,
+      'package' => $totalPorang,
+      'code' => $code
     ];
 
     return response()->json($data, 200);
@@ -335,7 +354,13 @@ class UserController extends Controller
    */
   public function withdraw(Request $request): JsonResponse
   {
-    $limit = Ledger::where('user', Auth::user()->id)->sum('credit') - Ledger::where('user', Auth::user()->id)->sum('debit');
+    $limit = Ledger::where('user', Auth::user()->id)->whereBetween('ledger_type', [1, 3])->sum('credit')
+      - Ledger::where('user', Auth::user()->id)->whereBetween('ledger_type', [1, 3])->sum('debit');
+    $limit -= Ledger::where('user', Auth::user()->id)->where('ledger_type', 4)->sum('credit')
+      - Ledger::where('user', Auth::user()->id)->where('ledger_type', 4)->sum('debit');
+    if ($limit < 0) {
+      $limit = 0;
+    }
     $this->validate($request, [
       'nominal' => 'required|numeric|min:100000|max:' . $limit,
     ]);
@@ -385,19 +410,26 @@ class UserController extends Controller
   {
     $this->validate($request, [
       'total' => 'required|numeric',
+      'agentMode' => 'required|numeric',
     ]);
 
     $order = new Order();
     $order->user = Auth::user()->id;
     $order->total = $request->total;
     $order->code = random_int(99, 999);
-    $order->status = 0;
+    if ($request->agentMode) {
+      $order->status = 99;
+      $totalNominalPayment = ($order->total * $this->nominal_tree) + $order->code + 300000;
+    } else {
+      $order->status = 0;
+      $totalNominalPayment = ($order->total * $this->nominal_tree) + $order->code;
+    }
     $order->save();
 
     $data = [
       'response' => 'Stup Anda sedang di proses oleh admin',
       'admin' => $this->adminData(),
-      'total' => ($order->total * $this->nominal_tree) + $order->code,
+      'total' => $totalNominalPayment,
     ];
 
     return response()->json($data, 200);
@@ -409,7 +441,7 @@ class UserController extends Controller
    */
   public function gallery()
   {
-    $tree = Tree::where('user', Auth::user()->id)->get();
+    $tree = Tree::where('user', Auth::user()->id)->where('status', 1)->get();
 
     $data = [
       'response' => $tree,
