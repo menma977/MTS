@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -268,6 +269,20 @@ class TreeController extends Controller
         $tree->end = Carbon::now()->addMonth(6)->format('Y-m-d');
         $tree->save();
       }
+
+      try {
+        $order->user = User::find($order->user);
+        $order->price = $order->total * $this->nominal_tree + $order->code;
+        $order->agenMode = $order->status == 99 ? 300000 : '';
+
+        $dataEmail = [
+          'order' => $order
+        ];
+        Mail::send('email.orderValidate', $dataEmail, function ($message) use ($order) {
+          $message->to($order->user->email, 'Mitra Tani Sejahtera')->subject('Invoice Terbayar');
+          $message->from('admin@mts.com', 'MTS');
+        });
+      } catch (Exception $e) {}
     } else {
       Order::destroy($order);
     }

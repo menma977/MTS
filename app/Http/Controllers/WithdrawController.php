@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class WithdrawController extends Controller
@@ -72,6 +73,21 @@ class WithdrawController extends Controller
       $ledger->user = $withdraw->user;
       $ledger->ledger_type = 4;
       $ledger->save();
+
+      try {
+        $user = User::find($withdraw->id);
+        $dataEmail = [
+          'user' => $user->name,
+          'nominal' => number_format($withdraw->total, 0, ',', '.'),
+        ];
+        Mail::send('email.register', $dataEmail, function ($message) use ($user) {
+          $message->to($user->email, 'Mitra Tani Sejahtera')->subject('Withdraw');
+          $message->from('admin@mts.com', 'MTS');
+        });
+        $massaege = 'Stup Anda sedang di proses oleh admin, tunggu email invoic yang akan masuk';
+      } catch (Exception $e) {
+        $massaege = 'Stup Anda sedang di proses oleh admin, anda tidak mendapatkan invoce karna email tidak valid';
+      }
     } else {
       Withdraw::destroy($id);
     }

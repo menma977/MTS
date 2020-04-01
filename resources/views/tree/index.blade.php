@@ -91,6 +91,7 @@
                   <tr class="text-center">
                     <th style="width: 10px">#</th>
                     <th style="width: 100px">@lang('menu.receiver')</th>
+                    <th style="width: 10px">Bukti Transfer</th>
                     <th style="width: 10px">@lang('menu.nominal')</th>
                     <th style="width: 10px">@lang('menu.amount')</th>
                     <th style="width: 10px">@lang('menu.action')</th>
@@ -101,6 +102,15 @@
                     <tr class="text-center">
                       <td>{{ $loop->index + 1 }}</td>
                       <td>{{ $item->user ? $item->user->username : 'Belum Terpakai' }}</td>
+                      @if($item->image)
+                        <td>
+                          <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-{{$loop->index + 1}}">
+                            Bukti Transfer
+                          </button>
+                        </td>
+                      @else
+                        <td>Belum Upload Bukti Transfer</td>
+                      @endif
                       @if($item->status == 99)
                         <td>Rp {{ number_format(($item->total * 1500000) + 300000, 0, ',', '.') }}</td>
                       @else
@@ -120,6 +130,20 @@
                         </div>
                       </td>
                     </tr>
+                    <div class="modal fade" id="modal-{{$loop->index + 1}}" style="display: none;" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <img src="{{ $item->image }}" class="img-fluid" style="width: 100%;" alt="transfer">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   @endforeach
                   </tbody>
                 </table>

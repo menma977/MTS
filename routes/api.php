@@ -47,5 +47,6 @@ Route::middleware('auth:api')->group(function () {
     Route::post('show', 'Api\UserController@checkTree')->name('show');
     Route::post('store', 'Api\UserController@requestTree')->name('store');
     Route::get('gallery', 'Api\UserController@gallery')->name('gallery');
+    Route::post('transfer', 'Api\UserController@transfer')->name('transfer');
   });
 });

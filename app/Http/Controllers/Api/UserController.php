@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 use PhpParser\Node\Expr\Cast\Object_;
 
@@ -166,6 +167,20 @@ class UserController extends Controller
     $binary->sponsor = Auth::user()->id;
     $binary->user = $user->id;
     $binary->save();
+
+    try {
+      $dataEmail = [
+        'user' => $user->name,
+        'sponsor' => Auth::user()->name,
+      ];
+      Mail::send('email.register', $dataEmail, function ($message) use ($user) {
+        $message->to($user->email, 'Mitra Tani Sejahtera')->subject('Pendaftaran');
+        $message->from('admin@mts.com', 'MTS');
+      });
+      $massaege = 'Stup Anda sedang di proses oleh admin, tunggu email invoic yang akan masuk';
+    } catch (Exception $e) {
+      $massaege = 'Stup Anda sedang di proses oleh admin, anda tidak mendapatkan invoce karna email tidak valid';
+    }
 
     return response()->json(['response' => 'User telah terdaftar mohon login untuk meneruskan'], 200);
   }
@@ -426,8 +441,25 @@ class UserController extends Controller
     }
     $order->save();
 
+    try {
+      $order->user = User::find($order->user);
+      $order->price = $order->total * $this->nominal_tree + $order->code;
+      $order->agenMode = $order->status == 99 ? 300000 : '';
+
+      $dataEmail = [
+        'order' => $order
+      ];
+      Mail::send('email.order', $dataEmail, function ($message) use ($order) {
+        $message->to($order->user->email, 'Mitra Tani Sejahtera')->subject('Invoice');
+        $message->from('admin@mts.com', 'MTS');
+      });
+      $massaege = 'Stup Anda sedang di proses oleh admin, tunggu email invoic yang akan masuk';
+    } catch (Exception $e) {
+      $massaege = 'Stup Anda sedang di proses oleh admin, anda tidak mendapatkan invoce karna email tidak valid';
+    }
+
     $data = [
-      'response' => 'Stup Anda sedang di proses oleh admin',
+      'response' => $massaege,
       'admin' => $this->adminData(),
       'total' => $totalNominalPayment,
     ];
@@ -447,6 +479,33 @@ class UserController extends Controller
       'response' => $tree,
     ];
 
+    return response()->json($data, 200);
+  }
+
+  /**
+   * @param Request $request
+   * @return JsonResponse
+   * @throws ValidationException
+   */
+  public function transfer(Request $request)
+  {
+    $this->validate($request, [
+      'index' => 'required|numeric',
+      'image' => 'required|mimes:jpeg,png,jpg',
+    ]);
+    $order = Order::find($request->index);
+    if (($order !== null) && $order->image) {
+      $fileName = explode('/', $order->image);
+      File::delete('img/transfer/' . $fileName[4]);
+    }
+    $imageName = time() . '.' . $request->image->extension();
+    $request->image->move('img/transfer/', $imageName);
+    $order->image = $request->root() . '/img/transfer/' . $imageName;
+    $order->save();
+
+    $data = [
+      'response' => 'Tunggu validasi oleh admin. ketika anda mengupload ulang anda menggantikan gambar yang lama dengan yang baru',
+    ];
     return response()->json($data, 200);
   }
 }

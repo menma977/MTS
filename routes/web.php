@@ -28,6 +28,11 @@ Route::middleware(['online', 'auth'])->group(static function () {
 
   Route::get('/home', 'HomeController@index')->name('home');
 
+  Route::group(['prefix' => 'email', 'as' => 'email.'], static function () {
+    Route::get('/order', 'EmailController@order')->name('order');
+    Route::get('/register', 'EmailController@register')->name('register');
+  });
+
   Route::group(['prefix' => 'user', 'as' => 'user.'], static function () {
     Route::get('/', 'UserController@index')->name('index')->middleware('auth', 'role:1');
     Route::get('/create', 'UserController@create')->name('create')->middleware('auth', 'role:1');
