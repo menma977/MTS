@@ -66,6 +66,22 @@
             </li>
             <li class="list-group-item">
               <b>
+                BANK
+              </b>
+              <a class="float-right">
+                {{ $user->bank }}
+              </a>
+            </li>
+            <li class="list-group-item">
+              <b>
+                Nomor Rekening
+              </b>
+              <a class="float-right">
+                {{ $user->pin_bank }}
+              </a>
+            </li>
+            <li class="list-group-item">
+              <b>
                 @lang('menu.user.id card number')
               </b>
               <a class="float-right">

@@ -55,7 +55,12 @@
             @foreach($requestWithdraw as $item)
               <tr class="text-center">
                 <td>{{ $loop->index + 1 }}</td>
-                <td>{{ $item->user->name }}</td>
+                <td>
+                  <a href="{{ route('user.show', base64_encode($item->id)) }}" target="_blank"
+                     class="btn btn-block btn-secondary btn-xs">
+                    {{ $item->user->name }}
+                  </a>
+                </td>
                 <td>Rp {{ number_format($item->total, 0, ',', '.') }}</td>
                 @admin
                 <td>
@@ -115,9 +120,9 @@
   <script src="{{ asset('end/back/plugins/datatables/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('end/back/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
   <script>
-      $(function () {
-          $("#list").DataTable();
-          $("#list2").DataTable();
-      });
+    $(function () {
+      $("#list").DataTable();
+      $("#list2").DataTable();
+    });
   </script>
 @endsection

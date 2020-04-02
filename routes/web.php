@@ -77,7 +77,7 @@ Route::middleware(['online', 'auth'])->group(static function () {
 
   Route::group(['prefix' => 'binary', 'as' => 'binary.'], static function () {
     Route::get('/', 'BinaryController@index')->name('index')->middleware('auth', 'role:1|2|3|4');
-    Route::get('/find/{id}', 'BinaryController@show')->name('show')->middleware('auth', 'role:1|2|3|4');
+    Route::get('/find/{id}', 'BinaryController@show')->name('show')->middleware('auth');
   });
 
 });

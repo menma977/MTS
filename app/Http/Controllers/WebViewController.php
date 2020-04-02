@@ -9,21 +9,12 @@ use App\Model\Tree;
 use App\Model\TreeImage;
 use App\User;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class WebViewController extends Controller
 {
-  /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
-  public function __construct()
-  {
-    $this->middleware('auth');
-  }
-
   /**
    * @param $id
    * @return Factory|View
@@ -41,6 +32,9 @@ class WebViewController extends Controller
     return view('android.index', $data);
   }
 
+  /**
+   * @return Factory|View
+   */
   public function binary()
   {
     $binary = Binary::where('sponsor', Auth::user()->id)->get();
@@ -53,6 +47,19 @@ class WebViewController extends Controller
     ];
 
     return view('android.binary', $data);
+  }
+
+  /**
+   * @param $id
+   * @return mixed
+   */
+  public function binaryShow($id) {
+    $binary = Binary::where('sponsor', $id)->get();
+    $binary->map(function ($item) {
+      $item->userDownLine = User::find($item->user);
+    });
+
+    return $binary;
   }
 
   public function ledger($type)
@@ -89,6 +96,6 @@ class WebViewController extends Controller
       'code' => $code
     ];
 
-    return \view('android.pin', $data);
+    return view('android.pin', $data);
   }
 }

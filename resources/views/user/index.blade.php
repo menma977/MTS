@@ -21,14 +21,14 @@
 @endsection
 
 @section('content')
-{{--  <div class="row">--}}
-{{--    <div class="col-md-12">--}}
-{{--      <a href="#" class="btn btn-app" data-toggle="modal" data-target="#modal-code">--}}
-{{--        <i class="fas fa-edit"></i>--}}
-{{--        Kirim Pin--}}
-{{--      </a>--}}
-{{--    </div>--}}
-{{--  </div>--}}
+  {{--  <div class="row">--}}
+  {{--    <div class="col-md-12">--}}
+  {{--      <a href="#" class="btn btn-app" data-toggle="modal" data-target="#modal-code">--}}
+  {{--        <i class="fas fa-edit"></i>--}}
+  {{--        Kirim Pin--}}
+  {{--      </a>--}}
+  {{--    </div>--}}
+  {{--  </div>--}}
 
   <div class="modal fade" id="modal-code">
     <div class="modal-dialog modal-sm">
@@ -44,7 +44,8 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="username">Username</label>
-              <select class="form-control select2 select2-teal" data-dropdown-css-class="select2-teal" name="user">
+              <select class="form-control select2 select2-teal" data-dropdown-css-class="select2-teal"
+                      name="user">
                 @foreach($users as $item)
                   <option value="{{ $item->id }}">{{ $item->username }}</option>
                 @endforeach
@@ -171,6 +172,22 @@
                           </li>
                           <li class="list-group-item">
                             <b>
+                              BANK
+                            </b>
+                            <a class="float-right">
+                              {{ $item->bank }}
+                            </a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>
+                              Nomor pin_bank
+                            </b>
+                            <a class="float-right">
+                              {{ $item->phone }}
+                            </a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>
                               @lang('menu.user.id card number')
                             </b>
                             <a class="float-right">
@@ -195,16 +212,25 @@
                           </li>
                           @if($item->role != 1)
                             <li class="list-group-item">
-                              <form action="{{ route('user.roleUpdate', base64_encode($item->id)) }}" method="POST">
+                              <form action="{{ route('user.roleUpdate', base64_encode($item->id)) }}"
+                                    method="POST">
                                 @csrf
                                 <div class="input-group input-group-sm">
                                   <select class="form-control" name="role" id="role">
-                                    <option value="2" {{ $item->role == 2 ? 'selected' : '' }}>Mitra Mandiri</option>
-                                    <option value="3" {{ $item->role == 3 ? 'selected' : '' }}>Mitra luar biasa</option>
-                                    <option value="4" {{ $item->role == 4 ? 'selected' : '' }}>Mitra agen</option>
+                                    <option value="2" {{ $item->role == 2 ? 'selected' : '' }}>
+                                      Mitra Mandiri
+                                    </option>
+                                    <option value="3" {{ $item->role == 3 ? 'selected' : '' }}>
+                                      Mitra luar biasa
+                                    </option>
+                                    <option value="4" {{ $item->role == 4 ? 'selected' : '' }}>
+                                      Mitra agen
+                                    </option>
                                   </select>
                                   <div class="input-group-append">
-                                    <button type="submit" class="btn btn-success btn-flat">Update</button>
+                                    <button type="submit"
+                                            class="btn btn-success btn-flat">Update
+                                    </button>
                                   </div>
                                 </div>
                               </form>
@@ -306,36 +332,36 @@
   <!-- Toastr -->
   <script src="{{ asset('end/back/plugins/toastr/toastr.min.js') }}"></script>
   <script>
-      $(function () {
-          //Initialize Select2 Elements
-          $('.select2').select2();
+    $(function () {
+      //Initialize Select2 Elements
+      $('.select2').select2();
 
-          $("#list").DataTable();
+      $("#list").DataTable();
 
-          const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 5000
-          });
-        @error('img')
-        Toast.fire({
-            type: 'error',
-            title: '{{ $message }}'
-        });
-        @enderror
-        @error('user')
-        Toast.fire({
-            type: 'error',
-            title: '{{ $message }}'
-        });
-        @enderror
-        @error('pin')
-        Toast.fire({
-            type: 'error',
-            title: '{{ $message }}'
-        });
-        @enderror
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 5000
       });
+      @error('img')
+      Toast.fire({
+        type: 'error',
+        title: '{{ $message }}'
+      });
+      @enderror
+      @error('user')
+      Toast.fire({
+        type: 'error',
+        title: '{{ $message }}'
+      });
+      @enderror
+      @error('pin')
+      Toast.fire({
+        type: 'error',
+        title: '{{ $message }}'
+      });
+      @enderror
+    });
   </script>
 @endsection

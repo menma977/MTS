@@ -15,13 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', 'Api\UserController@login');
 
+Route::get('/binary/show/{id}', 'WebViewController@binaryShow')->name('binaryShow');
+
 Route::middleware('auth:api')->group(function () {
 
   Route::group(['prefix' => 'android', 'as' => 'android.'], static function () {
-    Route::get('/gallery/{id}', 'WebViewController@gallery')->name('gallery')->middleware('auth');
-    Route::get('/binary', 'WebViewController@binary')->name('binary')->middleware('auth');
-    Route::get('/ledger/{type}', 'WebViewController@ledger')->name('ledger')->middleware('auth');
-    Route::get('/pin', 'WebViewController@pin')->name('pin')->middleware('auth');
+    Route::get('/gallery/{id}', 'WebViewController@gallery')->name('gallery');
+    Route::get('/binary', 'WebViewController@binary')->name('binary');
+    Route::get('/ledger/{type}', 'WebViewController@ledger')->name('ledger');
+    Route::get('/pin', 'WebViewController@pin')->name('pin');
   });
 
   Route::post('register', 'Api\UserController@register');
