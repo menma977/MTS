@@ -154,8 +154,8 @@ class TreeController extends Controller
         if ($sponsor->role == 4) {
           $ledgers = new Ledger();
           $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
-          $ledgers->credit = $tree->yield * 0.033;
-          $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+          $ledgers->credit = $tree->yield * 0.025;
+          $ledgers->description = 'anda mendapatkan bonus level 2.5% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
           $ledgers->user = $sponsor->id;
           $ledgers->ledger_type = 2;
           $ledgers->save();
@@ -252,8 +252,8 @@ class TreeController extends Controller
           if ($sponsor->role == 4) {
             $ledgers = new Ledger();
             $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
-            $ledgers->credit = $ledger_1->credit * 0.033;
-            $ledgers->description = 'anda mendapatkan bonus level 3.3% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+            $ledgers->credit = $ledger_1->credit * 0.05;
+            $ledgers->description = 'anda mendapatkan bonus level 5% dari pembelian ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
             $ledgers->user = $sponsor->id;
             $ledgers->ledger_type = 2;
             $ledgers->save();
