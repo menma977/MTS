@@ -177,9 +177,7 @@ class UserController extends Controller
         $message->to($user->email, 'Mitra Tani Sejahtera')->subject('Pendaftaran');
         $message->from('admin@mts.com', 'MTS');
       });
-      $massaege = 'Stup Anda sedang di proses oleh admin, tunggu email invoic yang akan masuk';
     } catch (Exception $e) {
-      $massaege = 'Stup Anda sedang di proses oleh admin, anda tidak mendapatkan invoce karna email tidak valid';
     }
 
     return response()->json(['response' => 'User telah terdaftar mohon login untuk meneruskan'], 200);
@@ -426,6 +424,7 @@ class UserController extends Controller
     $this->validate($request, [
       'total' => 'required|numeric',
       'agentMode' => 'required|numeric',
+      'type' => 'required|numeric'
     ]);
 
     $order = new Order();
@@ -439,6 +438,7 @@ class UserController extends Controller
       $order->status = 0;
       $totalNominalPayment = ($order->total * $this->nominal_tree) + $order->code;
     }
+    $order->type = $request->type;
     $order->save();
 
     try {
@@ -453,9 +453,9 @@ class UserController extends Controller
         $message->to($order->user->email, 'Mitra Tani Sejahtera')->subject('Invoice');
         $message->from('admin@mts.com', 'MTS');
       });
-      $massaege = 'Stup Anda sedang di proses oleh admin, tunggu email invoic yang akan masuk';
+      $massaege = 'Order Anda sedang di proses oleh admin, tunggu email invoic yang akan masuk';
     } catch (Exception $e) {
-      $massaege = 'Stup Anda sedang di proses oleh admin, anda tidak mendapatkan invoce karna email tidak valid';
+      $massaege = 'Order Anda sedang di proses oleh admin, anda tidak mendapatkan invoce karna email tidak valid';
     }
 
     $data = [
@@ -474,6 +474,9 @@ class UserController extends Controller
   public function gallery()
   {
     $tree = Tree::where('user', Auth::user()->id)->where('status', 1)->get();
+    $tree->map(function ($itme) {
+      $itme->yield *= 0.6;
+    });
 
     $data = [
       'response' => $tree,

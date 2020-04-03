@@ -16,6 +16,7 @@ class CreateTreesTable extends Migration
     Schema::create('trees', function (Blueprint $table) {
       $table->id();
       $table->string('user')->nullable();
+      $table->integer('type');
       $table->string('qr')->unique();
       $table->string('code');
       $table->string('start')->nullable();
