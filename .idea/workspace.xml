@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BannerController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Banner.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_06_114415_create_banners_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/banner/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Tree.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Tree.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_16_122850_create_trees_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_16_122850_create_trees_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_16_122922_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_16_122922_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/email/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/email/order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/email/orderValidate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/email/orderValidate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tree/certificate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tree/certificate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tree/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tree/index.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
