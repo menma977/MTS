@@ -67,7 +67,7 @@
           <tbody>
           <tr>
             <td>{{ $order->total }}</td>
-            <td>Pohon</td>
+            <td>{{ $order->type == 0 ? 'Porang' : 'Talas' }}</td>
             <td>{{ $order->code }}</td>
             <td>Anda Membeli Produk dengan jumlah {{ $order->total }} dengan total harga
               Rp {{ number_format($order->price, 0, ',', '.') }}</td>

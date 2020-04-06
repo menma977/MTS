@@ -45,7 +45,7 @@ class TreeController extends Controller
       $item->gallery = TreeImage::where('tree_id', $item->id)->get();
     });
 
-    $order = Order::all();
+    $order = Order::orderBy('id', 'desc')->get();
     $order->map(function ($item) {
       $item->user = User::find($item->user);
     });
@@ -67,7 +67,7 @@ class TreeController extends Controller
 
     $ledger = new Ledger();
     $ledger->code = 'WDHARVEST' . date('YmdHis');
-    $ledger->debit = $tree->yield;
+    $ledger->debit = $tree->yield * 0.6;
     $ledger->description = 'anda Withdraw dari hasil panen sebesar : Rp' . number_format($tree->yield, 0, ',', '.');
     $ledger->user = $tree->user;
     $ledger->ledger_type = 5;
@@ -123,23 +123,23 @@ class TreeController extends Controller
     $tree->status = 3;
     $tree->save();
 
-    $user = User::find($tree->user);
+    $getUser = User::find($tree->user);
 
     $ledger = new Ledger();
     $ledger->code = 'HARVEST' . date('YmdHis');
     $ledger->credit = $tree->yield * 0.6;
     $ledger->description = 'anda mendapatkan hasil Panen sebesar : Rp' . number_format($tree->yield, 0, ',', '.');
-    $ledger->user = $user->id;
+    $ledger->user = $getUser->id;
     $ledger->ledger_type = 5;
     $ledger->save();
 
-    $sponsor = User::find(Binary::where('user', $user->id)->get()->first()->sponsor);
+    $sponsor = User::find(Binary::where('user', $getUser->id)->get()->first()->sponsor);
 
     if ($sponsor->role == 4) {
       $ledger = new Ledger();
       $ledger->code = 'BYBONROYAL' . date('YmdHis');
       $ledger->credit = $tree->yield * 0.05;
-      $ledger->description = 'anda mendapatkan bonus royalty 5% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledger->credit, 0, ',', '.');
+      $ledger->description = 'anda mendapatkan bonus royalty 5% dari panen ' . $getUser->username . ' sebesar : Rp' . number_format($ledger->credit, 0, ',', '.');
       $ledger->user = $sponsor->id;
       $ledger->ledger_type = 3;
       $ledger->save();
@@ -155,7 +155,7 @@ class TreeController extends Controller
           $ledgers = new Ledger();
           $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
           $ledgers->credit = $tree->yield * 0.025;
-          $ledgers->description = 'anda mendapatkan bonus level 2.5% dari panen ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+          $ledgers->description = 'anda mendapatkan bonus level 2.5% dari panen ' . $getUser->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
           $ledgers->user = $sponsor->id;
           $ledgers->ledger_type = 2;
           $ledgers->save();
@@ -178,14 +178,20 @@ class TreeController extends Controller
   {
     $this->validate($request, [
       'count' => 'required|numeric|max:1000',
+      'type' => 'required'
     ]);
 
     for ($i = 0; $i < $request->count; $i++) {
       $lastId = Tree::count();
 
       $tree = new Tree();
+      if ($request->type == 0) {
+        $tree->code = 'PORANG' . date('YmdHis') . $lastId;
+      } else {
+        $tree->code = 'TALES' . date('YmdHis') . $lastId;
+      }
       $tree->qr = 'CODE-' . $lastId;
-      $tree->code = 'QR' . date('YmdHis') . $lastId;
+      $tree->type = $request->type;
       $tree->save();
     }
 
@@ -207,9 +213,13 @@ class TreeController extends Controller
       $order = Order::find($order);
       $order->status = 1;
 
-      $countTree = Tree::whereNull('user')->count();
+      $countTree = Tree::whereNull('user')->where('type', $order->type)->count();
       if ($countTree < $order->total) {
-        return back()->withErrors(['count' => ['Jumlah Pohon yang ada kurang dari permintaan']]);
+        if ($order->type == 0) {
+          return back()->withErrors(['count' => ['Jumlah Porang yang ada kurang dari permintaan']]);
+        }
+
+        return back()->withErrors(['count' => ['Jumlah Talas yang ada kurang dari permintaan']]);
       }
 
       $order->save();
@@ -228,7 +238,7 @@ class TreeController extends Controller
       $ledger_1 = new Ledger();
       $ledger_1->code = 'BUY' . date('YmdHis');
       $ledger_1->credit = $this->nominal_tree * $order->total;
-      $ledger_1->description = 'Pembelian Pohon : Rp' . number_format($ledger_1->credit, 0, ',', '.');
+      $ledger_1->description = 'Pembelian ' . ($order->type == 0 ? 'Porang' : 'Tales') . ' : Rp' . number_format($ledger_1->credit, 0, ',', '.');
       $ledger_1->user = $getUser->id;
       $ledger_1->ledger_type = 0;
       $ledger_1->save();
@@ -237,14 +247,14 @@ class TreeController extends Controller
         $ledgers = new Ledger();
         $ledgers->code = 'BYBONSPON' . date('YmdHis');
         $ledgers->credit = $ledger_1->credit * 0.1;
-        $ledgers->description = 'anda mendapatkan bonus 10% dari pembelian sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+        $ledgers->description = 'anda mendapatkan bonus 10% dari pembelian ' . $getUser->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
         $ledgers->user = $getSponsor;
         $ledgers->ledger_type = 1;
         $ledgers->save();
       }
 
       $getSponsor = User::find($getSponsor);
-      $level = 3;
+      $level = 2;
       for ($j = 0; $j < $level; $j++) {
         $user = User::find($getSponsor->id);
         if (Binary::where('user', $user->id)->get()->first()) {
@@ -253,7 +263,7 @@ class TreeController extends Controller
             $ledgers = new Ledger();
             $ledgers->code = 'BYBONLEVEL' . date('YmdHis');
             $ledgers->credit = $ledger_1->credit * 0.05;
-            $ledgers->description = 'anda mendapatkan bonus level 5% dari pembelian ' . $user->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
+            $ledgers->description = 'anda mendapatkan bonus level 5% dari pembelian ' . $getUser->username . ' sebesar : Rp' . number_format($ledgers->credit, 0, ',', '.');
             $ledgers->user = $sponsor->id;
             $ledgers->ledger_type = 2;
             $ledgers->save();
@@ -263,7 +273,7 @@ class TreeController extends Controller
       }
 
       for ($i = 0; $i < $order->total; $i++) {
-        $tree = Tree::whereNull('user')->first();
+        $tree = Tree::whereNull('user')->where('type', $order->type)->first();
         $tree->user = $getUser->id;
         $tree->start = Carbon::now()->format('Y-m-d');
         $tree->end = Carbon::now()->addMonth(6)->format('Y-m-d');
@@ -282,7 +292,8 @@ class TreeController extends Controller
           $message->to($order->user->email, 'Mitra Tani Sejahtera')->subject('Invoice Terbayar');
           $message->from('admin@mts.com', 'MTS');
         });
-      } catch (Exception $e) {}
+      } catch (Exception $e) {
+      }
     } else {
       Order::destroy($order);
     }

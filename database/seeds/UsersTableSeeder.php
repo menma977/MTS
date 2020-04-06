@@ -13,11 +13,11 @@ class UsersTableSeeder extends Seeder
   {
     DB::table('users')->insert([
       'name' => 'koperasi serba usaha bumi rahayu',
-      'username' => 'admin',
+      'username' => 'admin', //adminmts
       'email' => 'admin@mts.com',
-      'password' => bcrypt('admin'),
+      'password' => bcrypt('admin'), //adminmts*
       'role' => '1',
-      'bank' => '0',
+      'bank' => 'BRI',
       'pin_bank' => '6434-0101-345-3530',
       'phone' => '085259598097',
       'id_identity_card' => '0',

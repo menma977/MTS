@@ -90,6 +90,7 @@
                   <thead>
                   <tr class="text-center">
                     <th style="width: 10px">#</th>
+                    <th style="width: 10px">@lang('menu.date')</th>
                     <th style="width: 100px">@lang('menu.receiver')</th>
                     <th style="width: 10px">Bukti Transfer</th>
                     <th style="width: 10px">@lang('menu.nominal')</th>
@@ -101,10 +102,12 @@
                   @foreach($order->whereIn('status', [0, 99]) as $item)
                     <tr class="text-center">
                       <td>{{ $loop->index + 1 }}</td>
+                      <td>{{ \Carbon\Carbon::parse($item->updated_at)->format('d/m/Y') }}</td>
                       <td>{{ $item->user ? $item->user->username : 'Belum Terpakai' }}</td>
                       @if($item->image)
                         <td>
-                          <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-{{$loop->index + 1}}">
+                          <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
+                                  data-target="#modal-{{$loop->index + 1}}">
                             Bukti Transfer
                           </button>
                         </td>
@@ -358,6 +361,13 @@
             <div class="form-group">
               <label for="count">@lang('menu.amount') Pohon</label>
               <input type="text" class="form-control" placeholder="Jumlah Pohon" name="count">
+            </div>
+            <div class="form-group">
+              <label>Select</label>
+              <select class="form-control" name="type">
+                <option value="0">Porang</option>
+                <option value="1">Tales</option>
+              </select>
             </div>
           </div>
           <div class="modal-footer justify-content-between">

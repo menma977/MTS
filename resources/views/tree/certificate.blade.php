@@ -11,17 +11,17 @@
 </head>
 
 <style>
-  *{
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  body{
+  body {
     background: #EEA;
   }
 
-  #sertifikat{
+  #sertifikat {
     width: 100vw;
     height: 65.665083135392vw;
     background-size: 100% 100%;
@@ -31,10 +31,10 @@
 <body>
 <canvas id="sertifikat">
 </canvas>
-<img src="data:image/png;base64, {!! base64_encode($qr) !!} " style="display:none" id="hiddenQR"  alt="imageQR"/>
+<img src="data:image/png;base64, {!! base64_encode($qr) !!} " style="display:none" id="hiddenQR" alt="imageQR"/>
 
 <script>
-    function buatCert(data, bg,qr){
+    function buatCert(data, bg, qr) {
         const canvas = document.querySelector("#sertifikat");
         const ctx = canvas.getContext('2d');
         canvas.width = 842;
@@ -42,24 +42,24 @@
         let hh = 242.5;
         let hhgap = 14;
 
-        ctx.drawImage(bg, 0,0, 842,595);
-        ctx.drawImage(qr, 680,460, 100,100);
+        ctx.drawImage(bg, 0, 0, 842, 595);
+        ctx.drawImage(qr, 680, 460, 100, 100);
         ctx.font = "11px Serif";
-        ctx.fillText(data.nama, 470,hh);
-        hh+=hhgap;
-        ctx.fillText(data.alamat, 470,hh);
-        hh+=hhgap;
-        ctx.fillText(data.hp, 470,hh);
-        hh+=hhgap;
-        ctx.fillText(data.jumlah_kav, 470,hh);
-        hh+=hhgap;
-        ctx.fillText(data.no_kav, 470,hh);
-        hh+=hhgap;
-        ctx.fillText(data.gabung, 470,hh)
+        ctx.fillText(data.nama, 470, hh);
+        hh += hhgap;
+        ctx.fillText(data.alamat, 470, hh);
+        hh += hhgap;
+        ctx.fillText(data.hp, 470, hh);
+        hh += hhgap;
+        ctx.fillText(data.jumlah_kav, 470, hh);
+        hh += hhgap;
+        ctx.fillText(data.no_kav, 470, hh);
+        hh += hhgap;
+        ctx.fillText(data.gabung, 470, hh)
     }
 
-    window.addEventListener("load",async e=>{
-        const bg = await loadImage("{{ asset('img/porang.jpg') }}");
+    window.addEventListener("load", async e => {
+        const bg = await loadImage("{{ $tree->type == 0 ? asset('img/porang.jpg') : asset('img/talas.jpg') }}");
         const qr = document.querySelector("#hiddenQR");
         buatCert({
             nama: "{{ $tree->user->name }}",
@@ -68,14 +68,14 @@
             jumlah_kav: "1",
             no_kav: "{{ str_replace('code-','Kafling-',$tree->code) }}",
             gabung: "{{ \Carbon\Carbon::parse($tree->user->created_at)->format('d-m-Y') }}"
-        },bg,qr);
+        }, bg, qr);
 
-        function loadImage(src){
-            return new Promise((resolve, reject)=>{
+        function loadImage(src) {
+            return new Promise((resolve, reject) => {
                 const image = new Image();
                 image.src = src;
-                image.addEventListener("load",e=>resolve(image));
-                image.addEventListener("error",e=>reject(e));
+                image.addEventListener("load", e => resolve(image));
+                image.addEventListener("error", e => reject(e));
             });
         }
     });
