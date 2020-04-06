@@ -9,9 +9,6 @@
       <div class="row">
         @foreach($tree->gallery as $item)
           <div class="col-4">
-            <a href="{{ route('generateDatas', mt_rand().'.'.(($item->tree_id + 10) - 5).'.'.mt_rand().'.'.mt_rand()) }}">
-              aww
-            </a>
             <a href="{{ $item->image }}" data-toggle="lightbox" data-title="{{ $item->created_at }}"
                data-gallery="gallery" data-max-width="600" data-max-height="600">
               <img src="{{ $item->image }}" class="mb-2 img-fluid" alt="img"/>
