@@ -33,6 +33,12 @@ Route::middleware(['online', 'auth'])->group(static function () {
     Route::get('/register', 'EmailController@register')->name('register');
   });
 
+  Route::group(['prefix' => 'banner', 'as' => 'banner.'], static function () {
+    Route::get('/', 'BannerController@index')->name('index')->middleware('auth', 'role:1');
+    Route::post('/store', 'BannerController@store')->name('store')->middleware('auth', 'role:1');
+    Route::get('/delete', 'BannerController@delete')->name('delete')->middleware('auth', 'role:1');
+  });
+
   Route::group(['prefix' => 'user', 'as' => 'user.'], static function () {
     Route::get('/', 'UserController@index')->name('index')->middleware('auth', 'role:1');
     Route::get('/create', 'UserController@create')->name('create')->middleware('auth', 'role:1');

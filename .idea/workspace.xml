@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BannerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/Banner.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_06_114415_create_banners_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/banner/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WithdrawController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WithdrawController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Ledger.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Ledger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/back-end-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/back-end-sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/email/withdraw.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/email/withdraw.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/withdraw/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/withdraw/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,6 +280,9 @@
       <workItem from="1585837996650" duration="8000" />
       <workItem from="1585889307036" duration="66000" />
       <workItem from="1585889406712" duration="941000" />
+      <workItem from="1586146560267" duration="6897000" />
+      <workItem from="1586154570545" duration="2146000" />
+      <workItem from="1586156763635" duration="2940000" />
     </task>
     <servers />
   </component>
@@ -343,11 +357,11 @@
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585837302326" />
     <state x="184" y="7" key="SettingsEditor/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584720819340" />
     <state x="1550" y="7" key="SettingsEditor/1366.0.1366.728/0.0.1366.728@1366.0.1366.728" timestamp="1584720043034" />
-    <state x="376" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1585889479039">
+    <state x="376" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586156781001">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="378" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585833540973" />
-    <state x="376" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1585889479039" />
+    <state x="376" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1586156781001" />
     <state x="1643" y="188" key="com.intellij.ide.util.TipDialog/1360.0.1024.728/0.0.1360.728@1360.0.1024.728" timestamp="1584603806845" />
     <state x="378" y="188" key="com.intellij.ide.util.TipDialog/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584720844049" />
     <state x="1744" y="188" key="com.intellij.ide.util.TipDialog/1366.0.1366.728/0.0.1366.728@1366.0.1366.728" timestamp="1584720070709" />

@@ -62,7 +62,6 @@
                   </a>
                 </td>
                 <td>Rp {{ number_format($item->total, 0, ',', '.') }}</td>
-                @admin
                 <td>
                   <div class="btn-group">
                     <a href="{{ route('withdraw.update', [base64_encode($item->id), base64_encode(1)]) }}"
@@ -75,7 +74,6 @@
                     </a>
                   </div>
                 </td>
-                @endadmin
               </tr>
             @endforeach
             </tbody>

@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="row invoice-info">
-      <p>Anda Telah Withdraw Sejumlah Rp 0</p>
+      <p>Anda atas username {{ $user->username }} telah Withdraw Sejumlah Rp {{ $nominal }}</p>
     </div>
   </section>
 </div>

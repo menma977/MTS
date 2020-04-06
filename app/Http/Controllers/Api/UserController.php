@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Model\Banner;
 use App\Model\Code;
 use App\Model\Role;
 use App\Model\Binary;
@@ -231,18 +232,31 @@ class UserController extends Controller
     $balanceLevel = Ledger::where('user', Auth::user()->id)->where('ledger_type', 2)->sum('credit') - Ledger::where('user', Auth::user()->id)->where('ledger_type', 2)->sum('debit');
     $balanceRoyalty = Ledger::where('user', Auth::user()->id)->where('ledger_type', 3)->sum('credit') - Ledger::where('user', Auth::user()->id)->where('ledger_type', 3)->sum('debit');
     $balanceHarvest = Ledger::where('user', Auth::user()->id)->where('ledger_type', 5)->sum('credit') - Ledger::where('user', Auth::user()->id)->where('ledger_type', 5)->sum('debit');
+    $withdraw = Ledger::where('user', Auth::user()->id)->where('ledger_type', 4)->sum('credit') + Ledger::where('user', Auth::user()->id)->where('ledger_type', 4)->sum('debit');
     $order = Order::where('user', Auth::user()->id)->whereIn('status', [0, 99])->get();
     $totalPorang = Tree::where('user', Auth::user()->id)->where('status', 1)->count();
     $code = Code::where('user', Auth::user()->id)->get()->count();
+
+    $title = '';
+    $description = '';
+
+    $banner = Banner::find(1);
+    if ($banner) {
+      $title = $banner->title;
+      $description = $banner->description;
+    }
+
     $data = [
-      'balance' => 'Rp ' . number_format($balanceSponsor + $balanceLevel + $balanceRoyalty, 0, ',', '.'),
+      'balance' => 'Rp ' . number_format(($balanceSponsor + $balanceLevel + $balanceRoyalty) - $withdraw, 0, ',', '.'),
       'harvest' => 'Rp ' . number_format($balanceHarvest, 0, ',', '.'),
       'down_line' => $downLine->count(),
       'admin' => $this->adminData(),
       'data' => $order,
       'nominal' => $this->nominal_tree,
       'package' => $totalPorang,
-      'code' => $code
+      'code' => $code,
+      'bannerTitle' => $title,
+      'bannerDescription' => $description
     ];
 
     return response()->json($data, 200);

@@ -81,6 +81,15 @@
           </li>
         @endif
         <li class="nav-item">
+          <a href="{{ route('banner.index') }}"
+             class="nav-link {{ request()->is(['banner', 'banner/*']) ? 'active' : '' }}">
+            <i class="nav-icon fas fa-book-open"></i>
+            <p>
+              Banner
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="{{ route('ledger.index') }}"
              class="nav-link {{ request()->is(['ledger', 'ledger/*']) ? 'active' : '' }}">
             <i class="nav-icon fas fa-book-open"></i>

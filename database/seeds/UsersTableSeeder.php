@@ -12,14 +12,14 @@ class UsersTableSeeder extends Seeder
   public function run()
   {
     DB::table('users')->insert([
-      'name' => 'admin',
+      'name' => 'koperasi serba usaha bumi rahayu',
       'username' => 'admin',
-      'email' => 'admin@gmail.com',
+      'email' => 'admin@mts.com',
       'password' => bcrypt('admin'),
       'role' => '1',
       'bank' => '0',
-      'pin_bank' => '0',
-      'phone' => '0',
+      'pin_bank' => '6434-0101-345-3530',
+      'phone' => '085259598097',
       'id_identity_card' => '0',
       'identity_card_image' => null,
       'identity_card_image_salve' => null,

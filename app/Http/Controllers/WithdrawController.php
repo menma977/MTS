@@ -20,7 +20,7 @@ class WithdrawController extends Controller
    */
   public function index()
   {
-    if (Auth::user()->role != 0) {
+    if (Auth::user()->role != 1) {
       $requestWithdraw = Withdraw::where('user', Auth::user()->id)->where('status', 0)->get();
     } else {
       $requestWithdraw = Withdraw::where('status', 0)->get();
@@ -31,7 +31,7 @@ class WithdrawController extends Controller
       return $item;
     });
 
-    if (Auth::user()->role != 0) {
+    if (Auth::user()->role != 1) {
       $withdraw = Withdraw::where('user', Auth::user()->id)->where('status', 1)->get();
     } else {
       $withdraw = Withdraw::where('status', 1)->get();
@@ -69,24 +69,22 @@ class WithdrawController extends Controller
       $ledger = new Ledger();
       $ledger->code = 'REG' . date('YmdHis');
       $ledger->credit = $withdraw->total;
-      $ledger->description = User::find($withdraw->id)->name . ' telah Withdraw sejumlah : Rp' . number_format($withdraw->total, 0, ',', '.');
+      $ledger->description = User::find($withdraw->user)->name . ' telah Withdraw sejumlah : Rp' . number_format($withdraw->total, 0, ',', '.');
       $ledger->user = $withdraw->user;
       $ledger->ledger_type = 4;
       $ledger->save();
 
       try {
-        $user = User::find($withdraw->id);
+        $user = User::find($withdraw->user);
         $dataEmail = [
-          'user' => $user->name,
+          'user' => $user,
           'nominal' => number_format($withdraw->total, 0, ',', '.'),
         ];
-        Mail::send('email.register', $dataEmail, function ($message) use ($user) {
+        Mail::send('email.withdraw', $dataEmail, function ($message) use ($user) {
           $message->to($user->email, 'Mitra Tani Sejahtera')->subject('Withdraw');
           $message->from('admin@mts.com', 'MTS');
         });
-        $massaege = 'Stup Anda sedang di proses oleh admin, tunggu email invoic yang akan masuk';
       } catch (Exception $e) {
-        $massaege = 'Stup Anda sedang di proses oleh admin, anda tidak mendapatkan invoce karna email tidak valid';
       }
     } else {
       Withdraw::destroy($id);
