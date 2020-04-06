@@ -78,6 +78,7 @@
                 image.addEventListener("error", e => reject(e));
             });
         }
+        window.print();
     });
 </script>
 </body>

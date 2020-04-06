@@ -9,9 +9,9 @@ use App\Model\Tree;
 use App\Model\TreeImage;
 use App\User;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class WebViewController extends Controller
 {
@@ -97,5 +97,23 @@ class WebViewController extends Controller
     ];
 
     return view('android.pin', $data);
+  }
+
+
+
+  public function generateData($id)
+  {
+    $code = explode('.',$id)[1];
+    $id = ($code - 10) + 5;
+    $tree = Tree::find($id);
+    $tree->user = User::find($tree->user);
+    $QR = QrCode::format('png')->size(1000)->merge('./img/mts_top.png', .2, true)->errorCorrection('H')->generate($tree->qr);
+
+    $data = [
+      'tree' => $tree,
+      'qr' => $QR,
+    ];
+
+    return \view('tree.certificate', $data);
   }
 }

@@ -21,6 +21,8 @@ Route::group(['prefix' => 'config', 'as' => 'config.'], static function () {
   Route::get('/user/status', 'HomeController@authOnline')->name('authOnline');
 });
 
+Route::get('/certificate/{id}', 'WebViewController@generateData')->name('generateDatas');
+
 Auth::routes(['register' => false]);
 
 Route::middleware(['online', 'auth'])->group(static function () {

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/android/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/android/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tree/certificate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tree/certificate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,6 +279,7 @@
       <workItem from="1585904954478" duration="1311000" />
       <workItem from="1586161747825" duration="10000" />
       <workItem from="1586161955962" duration="12000" />
+      <workItem from="1586181204395" duration="3510000" />
     </task>
     <servers />
   </component>
@@ -306,10 +310,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="360" y="92" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1585713983762" />
-    <state x="412" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585833743969">
+    <state x="412" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586183032581">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="412" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1585833743969" />
+    <state x="412" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586183032581" />
     <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1585734797008" />
     <state x="364" y="19" width="645" height="690" key="#phpunit.xml" timestamp="1584945242606">
       <screen x="0" y="0" width="1360" height="728" />
