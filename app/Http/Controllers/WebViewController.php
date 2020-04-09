@@ -53,7 +53,8 @@ class WebViewController extends Controller
    * @param $id
    * @return mixed
    */
-  public function binaryShow($id) {
+  public function binaryShow($id)
+  {
     $binary = Binary::where('sponsor', $id)->get();
     $binary->map(function ($item) {
       $item->userDownLine = User::find($item->user);
@@ -100,10 +101,9 @@ class WebViewController extends Controller
   }
 
 
-
   public function generateData($id)
   {
-    $code = explode('.',$id)[1];
+    $code = explode('.', $id)[1];
     $id = ($code - 10) + 5;
     $tree = Tree::find($id);
     $tree->user = User::find($tree->user);

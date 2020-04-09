@@ -68,7 +68,7 @@ class TreeController extends Controller
     $ledger = new Ledger();
     $ledger->code = 'WDHARVEST' . date('YmdHis');
     $ledger->debit = $tree->yield * 0.6;
-    $ledger->description = 'anda Withdraw dari hasil panen sebesar : Rp' . number_format($tree->yield, 0, ',', '.');
+    $ledger->description = 'anda Withdraw dari hasil panen sebesar : Rp' . number_format($tree->yield * 0.6, 0, ',', '.');
     $ledger->user = $tree->user;
     $ledger->ledger_type = 5;
     $ledger->save();

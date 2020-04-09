@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="card-footer">
-      <a href="{{ route('generateDatas', mt_rand().'.'.(($tree->tree_id + 10) - 5).'.'.mt_rand().'.'.mt_rand()) }}">
+      <a href="{{ route('generateDatas', mt_rand().'.'.(($tree->id + 10) - 5).'.'.mt_rand().'.'.mt_rand()) }}">
         <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
           <i class="fas fa-download"></i> Dapatkat sertifikat(PDF)
         </button>
