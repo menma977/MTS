@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WebViewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/android/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/android/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tree/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tree/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,6 +282,7 @@
       <workItem from="1586185086657" duration="9000" />
       <workItem from="1586347062950" duration="629000" />
       <workItem from="1586411848472" duration="5455000" />
+      <workItem from="1586510317789" duration="2598000" />
     </task>
     <servers />
   </component>
@@ -373,10 +373,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="324" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1585729121982" />
-    <state x="376" y="96" width="737" height="606" key="find.popup" timestamp="1585632434032">
+    <state x="376" y="96" width="741" height="606" key="find.popup" timestamp="1586510552794">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="376" y="96" width="737" height="606" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1585632434032" />
+    <state x="376" y="96" width="741" height="606" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1586510552794" />
     <state x="62" y="88" key="new project wizard" timestamp="1584515904237">
       <screen x="0" y="0" width="1360" height="728" />
     </state>

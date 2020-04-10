@@ -281,26 +281,34 @@
                           <button type="submit" class="btn btn-outline-light btn-block">@lang('menu.accept')</button>
                         </form>
                         <hr>
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                          <div class="carousel-inner">
-                            @foreach($item->gallery as $indexId => $itemGallery)
-                              <div class="carousel-item @if($indexId == 0) active @endif">
-                                <img class="d-block w-100" src="{{ $itemGallery->image }}" style="height: 400px"
-                                     alt="img">
-                              </div>
-                            @endforeach
+                        @if($item->gallery->count())
+                          <div id="img{{ $item->code }}" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                              @foreach($item->gallery as $indexId => $itemGallery)
+                                <li data-target="#img{{ $item->code }}" data-slide-to="{{ $indexId }}"
+                                    class="@if($indexId == 0) active @endif"></li>
+                              @endforeach
+                            </ol>
+                            <div class="carousel-inner">
+                              @foreach($item->gallery as $indexId => $itemGallery)
+                                <div class="carousel-item @if($indexId == 0) active @endif">
+                                  <img class="d-block w-100" src="{{ $itemGallery->image }}" style="height: 400px"
+                                       alt="{{$indexId}} slide">
+                                </div>
+                              @endforeach
+                            </div>
+                            <a class="carousel-control-prev" href="#img{{ $item->code }}" role="button"
+                               data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#img{{ $item->code }}" role="button"
+                               data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
                           </div>
-                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                             data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                             data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                          </a>
-                        </div>
+                        @endif
                       </div>
                     </div>
                   </div>

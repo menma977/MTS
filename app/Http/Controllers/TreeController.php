@@ -357,11 +357,12 @@ class TreeController extends Controller
     $this->validate($request, [
       'img' => 'required|mimes:jpeg,png,jpg|max:2000',
     ]);
+    $localUrl = str_replace('/index.php', '',$request->root());
     $treeImage = new TreeImage();
     $treeImage->tree_id = base64_decode($id);
     $imageName = time() . '.' . $request->img->extension();
     $request->img->move('gallery', $imageName);
-    $treeImage->image = $request->root() . '/gallery' . '/' . $imageName;
+    $treeImage->image = $localUrl . '/gallery' . '/' . $imageName;
     $treeImage->save();
 
     return redirect()->back();

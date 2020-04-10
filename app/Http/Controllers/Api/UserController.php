@@ -269,6 +269,7 @@ class UserController extends Controller
   public function updateImage(Request $request): JsonResponse
   {
     $user = Auth::user();
+    $localUrl = str_replace('/index.php', '',$request->root());
     if ($request->image) {
       $this->validate($request, [
         'image' => 'required|mimes:jpeg,png,jpg',
@@ -280,7 +281,7 @@ class UserController extends Controller
       $imageName = time() . '.' . $request->image->extension();
 
       $request->image->move('images', $imageName);
-      $user->image = $request->root() . '/images' . '/' . $imageName;
+      $user->image = $localUrl . '/images' . '/' . $imageName;
     }
     if ($request->identity_card_image) {
       $this->validate($request, [
@@ -293,7 +294,7 @@ class UserController extends Controller
       $imageName = time() . '.' . $request->identity_card_image->extension();
 
       $request->identity_card_image->move('img/ktp/', $imageName);
-      $user->identity_card_image = $request->root() . '/img/ktp' . '/' . $imageName;
+      $user->identity_card_image = $localUrl . '/img/ktp' . '/' . $imageName;
     }
     if ($request->identity_card_image_salve) {
       $this->validate($request, [
@@ -306,7 +307,7 @@ class UserController extends Controller
       $imageName = time() . '.' . $request->identity_card_image_salve->extension();
 
       $request->identity_card_image_salve->move('img/ktp/user/', $imageName);
-      $user->identity_card_image_salve = $request->root() . '/img/ktp/user/' . $imageName;
+      $user->identity_card_image_salve = $localUrl . '/img/ktp/user/' . $imageName;
     }
     $user->save();
     return response()->json(['response' => $user], 200);
@@ -517,7 +518,7 @@ class UserController extends Controller
     }
     $imageName = time() . '.' . $request->image->extension();
     $request->image->move('img/transfer/', $imageName);
-    $order->image = $request->root() . '/img/transfer/' . $imageName;
+    $order->image = str_replace('index.php/', '/',$request->root()) . '/img/transfer/' . $imageName;
     $order->save();
 
     $data = [
