@@ -92,6 +92,7 @@
                     <th style="width: 10px">#</th>
                     <th style="width: 10px">@lang('menu.date')</th>
                     <th style="width: 100px">@lang('menu.receiver')</th>
+                    <th style="width: 100px">Type</th>
                     <th style="width: 10px">Bukti Transfer</th>
                     <th style="width: 10px">@lang('menu.nominal')</th>
                     <th style="width: 10px">@lang('menu.amount')</th>
@@ -104,6 +105,7 @@
                       <td>{{ $loop->index + 1 }}</td>
                       <td>{{ \Carbon\Carbon::parse($item->updated_at)->format('d/m/Y') }}</td>
                       <td>{{ $item->user ? $item->user->username : 'Belum Terpakai' }}</td>
+                      <td>{{ $item->type == 0 ? 'Porang' : 'Tales' }}</td>
                       @if($item->image)
                         <td>
                           <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
@@ -167,6 +169,7 @@
                   <tr class="text-center">
                     <th style="width: 10px">#</th>
                     <th style="width: 100px">@lang('menu.receiver')</th>
+                    <th style="width: 100px">Type</th>
                     <th style="width: 10px">@lang('menu.nominal')</th>
                     <th style="width: 10px">@lang('menu.amount')</th>
                     <th style="width: 10px">@lang('menu.date')</th>
@@ -177,6 +180,7 @@
                     <tr class="text-center">
                       <td>{{ $loop->index + 1 }}</td>
                       <td>{{ $item->user ? $item->user->username : 'Belum Terpakai' }}</td>
+                      <td>{{ $item->type == 0 ? 'Porang' : 'Tales' }}</td>
                       <td>Rp {{ number_format($item->total * 1500000, 0, ',', '.') }}</td>
                       <td>{{ $item->total }}</td>
                       <td>{{ \Carbon\Carbon::parse($item->updated_at)->format('d/m/Y H:i:s') }}</td>
