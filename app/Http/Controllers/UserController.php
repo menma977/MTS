@@ -110,6 +110,44 @@ class UserController extends Controller
   }
 
   /**
+   * Show the form for creating a new resource.
+   *
+   * @param $id
+   * @return Factory|View
+   */
+  public function editPassword($id)
+  {
+    $user = User::find($id);
+
+    $data = [
+      'user' => $user
+    ];
+
+    return view('user.edit', $data);
+  }
+
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param Request $request
+   * @param $id
+   * @return RedirectResponse
+   * @throws ValidationException
+   */
+  public function updatePassword(Request $request, $id)
+  {
+    $this->validate($request, [
+      'password' => 'required|min:6',
+    ]);
+
+    $user = User::find($id);
+    $user->password = bcrypt($request->password);
+    $user->save();
+
+    return redirect()->route('user.index');
+  }
+
+  /**
    * Display the specified resource.
    *
    * @param int $id

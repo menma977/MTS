@@ -45,6 +45,8 @@ Route::middleware(['online', 'auth'])->group(static function () {
     Route::get('/', 'UserController@index')->name('index')->middleware('auth', 'role:1');
     Route::get('/create', 'UserController@create')->name('create')->middleware('auth', 'role:1');
     Route::post('/store', 'UserController@store')->name('store')->middleware('auth', 'role:1');
+    Route::get('/edit/{id}/password', 'UserController@editPassword')->name('editPassword')->middleware('auth', 'role:1');
+    Route::post('/update/{id}/password', 'UserController@updatePassword')->name('updatePassword')->middleware('auth', 'role:1');
     Route::get('/show/{id}', 'UserController@show')->name('show')->middleware('auth', 'role:1');
     Route::get('/update/{id}/{status}', 'UserController@update')->name('update')->middleware('auth', 'role:1');
     Route::post('/role/update/{id}', 'UserController@roleUpdate')->name('roleUpdate')->middleware('auth', 'role:1');

@@ -13,9 +13,9 @@ class UsersTableSeeder extends Seeder
   {
     DB::table('users')->insert([
       'name' => 'koperasi serba usaha bumi rahayu',
-      'username' => 'admin', //adminmts
+      'username' => 'adminmts', //adminmts
       'email' => 'admin@mts.com',
-      'password' => bcrypt('admin'), //adminmts*
+      'password' => bcrypt('adminmts'), //adminmts
       'role' => '1',
       'bank' => 'BRI',
       'pin_bank' => '6434-0101-345-3530',

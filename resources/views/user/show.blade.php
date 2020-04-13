@@ -105,9 +105,9 @@
               </a>
             </li>
           </ul>
-          {{--          <a href="#" class="btn btn-warning btn-block">--}}
-          {{--            <b>@lang('menu.edit') @lang('menu.user.index')</b>--}}
-          {{--          </a>--}}
+          <a href="{{ route('user.editPassword', $user->id) }}" class="btn btn-warning btn-block">
+            <b>Edit Password</b>
+          </a>
         </div>
       </div>
     </div>
