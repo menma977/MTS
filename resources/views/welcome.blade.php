@@ -11,7 +11,8 @@
           <div class="wrap-caption">
             <h1 class="caption-heading">MTS</h1>
             <p>Mita Tani Sejahtera</p>
-            <a href="#" class="btn btn-primary">Dapatkan Aplikasinya Sekarang</a>
+            <a href="{{ url('https://play.google.com/store/apps/details?id=com.mitratanisejahtera') }}"
+               class="btn btn-primary">Dapatkan Aplikasinya Sekarang</a>
           </div>
         </div>
       </div>
@@ -22,7 +23,8 @@
           <div class="wrap-caption">
             <h1 class="caption-heading">MTS</h1>
             <p>Mita Tani Sejahtera</p>
-            <a href="#" class="btn btn-primary">Dapatkan Aplikasinya Sekarang</a>
+            <a href="{{ url('https://play.google.com/store/apps/details?id=com.mitratanisejahtera') }}"
+               class="btn btn-primary">Dapatkan Aplikasinya Sekarang</a>
           </div>
         </div>
       </div>
@@ -40,8 +42,10 @@
               Mengapa Memilih Kami?
             </h2>
             <p class="subheading text-center mb-5">
-              Dengan adanya komunitas para mitra petani akan bisa menjadi satu kesatuan yang bisa meningkatkan
-              kesejahteraan petani milineal ,adanya syistem mitra tani sejahtera ini akan memudahkan para mitra untuk
+              Dengan adanya komunitas para mitra petani akan bisa menjadi satu kesatuan yang bisa
+              meningkatkan
+              kesejahteraan petani milineal ,adanya syistem mitra tani sejahtera ini akan memudahkan para
+              mitra untuk
               bertani secara mdern sistem yang di rancang untuk kesejahteraan bersama
             </p>
             <p class="subheading text-center mb-5">
@@ -61,7 +65,8 @@
               <div class="body-content">
                 <h4>Tersyistem</h4>
                 <p>
-                  bentuk kemitraan yang sudah tersyistem online memudahkan bagi mitra untuk selalu update lahan dan
+                  bentuk kemitraan yang sudah tersyistem online memudahkan bagi mitra untuk selalu
+                  update lahan dan
                   tanamanya
                 </p>
               </div>
@@ -76,9 +81,12 @@
               <div class="body-content">
                 <h4>Tenaga Ahli</h4>
                 <p>
-                  sebagai mitra tdk perlu kawatir lagi karena semua jenis tanaman yg kita tanam akan di tangani oleh
-                  para tenaga ahli yg sudah berpengalaman menangani bidangnya seperti cara penanaman,pengolahan
-                  lahan,pemupukan,pengendalian hama,pemanenan, semua akan di tangani secara profesional
+                  sebagai mitra tdk perlu kawatir lagi karena semua jenis tanaman yg kita tanam akan
+                  di tangani oleh
+                  para tenaga ahli yg sudah berpengalaman menangani bidangnya seperti cara
+                  penanaman,pengolahan
+                  lahan,pemupukan,pengendalian hama,pemanenan, semua akan di tangani secara
+                  profesional
                 </p>
               </div>
             </div>
@@ -92,8 +100,10 @@
               <div class="body-content">
                 <h4>Pemasaran</h4>
                 <p>
-                  kami di bawah naungan koperasi bumi rahayu yang sudah bejerjasama ke beberapa perusahaan exportir
-                  untuk menjual hasil panen jadi mitra akan lbh tenang tinggal mengawasi pertumbuhanya dan mendapat
+                  kami di bawah naungan koperasi bumi rahayu yang sudah bejerjasama ke beberapa
+                  perusahaan exportir
+                  untuk menjual hasil panen jadi mitra akan lbh tenang tinggal mengawasi pertumbuhanya
+                  dan mendapat
                   hasilnya
                 </p>
               </div>
