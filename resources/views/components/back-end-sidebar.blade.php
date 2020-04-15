@@ -3,7 +3,7 @@
      class="brand-link">
     <img src="{{ asset('img/logo.png') }}" alt="MTS" class="brand-image img-circle elevation-3"
          style="opacity: .8">
-    <span class="brand-text font-weight-light">Mita Tani Sejahtera</span>
+    <span class="brand-text font-weight-light">Mitra Tani Sejahtera</span>
   </a>
 
   <div class="sidebar">

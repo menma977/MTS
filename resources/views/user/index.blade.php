@@ -180,10 +180,10 @@
                           </li>
                           <li class="list-group-item">
                             <b>
-                              Nomor pin_bank
+                              Nomor Rekening
                             </b>
                             <a class="float-right">
-                              {{ $item->phone }}
+                              {{ $item->pin_bank }}
                             </a>
                           </li>
                           <li class="list-group-item">
@@ -199,7 +199,7 @@
                               Alamat
                             </b>
                             <a class="float-right">
-                              {{ $item->province ? $item->address : 'Belum di isi' }}
+                              {{ $item->address ? $item->address : 'Belum di isi' }}
                             </a>
                           </li>
                           <li class="list-group-item">

@@ -151,13 +151,18 @@ class UserController extends Controller
 //      return response()->json($data, 500);
 //    }
 
+    if (substr($request->phone, -2) == '62') {
+      $phone = substr_replace($request->phone, '0',0,2);
+    } else {
+      $phone = $request->phone;
+    }
     $user = new User();
     $user->role = 2;
     $user->name = $request->name;
     $user->username = $request->username;
     $user->email = $request->email;
     $user->password = bcrypt($request->password);
-    $user->phone = $request->phone;
+    $user->phone = $phone;
     $user->id_identity_card = $request->id_identity_card;
     $user->bank = $request->bank;
     $user->pin_bank = $request->pin_bank;

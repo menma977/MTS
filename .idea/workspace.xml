@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/back-end-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/back-end-sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -286,6 +290,10 @@
       <workItem from="1586757291115" duration="813000" />
       <workItem from="1586758291710" duration="2367000" />
       <workItem from="1586932488202" duration="159000" />
+      <workItem from="1586932827864" duration="22000" />
+      <workItem from="1586934364341" duration="83000" />
+      <workItem from="1586946375560" duration="187000" />
+      <workItem from="1586946576516" duration="548000" />
     </task>
     <servers />
   </component>
@@ -300,6 +308,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="272" y="22" key="#Inspections/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1583574738856" />
+    <state x="272" y="5" key="#Plugins" timestamp="1586946582413">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="272" y="5" key="#Plugins/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1586946582413" />
     <state x="272" y="22" key="#Template_Data_Languages" timestamp="1584948053484">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
@@ -377,10 +389,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="324" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1585729121982" />
-    <state x="376" y="96" width="741" height="606" key="find.popup" timestamp="1586510552794">
+    <state x="376" y="96" width="741" height="606" key="find.popup" timestamp="1586934396277">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="376" y="96" width="741" height="606" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1586510552794" />
+    <state x="376" y="96" width="741" height="606" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1586934396277" />
     <state x="62" y="88" key="new project wizard" timestamp="1584515904237">
       <screen x="0" y="0" width="1360" height="728" />
     </state>

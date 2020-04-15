@@ -10,7 +10,7 @@
         <div class="container d-flex align-items-center text-center">
           <div class="wrap-caption">
             <h1 class="caption-heading">MTS</h1>
-            <p>Mita Tani Sejahtera</p>
+            <p>Mitra Tani Sejahtera</p>
             <a href="{{ url('https://play.google.com/store/apps/details?id=com.mitratanisejahtera') }}"
                class="btn btn-primary">Dapatkan Aplikasinya Sekarang</a>
           </div>
@@ -22,7 +22,7 @@
         <div class="container d-flex align-items-center text-center">
           <div class="wrap-caption">
             <h1 class="caption-heading">MTS</h1>
-            <p>Mita Tani Sejahtera</p>
+            <p>Mitra Tani Sejahtera</p>
             <a href="{{ url('https://play.google.com/store/apps/details?id=com.mitratanisejahtera') }}"
                class="btn btn-primary">Dapatkan Aplikasinya Sekarang</a>
           </div>
