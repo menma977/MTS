@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
 
 Route::post('login', 'Api\UserController@login');
 

@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +166,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Blade" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -292,6 +295,7 @@
       <workItem from="1586946375560" duration="187000" />
       <workItem from="1586946576516" duration="548000" />
       <workItem from="1587203619144" duration="576000" />
+      <workItem from="1587363661224" duration="341000" />
     </task>
     <servers />
   </component>
@@ -368,11 +372,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="263" y="107" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1585837591331" />
-    <state x="183" y="0" key="SettingsEditor" timestamp="1586932560778">
+    <state x="183" y="0" key="SettingsEditor" timestamp="1587363914241">
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585837302326" />
-    <state x="183" y="0" key="SettingsEditor/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1586932560778" />
+    <state x="183" y="0" key="SettingsEditor/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1587363914241" />
     <state x="184" y="7" key="SettingsEditor/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584720819340" />
     <state x="1550" y="7" key="SettingsEditor/1366.0.1366.728/0.0.1366.728@1366.0.1366.728" timestamp="1584720043034" />
     <state x="376" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1586757293989">

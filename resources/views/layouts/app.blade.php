@@ -13,14 +13,12 @@
   <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
 @yield('startCSS')
-<!-- Font Awesome -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('end/back/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{ asset('end/back/dist/css/adminlte.min.css') }}">
-  <!-- SweetAlert2 -->
-  <link rel="stylesheet" href="{{ asset('end/back/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="{{ url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700') }}" rel="stylesheet">
   @yield('endCSS')
