@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/forgot.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/email/password.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmailController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -166,19 +171,19 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Blade" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Work\MTS" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Work\MTS" />
       <recent name="D:\GitHub\MTS" />
       <recent name="D:\GitHub\MTS\resources\views" />
       <recent name="D:\GitHub\MTS\resources\views\auth" />
       <recent name="D:\GitHub\MTS\resources\views\layouts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Work\MTS" />
     </key>
   </component>
   <component name="RunManager">
@@ -296,6 +301,8 @@
       <workItem from="1586946576516" duration="548000" />
       <workItem from="1587203619144" duration="576000" />
       <workItem from="1587363661224" duration="341000" />
+      <workItem from="1587364908908" duration="1066000" />
+      <workItem from="1587366493357" duration="7084000" />
     </task>
     <servers />
   </component>
@@ -330,9 +337,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="360" y="92" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1586757297451" />
-    <state x="412" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586183032581">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="386" y="111" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1587369809018">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="386" y="111" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680/-1360.3.1360.728@0.0.1280.680" timestamp="1587369809018" />
     <state x="412" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586183032581" />
     <state x="410" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1585734797008" />
     <state x="364" y="19" width="645" height="690" key="#phpunit.xml" timestamp="1584945242606">
@@ -372,9 +380,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="263" y="107" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1585837591331" />
-    <state x="183" y="0" key="SettingsEditor" timestamp="1587363914241">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state x="172" y="0" key="SettingsEditor" timestamp="1587369198112">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="172" y="0" key="SettingsEditor/0.0.1280.680/-1360.3.1360.728@0.0.1280.680" timestamp="1587369198112" />
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585837302326" />
     <state x="183" y="0" key="SettingsEditor/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1587363914241" />
     <state x="184" y="7" key="SettingsEditor/1366.0.1366.728/0.0.1366.728@0.0.1366.728" timestamp="1584720819340" />

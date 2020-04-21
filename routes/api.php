@@ -18,6 +18,8 @@ header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
 
 Route::post('login', 'Api\UserController@login');
 
+Route::post('/request/password', 'Api\UserController@requestPassword');
+
 Route::get('/binary/show/{id}', 'WebViewController@binaryShow')->name('binaryShow');
 
 Route::middleware('auth:api')->group(function () {

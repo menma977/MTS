@@ -13,6 +13,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
@@ -137,11 +138,32 @@ class UserController extends Controller
   public function updatePassword(Request $request, $id)
   {
     $this->validate($request, [
-      'password' => 'required|min:6',
+      'name' => 'required|string',
+      'username' => 'required|string|min:6',
+      'email' => 'required|email',
+      'password' => 'nullable|min:6',
+      'id_identity_card' => 'required|numeric',
+      'phone' => 'required|numeric|digits_between:10,15',
+      'bank' => 'required|string',
+      'pin_bank' => 'required|string',
+      'address' => 'required',
     ]);
 
     $user = User::find($id);
-    $user->password = bcrypt($request->password);
+    if ($request->password) {
+      $user->password = bcrypt($request->password);
+    }
+    $user->name = $request->name;
+    $user->username = $request->username;
+    $user->email = $request->email;
+    $user->bank = $request->bank;
+    $user->pin_bank = $request->pin_bank;
+    $user->phone = $request->phone;
+    $user->id_identity_card = $request->id_identity_card;
+    $user->identity_card_image = $request->identity_card_image;
+    $user->identity_card_image_salve = $request->identity_card_image_salve;
+    $user->image = $request->image;
+    $user->address = $request->address;
     $user->save();
 
     return redirect()->route('user.index');

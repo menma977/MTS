@@ -105,8 +105,8 @@
               </a>
             </li>
           </ul>
-          <a href="{{ route('user.editPassword', $user->id) }}" class="btn btn-warning btn-block">
-            <b>Edit Password</b>
+          <a href="{{ route('user.editPassword', $user->id) }}" class="btn btn-info btn-block">
+            <b>Edit Data User</b>
           </a>
         </div>
       </div>
