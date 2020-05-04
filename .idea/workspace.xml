@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ace41a06-e793-4afc-b077-58ea4d277649" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/forgot.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/email/password.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,6 +294,10 @@
       <workItem from="1587363661224" duration="341000" />
       <workItem from="1587364908908" duration="1066000" />
       <workItem from="1587366493357" duration="7084000" />
+      <workItem from="1587981078302" duration="79000" />
+      <workItem from="1587981250619" duration="514000" />
+      <workItem from="1587983815669" duration="1250000" />
+      <workItem from="1588051285004" duration="50000" />
     </task>
     <servers />
   </component>
@@ -404,9 +399,10 @@
       <screen x="0" y="0" width="1360" height="728" />
     </state>
     <state x="376" y="96" width="741" height="606" key="find.popup/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1586934396277" />
-    <state x="62" y="88" key="new project wizard" timestamp="1584515904237">
-      <screen x="0" y="0" width="1360" height="728" />
+    <state x="45" y="47" key="new project wizard" timestamp="1588051330839">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="45" y="47" key="new project wizard/0.0.1280.680/-1360.3.1360.728@0.0.1280.680" timestamp="1588051330839" />
     <state x="62" y="88" key="new project wizard/1360.0.1024.728/0.0.1360.728@0.0.1360.728" timestamp="1584515904237" />
     <state x="405" y="276" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1584722664965">
       <screen x="0" y="0" width="1366" height="728" />
